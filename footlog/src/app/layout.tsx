@@ -5,8 +5,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'next-netflix',
-  description: 'netflix clone coding using next-JS',
+  title: 'footlog',
+  description: 'Korea plogging course recommendation service',
   icons: {
     icon: '/favicon.ico',
   },
