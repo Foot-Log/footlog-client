@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  width: 393px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  background-color: white;
+  /* font-size: 62.5%; */
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 100%;
+  height: 100%;
+
+  background-color: black;
+}
+
+.children-container {
+  height: calc(100% - 39.3px);
+  overflow: scroll;
+}
+
+/* fonts는 className에 추가해서 사용하면 돼 ! */
+/* fonts */
+.fonts-onboardingNumber {
+  color: #333;
+
+  font-family: 'Noto Sans KR';
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 78px */
+  letter-spacing: -0.5px;
+}
+
+.fonts-onboardingQuestion {
+  color: #333;
+
+  font-family: 'Noto Sans KR';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 31.2px */
+  letter-spacing: -0.5px;
+}
+
+.fonts-onboardingKeyword {
+  color: #808080;
+
+  text-align: center;
+  font-family: 'Noto Sans KR';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
+  letter-spacing: -0.5px;
+}
+
+.fonts-onboardingBtn {
+  color: #fff;
+
+  text-align: center;
+  font-family: 'Noto Sans KR';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 20.8px */
+  letter-spacing: -0.5px;
+}
