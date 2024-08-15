@@ -12,6 +12,19 @@ export default function page() {
   const images = [MountainIcon, OceanIcon, CaveIcon];
   const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]); // 선택한 키워드를 배열로 관리
 
+  const handleKeywordSelect = (keyword: string) => {
+    setSelectedKeywords((prev) => {
+      if (prev.includes(keyword)) {
+        return prev.filter((k) => k !== keyword);
+      } else {
+        if (prev.length < 2) {
+          return [...prev, keyword];
+        }
+        return prev;
+      }
+    });
+  };
+
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   return (

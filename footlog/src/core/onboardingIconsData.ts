@@ -22,8 +22,8 @@ import {
 // 아이콘 데이터 타입 정의
 export interface IconData {
   keyword: string;
-  defaultIcon: React.FC; // 기본 아이콘
-  strokeIcon: React.FC; // 스테로크 아이콘
+  defaultIcon: React.FC;
+  strokeIcon: React.FC;
 }
 
 export const onboardingIconsData: IconData[] = [
