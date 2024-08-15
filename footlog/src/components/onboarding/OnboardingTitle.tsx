@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 interface OnboardingTitleProps {
-  number: number;
+  number?: number;
   text: ReactNode; // 줄바꿈 때문에 text를 JSX 요소로 사용하기 위함
 }
 
