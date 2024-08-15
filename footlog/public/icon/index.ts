@@ -9,6 +9,15 @@ import VolcanoIcon from './volcano.svg';
 import WaterfallIcon from './waterfall.svg';
 import LeftArrowIcon from './leftArrow.svg';
 import CheckIcon from './check.svg';
+import CampingStrokeIcon from './campingStroke.svg';
+import CaveStrokeIcon from './caveStroke.svg';
+import HistoricSiteStrokeIcon from './historicSiteStroke.svg';
+import MountainStrokeIcon from './mountainStroke.svg';
+import OceanStrokeIcon from './oceanStroke.svg';
+import RiverStrokeIcon from './riverStroke.svg';
+import TrailStrokeIcon from './trailStroke.svg';
+import VolcanoStrokeIcon from './volcanoStroke.svg';
+import WaterfallStrokeIcon from './waterfallStroke.svg';
 
 export {
   CampingIcon,
@@ -22,4 +31,13 @@ export {
   WaterfallIcon,
   LeftArrowIcon,
   CheckIcon,
+  CampingStrokeIcon,
+  CaveStrokeIcon,
+  HistoricSiteStrokeIcon,
+  MountainStrokeIcon,
+  OceanStrokeIcon,
+  RiverStrokeIcon,
+  TrailStrokeIcon,
+  VolcanoStrokeIcon,
+  WaterfallStrokeIcon,
 };

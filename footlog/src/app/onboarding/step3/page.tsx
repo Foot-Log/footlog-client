@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { HistoricSiteIcon, VolcanoIcon, CampingIcon, LeftArrowIcon } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
@@ -9,6 +10,9 @@ export default function page() {
   const router = useRouter();
   const keywords = ['유적지', '특이 지형', '이색 체험'];
   const images = [HistoricSiteIcon, VolcanoIcon, CampingIcon];
+  const [selectedKeywords, setSelectedKeywords] = useState('');
+
+  const isOnboardingBtnDisabled = selectedKeywords === '';
 
   return (
     <main className="w-full h-full flex flex-col relative pt-2.5 px-6">
@@ -26,7 +30,11 @@ export default function page() {
         }
       />
       <OnboardingKeywords keywords={keywords} images={images} />
-      <OnboardingBtn text="다음" isActive={false} handleFooterBtn={() => router.push('/search')} />
+      <OnboardingBtn
+        text="완료"
+        $disabled={isOnboardingBtnDisabled}
+        handleOnboardingBtn={() => router.push('/onboarding/step4')}
+      />
     </main>
   );
 }

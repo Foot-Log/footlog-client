@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { RiverIcon, TrailIcon, WaterfallIcon, LeftArrowIcon } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
@@ -9,6 +10,9 @@ export default function page() {
   const router = useRouter();
   const keywords = ['강/하천', '산책로', '계곡/폭포'];
   const images = [RiverIcon, TrailIcon, WaterfallIcon];
+  const [selectedKeywords, setSelectedKeywords] = useState('');
+
+  const isOnboardingBtnDisabled = selectedKeywords === '';
 
   return (
     <main className="w-full h-full flex flex-col relative pt-2.5 px-6">
@@ -26,7 +30,11 @@ export default function page() {
         }
       />
       <OnboardingKeywords keywords={keywords} images={images} />
-      <OnboardingBtn text="다음" isActive={false} handleFooterBtn={() => router.push('/search')} />
+      <OnboardingBtn
+        text="다음"
+        $disabled={isOnboardingBtnDisabled}
+        handleOnboardingBtn={() => router.push('/onboarding/step3')}
+      />
     </main>
   );
 }
