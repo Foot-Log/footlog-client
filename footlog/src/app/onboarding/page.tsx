@@ -14,10 +14,13 @@ import {
   CheckIcon,
 } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
+import OnboardingKeywords from '@components/onboarding/OnboardingKeywords';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
 
 export default function page() {
   const router = useRouter();
+  const keywords = ['산', '바다', '동굴'];
+  const images = [MountainIcon, OceanIcon, CaveIcon];
 
   return (
     <main className="w-full h-full overflow-y-scroll">
@@ -33,6 +36,7 @@ export default function page() {
           </>
         }
       />
+      <OnboardingKeywords keywords={keywords} images={images} />
       <OnboardingBtn text="다음" isActive={false} handleFooterBtn={() => router.push('/search')} />
     </main>
   );
