@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <section>{children}</section>
+        <section className="w-full h-full">{children}</section>
       </body>
     </html>
   );

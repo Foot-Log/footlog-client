@@ -24,15 +24,30 @@ a {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+html,
+#root {
+  height: 100dvh;
+}
+
 body {
   width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background-color: white;
+}
+
+#root,
+body,
+html {
   max-width: 393px;
-  height: 100dvh;
   margin: 0 auto;
   padding: 0;
   -ms-overflow-style: none; /* 인터넷 익스플로러  스크롤바 숨김 */
   scrollbar-width: none; /* 파이어폭스 스크롤바 숨김 */
-  background-color: white;
   overflow-x: hidden;
 }
 

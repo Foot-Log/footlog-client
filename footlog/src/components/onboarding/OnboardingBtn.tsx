@@ -12,7 +12,7 @@ export default function OnboardingBtn(props: OnboardingBtnProps) {
   return (
     <button
       type="button"
-      className={`flex items-center justify-center w-[345px] h-12 rounded-xl ${buttonColor}`}
+      className={`absolute flex items-center justify-center w-[345px] h-12 rounded-xl bottom-5 ${buttonColor}`}
       onClick={handleFooterBtn}>
       <p className="fonts-onboardingBtn">{text}</p>
     </button>

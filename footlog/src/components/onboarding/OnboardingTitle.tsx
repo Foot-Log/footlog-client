@@ -9,7 +9,7 @@ export default function OnboardingTitle(props: OnboardingTitleProps) {
   const { number, text } = props;
 
   return (
-    <section className="flex flex-col justify-center items-start gap-[11px] ml-8">
+    <section className="flex flex-col items-start gap-[11px] mt-[88px] ml-2 mb-14">
       <p className="flex fonts-onboardingNumber">{number}</p>
       <p className="flex fonts-onboardingQuestion">{text}</p>
     </section>
