@@ -1,8 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { CheckIcon } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
+import { MoonLoader } from 'react-spinners';
 
 export default function page() {
   const router = useRouter();
@@ -15,6 +17,7 @@ export default function page() {
     </>,
   );
 
+  // 일단 3초 후 바뀌게끔 해놨는데 나중에 api 연결로 바꿀게!
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOnboardingBtnDisabled(false); // 3초 후 버튼 활성화
@@ -34,6 +37,13 @@ export default function page() {
   return (
     <main className="w-full h-full flex flex-col relative pt-[100px] px-6">
       <OnboardingTitle text={titleText} />
+      <div className="w-full flex justify-center items-center pt-20">
+        {isOnboardingBtnDisabled ? (
+          <MoonLoader color="#05cbbe" size={70} speedMultiplier={0.5} />
+        ) : (
+          <CheckIcon /> // 버튼이 활성화되면 CheckIcon 출력
+        )}
+      </div>
       <OnboardingBtn
         text="시작하기"
         $disabled={isOnboardingBtnDisabled}
