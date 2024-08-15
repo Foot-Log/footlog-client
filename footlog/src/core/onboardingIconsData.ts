@@ -18,15 +18,9 @@ import {
   VolcanoStrokeIcon,
   CampingStrokeIcon,
 } from '@public/icon';
+import { OnboardingIconDataTypes } from 'types/CommonTypes';
 
-// 아이콘 데이터 타입 정의
-export interface IconData {
-  keyword: string;
-  defaultIcon: React.FC;
-  strokeIcon: React.FC;
-}
-
-export const onboardingIconsData: IconData[] = [
+export const onboardingIconsData: OnboardingIconDataTypes[] = [
   { keyword: '산', defaultIcon: MountainIcon, strokeIcon: MountainStrokeIcon },
   { keyword: '바다', defaultIcon: OceanIcon, strokeIcon: OceanStrokeIcon },
   { keyword: '동굴', defaultIcon: CaveIcon, strokeIcon: CaveStrokeIcon },

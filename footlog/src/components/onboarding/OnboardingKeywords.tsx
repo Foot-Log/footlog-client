@@ -1,19 +1,23 @@
+import { OnboardingIconDataTypes } from 'types/CommonTypes';
+
 interface OnboardingKeywordsProps {
-  images: React.FC[]; // 컴포넌트 배열로 정의
-  keywords: string[]; // 문자열 배열로 정의
+  iconsData: OnboardingIconDataTypes[]; // 아이콘 데이터 타입
+  selectedKeywords: string[];
+  onKeywordSelect: (keyword: string) => void;
 }
 
 export default function OnboardingKeywords(props: OnboardingKeywordsProps) {
-  const { images, keywords } = props;
+  const { iconsData, selectedKeywords, onKeywordSelect } = props;
 
   return (
     <section className="flex gap-[22.5px]">
-      {keywords.map((keyword, index) => {
-        const IconComponent = images[index];
+      {iconsData.map(({ keyword, defaultIcon, strokeIcon }) => {
+        const isSelected = selectedKeywords.includes(keyword);
+        const IconComponent = isSelected ? strokeIcon : defaultIcon; // 선택된 경우 스테로크 아이콘 사용
 
         return (
-          <div key={index} className="flex flex-col items-center gap-0.5">
-            {IconComponent ? <IconComponent /> : null}
+          <div key={keyword} className="flex flex-col items-center gap-0.5" onClick={() => onKeywordSelect(keyword)}>
+            <IconComponent />
             <span className="flex fonts-onboardingKeyword">{keyword}</span>
           </div>
         );

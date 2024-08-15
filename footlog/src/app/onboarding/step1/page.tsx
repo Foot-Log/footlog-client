@@ -1,16 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/navigation';
-import { MountainIcon, OceanIcon, CaveIcon } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
 import OnboardingKeywords from '@components/onboarding/OnboardingKeywords';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
+import { firstOnboardingState } from '@recoil/atom';
+import { onboardingIconsData } from '@core/onboardingIconsData';
 
 export default function page() {
   const router = useRouter();
-  const keywords = ['산', '바다', '동굴'];
-  const images = [MountainIcon, OceanIcon, CaveIcon];
-  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]); // 선택한 키워드를 배열로 관리
+  const [selectedKeywords, setSelectedKeywords] = useRecoilState(firstOnboardingState);
+  const currentIcons = onboardingIconsData.slice(0, 3);
 
   const handleKeywordSelect = (keyword: string) => {
     setSelectedKeywords((prev) => {
@@ -41,7 +41,11 @@ export default function page() {
           </>
         }
       />
-      <OnboardingKeywords keywords={keywords} images={images} />
+      <OnboardingKeywords
+        selectedKeywords={selectedKeywords}
+        onKeywordSelect={handleKeywordSelect}
+        iconsData={currentIcons}
+      />
       <OnboardingBtn
         text="다음"
         $disabled={isOnboardingBtnDisabled}

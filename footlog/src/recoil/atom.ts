@@ -1,3 +1,4 @@
+'use client';
 import { atom } from 'recoil';
 
 /*온보딩 정보 post를 위한*/

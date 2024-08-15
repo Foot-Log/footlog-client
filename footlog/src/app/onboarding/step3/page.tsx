@@ -1,18 +1,32 @@
 'use client';
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/navigation';
-import { HistoricSiteIcon, VolcanoIcon, CampingIcon, LeftArrowIcon } from '@public/icon';
+import { LeftArrowIcon } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
 import OnboardingKeywords from '@components/onboarding/OnboardingKeywords';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
+import { thirdOnboardingState } from '@recoil/atom';
+import { onboardingIconsData } from '@core/onboardingIconsData';
 
 export default function page() {
   const router = useRouter();
-  const keywords = ['유적지', '특이 지형', '이색 체험'];
-  const images = [HistoricSiteIcon, VolcanoIcon, CampingIcon];
-  const [selectedKeywords, setSelectedKeywords] = useState('');
+  const [selectedKeywords, setSelectedKeywords] = useRecoilState(thirdOnboardingState);
+  const currentIcons = onboardingIconsData.slice(6, 9);
 
-  const isOnboardingBtnDisabled = selectedKeywords === '';
+  const handleKeywordSelect = (keyword: string) => {
+    setSelectedKeywords((prev) => {
+      if (prev.includes(keyword)) {
+        return prev.filter((k) => k !== keyword);
+      } else {
+        if (prev.length < 2) {
+          return [...prev, keyword];
+        }
+        return prev;
+      }
+    });
+  };
+
+  const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   return (
     <main className="w-full h-full flex flex-col relative pt-2.5 px-6">
@@ -29,7 +43,11 @@ export default function page() {
           </>
         }
       />
-      <OnboardingKeywords keywords={keywords} images={images} />
+      <OnboardingKeywords
+        selectedKeywords={selectedKeywords}
+        onKeywordSelect={handleKeywordSelect}
+        iconsData={currentIcons}
+      />
       <OnboardingBtn
         text="완료"
         $disabled={isOnboardingBtnDisabled}
