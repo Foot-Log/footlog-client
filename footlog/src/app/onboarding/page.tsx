@@ -1,4 +1,5 @@
 'use client';
+import { useRouter } from 'next/navigation';
 import {
   MountainIcon,
   OceanIcon,
@@ -12,7 +13,14 @@ import {
   LeftArrowIcon,
   CheckIcon,
 } from '@public/icon';
+import OnboardingBtn from '@components/onboarding/OnboardingBtn';
 
 export default function page() {
-  return <div>onboarding 페이지의 컴포넌트들이 올 자리, 리액트의 pages폴더의 역할</div>;
+  const router = useRouter();
+
+  return (
+    <main className="w-full h-full overflow-y-scroll">
+      <OnboardingBtn text="다음" isActive={false} handleFooterBtn={() => router.push('/search')} />
+    </main>
+  );
 }
