@@ -16,7 +16,10 @@ export default function OnboardingKeywords(props: OnboardingKeywordsProps) {
         const IconComponent = isSelected ? strokeIcon : defaultIcon; // 선택된 경우 스테로크 아이콘 사용
 
         return (
-          <div key={keyword} className="flex flex-col items-center gap-0.5" onClick={() => onKeywordSelect(keyword)}>
+          <div
+            key={keyword}
+            className="flex flex-col items-center gap-0.5 cursor-pointer"
+            onClick={() => onKeywordSelect(keyword)}>
             <IconComponent />
             <span className="flex fonts-onboardingKeyword">{keyword}</span>
           </div>

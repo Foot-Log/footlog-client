@@ -13,7 +13,11 @@ export default function page() {
   const [selectedKeywords, setSelectedKeywords] = useRecoilState(secondOnboardingState);
   const currentIcons = onboardingIconsData.slice(3, 6);
 
-  const handleKeywordSelect = (keyword: string) => {
+  function handleBackBtn() {
+    router.push('/onboarding/step1');
+  }
+
+  function handleKeywordSelect(keyword: string) {
     setSelectedKeywords((prev) => {
       if (prev.includes(keyword)) {
         return prev.filter((k) => k !== keyword);
@@ -24,13 +28,15 @@ export default function page() {
         return prev;
       }
     });
-  };
+  }
 
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   return (
     <main className="w-full h-full flex flex-col relative pt-2.5 px-6">
-      <LeftArrowIcon />
+      <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
+        <LeftArrowIcon />
+      </button>
       <OnboardingTitle
         number={2}
         text={

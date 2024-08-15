@@ -12,7 +12,7 @@ export default function page() {
   const [selectedKeywords, setSelectedKeywords] = useRecoilState(firstOnboardingState);
   const currentIcons = onboardingIconsData.slice(0, 3);
 
-  const handleKeywordSelect = (keyword: string) => {
+  function handleKeywordSelect(keyword: string) {
     setSelectedKeywords((prev) => {
       if (prev.includes(keyword)) {
         return prev.filter((k) => k !== keyword);
@@ -23,7 +23,7 @@ export default function page() {
         return prev;
       }
     });
-  };
+  }
 
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
