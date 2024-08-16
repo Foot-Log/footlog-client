@@ -64,7 +64,7 @@ button {
 
 /* fonts */
 
-// 스플래쉬 팀명 폰트
+/* 스플래쉬 팀명 폰트 */
 .fonts-splash {
   color: #333;
 
@@ -77,7 +77,7 @@ button {
   letter-spacing: -0.5px;
 }
 
-// 로그인 서비스 설명 폰트
+/* 로그인 서비스 설명 폰트 */
 .fonts-loginSubtitle {
   color: #333;
 
@@ -90,7 +90,7 @@ button {
   letter-spacing: -1px;
 }
 
-// 로그인 버튼 폰트
+/* 로그인 버튼 폰트 */
 .fonts-loginBtn {
   color: #333;
 
