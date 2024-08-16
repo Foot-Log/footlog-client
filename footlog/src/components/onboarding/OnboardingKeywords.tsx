@@ -18,7 +18,7 @@ export default function OnboardingKeywords(props: OnboardingKeywordsProps) {
         return (
           <div
             key={keyword}
-            className="flex flex-col items-center gap-0.5 cursor-pointer"
+            className="flex flex-col items-center gap-2 cursor-pointer"
             onClick={() => onKeywordSelect(keyword)}>
             <IconComponent />
             <span className="flex fonts-onboardingKeyword" style={{ color: isSelected ? '#05CBBE' : '#808080' }}>
