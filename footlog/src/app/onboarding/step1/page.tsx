@@ -28,7 +28,7 @@ export default function page() {
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   return (
-    <main className="w-full h-full flex flex-col relative pt-8 px-6">
+    <main className="relative flex h-full w-full flex-col px-6 pt-8">
       <OnboardingTitle
         number={1}
         text={

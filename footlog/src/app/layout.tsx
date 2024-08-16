@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <RecoilRoot>
-          <section className="w-full h-full">{children}</section>
+          <section className="h-full w-full">{children}</section>
         </RecoilRoot>
       </body>
     </html>

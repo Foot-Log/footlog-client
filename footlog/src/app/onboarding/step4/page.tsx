@@ -35,9 +35,9 @@ export default function page() {
   }, []);
 
   return (
-    <main className="w-full h-full flex flex-col relative pt-[100px] px-6">
+    <main className="relative flex h-full w-full flex-col px-6 pt-[100px]">
       <OnboardingTitle text={titleText} />
-      <div className="w-full flex justify-center items-center pt-20">
+      <div className="flex w-full items-center justify-center pt-20">
         {isOnboardingBtnDisabled ? (
           <MoonLoader color="#05cbbe" size={70} speedMultiplier={0.5} />
         ) : (

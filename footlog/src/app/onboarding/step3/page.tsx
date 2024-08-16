@@ -33,7 +33,7 @@ export default function page() {
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   return (
-    <main className="w-full h-full flex flex-col relative pt-2.5 px-6">
+    <main className="relative flex h-full w-full flex-col px-6 pt-2.5">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>

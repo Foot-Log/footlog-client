@@ -13,7 +13,7 @@ export default function OnboardingBtn(props: OnboardingBtnProps) {
   return (
     <button
       type="button"
-      className={`absolute flex items-center justify-center w-[345px] h-12 rounded-xl bottom-5 ${color} ${cursor}`}
+      className={`absolute bottom-5 flex h-12 w-[345px] items-center justify-center rounded-xl ${color} ${cursor}`}
       onClick={() => {
         if (!$disabled && handleOnboardingBtn) {
           handleOnboardingBtn();
