@@ -1,13 +1,13 @@
 'use client';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NavBarIconDataTypes } from 'types/CommonTypes';
 
 export default function NavItem(props: NavBarIconDataTypes) {
-  const { name, path, defaultIcon, activeIcon, isActive } = props;
+  const { name, path, defaultIcon, activeIcon } = props;
   const pathname: string | null = usePathname();
 
+  const isActive = pathname === path || pathname.startsWith(path);
   const IconComponent = isActive ? activeIcon : defaultIcon;
 
   return (

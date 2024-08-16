@@ -9,5 +9,4 @@ export interface NavBarIconDataTypes {
   path: string;
   defaultIcon: React.FC;
   activeIcon: React.FC;
-  isActive?: boolean;
 }
