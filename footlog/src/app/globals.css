@@ -26,11 +26,6 @@ body {
   background-color: black;
 }
 
-.children-container {
-  height: calc(100% - 39.3px);
-  overflow: scroll;
-}
-
 /* fonts는 className에 추가해서 사용하면 돼 ! */
 /* fonts */
 .fonts-onboardingNumber {
@@ -76,5 +71,90 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: 130%; /* 20.8px */
+  letter-spacing: -0.5px;
+}
+
+/* home */
+// NavBar 폰트
+.fonts-navBar {
+  color: #333;
+
+  font-family: 'Noto Sans KR';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 15.6px */
+  letter-spacing: -0.5px;
+}
+
+// 검색 placeholder 폰트
+.fonts-searchPlaceholder {
+  color: #808080;
+
+  font-family: 'Noto Sans KR';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px; /* 121.429% */
+  letter-spacing: -0.5px;
+}
+
+// 추천 제목 폰트
+.fonts-recommendTitle {
+  color: #333;
+
+  font-family: 'Noto Sans KR';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 23.4px */
+  letter-spacing: -0.5px;
+}
+
+// 추천 부제 폰트
+.fonts-recommnedSubtitle {
+  color: #808080;
+
+  font-family: 'Noto Sans KR';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 18.2px */
+  letter-spacing: -0.5px;
+}
+
+// 추천에 뜬 코스 이름 폰트
+.fonts-courseName {
+  color: #fff;
+
+  font-family: 'Noto Sans KR';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 15.6px */
+  letter-spacing: -0.5px;
+}
+
+// 추천에 뜬 코스 위치 폰트
+.fonts-courseLocation {
+  color: #fff;
+
+  font-family: 'Noto Sans KR';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 13px */
+  letter-spacing: -0.5px;
+}
+
+// 지역별 코스 찾기에서 지역 이름 폰트
+.fonts-regionName {
+  color: #333;
+
+  font-family: 'Noto Sans KR';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 18.2px */
   letter-spacing: -0.5px;
 }
