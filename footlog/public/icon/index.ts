@@ -18,6 +18,12 @@ import RiverStrokeIcon from './onboarding/riverStroke.svg';
 import TrailStrokeIcon from './onboarding/trailStroke.svg';
 import VolcanoStrokeIcon from './onboarding/volcanoStroke.svg';
 import WaterfallStrokeIcon from './onboarding/waterfallStroke.svg';
+import HomeIcon from './home/home.svg';
+import HomeActiveIcon from './home/homeActive.svg';
+import LogIcon from './home/log.svg';
+import LogActiveIcon from './home/logActive.svg';
+import MypageIcon from './home/mypage.svg';
+import MypageActiveIcon from './home/mypageActive.svg';
 
 export {
   CampingIcon,
@@ -40,4 +46,10 @@ export {
   TrailStrokeIcon,
   VolcanoStrokeIcon,
   WaterfallStrokeIcon,
+  HomeIcon,
+  HomeActiveIcon,
+  LogIcon,
+  LogActiveIcon,
+  MypageIcon,
+  MypageActiveIcon,
 };
