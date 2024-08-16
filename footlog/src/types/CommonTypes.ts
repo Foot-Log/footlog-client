@@ -5,7 +5,9 @@ export interface OnboardingIconDataTypes {
 }
 
 export interface NavBarIconDataTypes {
+  name: string;
   path: string;
   defaultIcon: React.FC;
   activeIcon: React.FC;
+  isActive?: boolean;
 }
