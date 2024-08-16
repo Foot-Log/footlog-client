@@ -77,19 +77,6 @@ button {
   letter-spacing: -0.5px;
 }
 
-// 로그인 로고 폰트
-.fonts-logo {
-  color: #05cbbe;
-
-  text-align: center;
-  font-family: 'MADE Waffle Soft';
-  font-size: 56px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 17px; /* 30.357% */
-  letter-spacing: -0.5px;
-}
-
 // 로그인 서비스 설명 폰트
 .fonts-loginSubtitle {
   color: #333;
@@ -104,7 +91,7 @@ button {
 }
 
 // 로그인 버튼 폰트
-.fonts-onboardingBtn {
+.fonts-loginBtn {
   color: #333;
 
   text-align: center;

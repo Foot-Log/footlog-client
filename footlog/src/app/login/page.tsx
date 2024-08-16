@@ -1,3 +1,24 @@
+'use client';
+import { LogoTextIcon } from '@public/icon';
+import { useRouter } from 'next/navigation';
+
 export default function page() {
-  return <div>login 페이지의 컴포넌트들이 올 자리, 리액트의 pages폴더의 역할</div>;
+  const router = useRouter();
+
+  return (
+    <main className="relative flex h-full w-full flex-col items-center pt-72">
+      <section className="flex flex-col items-center gap-2 pt-3">
+        <LogoTextIcon />
+        <p className="fonts-loginSubtitle">국내 플로깅 코스 추천 서비스</p>
+      </section>
+      <button
+        type="button"
+        className={`bg-btn-yellow absolute bottom-5 flex h-12 w-[345px] items-center justify-center rounded-xl`}
+        onClick={() => {
+          router.push('/onboarding');
+        }}>
+        <p className="fonts-loginBtn">카카오톡 계정으로 로그인하기</p>
+      </button>
+    </main>
+  );
 }

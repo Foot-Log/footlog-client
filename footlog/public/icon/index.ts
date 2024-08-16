@@ -19,6 +19,7 @@ import TrailStrokeIcon from './onboarding/trailStroke.svg';
 import VolcanoStrokeIcon from './onboarding/volcanoStroke.svg';
 import WaterfallStrokeIcon from './onboarding/waterfallStroke.svg';
 import LogoIcon from './splash/logo.svg';
+import LogoTextIcon from './splash/logoText.svg';
 
 export {
   CampingIcon,
@@ -42,4 +43,5 @@ export {
   VolcanoStrokeIcon,
   WaterfallStrokeIcon,
   LogoIcon,
+  LogoTextIcon,
 };
