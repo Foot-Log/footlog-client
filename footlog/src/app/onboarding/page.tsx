@@ -1,3 +1,11 @@
+'use client';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
 export default function page() {
-  return <div>onboarding 페이지의 컴포넌트들이 올 자리, 리액트의 pages폴더의 역할</div>;
+  const router = useRouter();
+  useEffect(() => {
+    router.push('/onboarding/step1');
+  }, []);
+  return <></>;
 }

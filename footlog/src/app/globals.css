@@ -4,31 +4,61 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  width: 393px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0;
-
-  background-color: white;
-  /* font-size: 62.5%; */
+/* 사파리 웹 뷰 브라우저 상속 스타일 제거 */
+input,
+textarea,
+button {
+  border-radius: 0;
+  outline: none;
+  appearance: none;
 }
 
-::-webkit-scrollbar {
-  display: none;
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html,
+#root {
+  height: 100dvh;
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
   width: 100%;
   height: 100%;
-
-  background-color: black;
 }
 
-.children-container {
-  height: calc(100% - 39.3px);
-  overflow: scroll;
+html,
+body {
+  overflow-x: hidden;
+  background-color: white;
+}
+
+#root,
+body,
+html {
+  max-width: 393px;
+  margin: 0 auto;
+  padding: 0;
+  -ms-overflow-style: none; /* 인터넷 익스플로러  스크롤바 숨김 */
+  scrollbar-width: none; /* 파이어폭스 스크롤바 숨김 */
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 스크롤바 숨김 */
+}
+
+button {
+  border: none;
+  background: none;
+  font: inherit;
 }
 
 /* fonts는 className에 추가해서 사용하면 돼 ! */
@@ -56,8 +86,6 @@ body {
 }
 
 .fonts-onboardingKeyword {
-  color: #808080;
-
   text-align: center;
   font-family: 'Noto Sans KR';
   font-size: 16px;
