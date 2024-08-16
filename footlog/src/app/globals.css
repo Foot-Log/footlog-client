@@ -107,18 +107,7 @@ button {
   letter-spacing: -0.5px;
 }
 
-/* home */
-// NavBar 폰트
-.fonts-navBar {
-  font-family: 'Noto Sans KR';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%; /* 15.6px */
-  letter-spacing: -0.5px;
-}
-
-// 검색 placeholder 폰트
+/* 검색 placeholder 폰트 */
 .fonts-searchPlaceholder {
   color: #808080;
 
@@ -130,7 +119,7 @@ button {
   letter-spacing: -0.5px;
 }
 
-// 추천 제목 폰트
+/* 추천 제목 폰트 */
 .fonts-recommendTitle {
   color: #333;
 
@@ -142,7 +131,7 @@ button {
   letter-spacing: -0.5px;
 }
 
-// 추천 부제 폰트
+/* 추천 부제 폰트 */
 .fonts-recommnedSubtitle {
   color: #808080;
 
@@ -154,7 +143,7 @@ button {
   letter-spacing: -0.5px;
 }
 
-// 추천에 뜬 코스 이름 폰트
+/* 추천에 뜬 코스 이름 폰트 */
 .fonts-courseName {
   color: #fff;
 
@@ -166,7 +155,7 @@ button {
   letter-spacing: -0.5px;
 }
 
-// 추천에 뜬 코스 위치 폰트
+/* 추천에 뜬 코스 위치 폰트 */
 .fonts-courseLocation {
   color: #fff;
 
@@ -178,7 +167,7 @@ button {
   letter-spacing: -0.5px;
 }
 
-// 지역별 코스 찾기에서 지역 이름 폰트
+/* 지역별 코스 찾기에서 지역 이름 폰트 */
 .fonts-regionName {
   color: #333;
 
@@ -187,5 +176,15 @@ button {
   font-style: normal;
   font-weight: 700;
   line-height: 130%; /* 18.2px */
+  letter-spacing: -0.5px;
+}
+
+/* navBar */
+.fonts-navBarKeyword {
+  font-family: 'Noto Sans KR';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 15.6px */
   letter-spacing: -0.5px;
 }
