@@ -1,5 +1,4 @@
 'use client';
-import type { Metadata } from 'next';
 import './globals.css';
 import { RecoilRoot } from 'recoil';
 
