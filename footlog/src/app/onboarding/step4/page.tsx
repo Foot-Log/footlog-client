@@ -39,7 +39,7 @@ export default function page() {
       <OnboardingTitle text={titleText} />
       <div className="flex w-full items-center justify-center pt-20">
         {isOnboardingBtnDisabled ? (
-          <MoonLoader color="main-green" size={70} speedMultiplier={0.5} />
+          <MoonLoader color="#05CBBE" size={70} speedMultiplier={0.5} />
         ) : (
           <CheckIcon /> // 버튼이 활성화되면 CheckIcon 출력
         )}

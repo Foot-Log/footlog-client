@@ -7,7 +7,7 @@ interface OnboardingBtnProps {
 export default function OnboardingBtn(props: OnboardingBtnProps) {
   const { text, $disabled, handleOnboardingBtn } = props;
 
-  const color = $disabled ? 'bg-btn-gray' : 'bg-btn-green';
+  const color = $disabled ? 'bg-btn-gray' : 'bg-main-green';
   const cursor = $disabled ? 'not-allowed' : 'pointer';
 
   return (

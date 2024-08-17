@@ -19,6 +19,9 @@ const config: Config = {
         'main-green': '#05CBBE',
         'btn-yellow': '#FEE500',
       },
+      boxShadow: {
+        custom: '0px -2px 8px 0px rgba(0, 0, 0, 0.10)',
+      },
     },
   },
   plugins: [],
