@@ -12,11 +12,15 @@ export interface NavBarIconsDataTypes {
 }
 
 import { StaticImageData } from 'next/image';
-
 export interface RecommendCoursesDataTypes {
   id: number;
   imgSrc: StaticImageData;
   title: string;
   subtitle: string;
   isSaved: boolean;
+}
+
+export interface RegionsDataTypes {
+  id: number;
+  name: string;
 }

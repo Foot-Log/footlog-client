@@ -12,8 +12,8 @@ export default function RecommendContainer(props: RecommendContainerProps) {
 
   return (
     <section className="flex w-full flex-col">
-      <section className="flex h-56 w-full flex-col pl-6 pt-[11px]">
-        <p className="fonts-recommendTitle mb-1">{title}</p>
+      <section className="flex w-full flex-col py-5 pl-6">
+        <h2 className="fonts-recommendTitle mb-1">{title}</h2>
         <p className="fonts-recommnedSubtitle">{subtitle}</p>
         <CoursesSlider courses={courses} />
       </section>
