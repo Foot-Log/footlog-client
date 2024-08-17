@@ -7,7 +7,6 @@ import { recommendCoursesData } from '@core/recommendCoursesData';
 export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
-      <NavBar />
       <HomeHeader />
       <section className="mt-[68px] flex flex-col overflow-y-auto">
         <RecommendContainer
