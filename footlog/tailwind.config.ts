@@ -13,14 +13,18 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        'gray-800': '#333333',
-        'gray-100': '#808080',
-        'btn-gray': '#D9D9D9',
+        gray8: '#333333',
+        gray3: '#808080',
+        gray2: '#E2E2E2',
+        gray1: '#D9D9D9',
         'main-green': '#05CBBE',
         'btn-yellow': '#FEE500',
       },
       boxShadow: {
-        custom: '0px -2px 8px 0px rgba(0, 0, 0, 0.10)',
+        navBar: '0px -2px 8px 0px rgba(0, 0, 0, 0.10)',
+      },
+      borderRadius: {
+        searchBar: '21px',
       },
     },
   },
