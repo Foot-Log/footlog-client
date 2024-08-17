@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
-@import url('https://fonts.cdnfonts.com/css/made-waffle-soft');
 
 @tailwind base;
 @tailwind components;
@@ -22,7 +21,7 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'MADE Waffle Soft', 'Noto Sans KR';
+  font-family: 'Noto Sans KR';
 }
 
 html,
@@ -63,19 +62,6 @@ button {
 }
 
 /* fonts */
-
-/* 스플래쉬 팀명 폰트 */
-.fonts-splash {
-  color: gray8;
-
-  text-align: center;
-  font-family: 'MADE Waffle Soft';
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 17px; /* 85% */
-  letter-spacing: -0.5px;
-}
 
 /* 로그인 서비스 설명 폰트 */
 .fonts-loginSubtitle {

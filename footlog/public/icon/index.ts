@@ -30,6 +30,7 @@ import HomeLogoIcon from './home/homeLogo.svg';
 import SearchIcon from './home/search.svg';
 import SaveOutlineIcon from './home/saveOutline.svg';
 import SaveFilledIcon from './home/saveFilled.svg';
+import TeamTextIcon from './splash/teamText.svg';
 
 export {
   CampingIcon,
@@ -64,4 +65,5 @@ export {
   SearchIcon,
   SaveOutlineIcon,
   SaveFilledIcon,
+  TeamTextIcon,
 };
