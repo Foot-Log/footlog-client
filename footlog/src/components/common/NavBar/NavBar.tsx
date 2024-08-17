@@ -4,7 +4,7 @@ import NavItem from './NavItem';
 
 export default function NavBar() {
   return (
-    <section className="shadow-navBar absolute bottom-0 flex h-[67px] w-full items-center justify-around">
+    <section className="shadow-navBar z-100 absolute bottom-0 flex h-[67px] w-full items-center justify-around bg-white">
       {navBarIconsData.map((navItem) => (
         <NavItem
           name={navItem.name}
