@@ -1,9 +1,9 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NavBarIconDataTypes } from 'types/CommonTypes';
+import { NavBarIconsDataTypes } from 'types/CommonTypes';
 
-export default function NavItem(props: NavBarIconDataTypes) {
+export default function NavItem(props: NavBarIconsDataTypes) {
   const { name, path, defaultIcon, activeIcon } = props;
   const pathname: string | null = usePathname();
 

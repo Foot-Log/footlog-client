@@ -18,9 +18,9 @@ import {
   VolcanoStrokeIcon,
   CampingStrokeIcon,
 } from '@public/icon';
-import { OnboardingIconDataTypes } from 'types/CommonTypes';
+import { OnboardingIconsDataTypes } from 'types/CommonTypes';
 
-export const onboardingIconsData: OnboardingIconDataTypes[] = [
+export const onboardingIconsData: OnboardingIconsDataTypes[] = [
   { keyword: '산', defaultIcon: MountainIcon, strokeIcon: MountainStrokeIcon },
   { keyword: '바다', defaultIcon: OceanIcon, strokeIcon: OceanStrokeIcon },
   { keyword: '동굴', defaultIcon: CaveIcon, strokeIcon: CaveStrokeIcon },

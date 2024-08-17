@@ -1,7 +1,7 @@
-import { OnboardingIconDataTypes } from 'types/CommonTypes';
+import { OnboardingIconsDataTypes } from 'types/CommonTypes';
 
 interface OnboardingKeywordsProps {
-  iconsData: OnboardingIconDataTypes[]; // 아이콘 데이터 타입
+  iconsData: OnboardingIconsDataTypes[]; // 아이콘 데이터 타입
   selectedKeywords: string[];
   onKeywordSelect: (keyword: string) => void;
 }
