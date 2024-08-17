@@ -63,6 +63,18 @@ button {
 
 /* fonts */
 
+/* navBar */
+.fonts-navBar {
+  color: '#808080';
+
+  font-family: 'Noto Sans KR';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 15.6px */
+  letter-spacing: -0.5px;
+}
+
 /* 로그인 서비스 설명 폰트 */
 .fonts-loginSubtitle {
   color: #333333;
@@ -74,19 +86,6 @@ button {
   font-weight: 400;
   line-height: 100%; /* 20px */
   letter-spacing: -1px;
-}
-
-/* 로그인 버튼 폰트 */
-.fonts-loginBtn {
-  color: #333333;
-
-  text-align: center;
-  font-family: 'Noto Sans KR';
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%; /* 20.8px */
-  letter-spacing: -0.5px;
 }
 
 .fonts-onboardingNumber {
@@ -204,17 +203,5 @@ button {
   font-style: normal;
   font-weight: 700;
   line-height: 130%; /* 18.2px */
-  letter-spacing: -0.5px;
-}
-
-/* navBar */
-.fonts-navBar {
-  color: '#808080';
-
-  font-family: 'Noto Sans KR';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%; /* 15.6px */
   letter-spacing: -0.5px;
 }
