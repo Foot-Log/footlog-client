@@ -13,7 +13,7 @@ export default function NavItem(props: NavBarIconsDataTypes) {
   return (
     <Link href={path} className="flex cursor-pointer flex-col items-center gap-1">
       <IconComponent />
-      <span className="fonts-navBar flex" style={{ color: isActive ? '#333333' : 'gray3' }}>
+      <span className="fonts-navBar flex" style={{ color: isActive ? '#333333' : '#808080' }}>
         {name}
       </span>
     </Link>

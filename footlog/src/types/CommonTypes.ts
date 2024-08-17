@@ -13,7 +13,7 @@ export interface NavBarIconsDataTypes {
 
 import { StaticImageData } from 'next/image';
 
-export interface RecommendCourseTypes {
+export interface RecommendCoursesDataTypes {
   id: number;
   imgSrc: StaticImageData;
   title: string;
