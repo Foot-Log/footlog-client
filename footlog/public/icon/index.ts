@@ -26,6 +26,10 @@ import LogIcon from './home/log.svg';
 import LogActiveIcon from './home/logActive.svg';
 import MypageIcon from './home/mypage.svg';
 import MypageActiveIcon from './home/mypageActive.svg';
+import HomeLogoIcon from './home/homeLogo.svg';
+import SearchIcon from './home/search.svg';
+import SaveOutlineIcon from './home/saveOutline.svg';
+import SaveFilledIcon from './home/saveFilled.svg';
 
 export {
   CampingIcon,
@@ -56,4 +60,8 @@ export {
   LogActiveIcon,
   MypageIcon,
   MypageActiveIcon,
+  HomeLogoIcon,
+  SearchIcon,
+  SaveOutlineIcon,
+  SaveFilledIcon,
 };
