@@ -18,6 +18,8 @@ import RiverStrokeIcon from './onboarding/riverStroke.svg';
 import TrailStrokeIcon from './onboarding/trailStroke.svg';
 import VolcanoStrokeIcon from './onboarding/volcanoStroke.svg';
 import WaterfallStrokeIcon from './onboarding/waterfallStroke.svg';
+import LogoIcon from './splash/logo.svg';
+import LogoTextIcon from './splash/logoText.svg';
 import HomeIcon from './home/home.svg';
 import HomeActiveIcon from './home/homeActive.svg';
 import LogIcon from './home/log.svg';
@@ -46,6 +48,8 @@ export {
   TrailStrokeIcon,
   VolcanoStrokeIcon,
   WaterfallStrokeIcon,
+  LogoIcon,
+  LogoTextIcon,
   HomeIcon,
   HomeActiveIcon,
   LogIcon,

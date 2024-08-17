@@ -15,6 +15,7 @@ const config: Config = {
       colors: {
         'btn-gray': '#D9D9D9',
         'btn-green': '#05CBBE',
+        'btn-yellow': '#FEE500',
       },
     },
   },
