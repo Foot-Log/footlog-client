@@ -20,6 +20,17 @@ import VolcanoStrokeIcon from './onboarding/volcanoStroke.svg';
 import WaterfallStrokeIcon from './onboarding/waterfallStroke.svg';
 import LogoIcon from './splash/logo.svg';
 import LogoTextIcon from './splash/logoText.svg';
+import HomeIcon from './home/home.svg';
+import HomeActiveIcon from './home/homeActive.svg';
+import LogIcon from './home/log.svg';
+import LogActiveIcon from './home/logActive.svg';
+import MypageIcon from './home/mypage.svg';
+import MypageActiveIcon from './home/mypageActive.svg';
+import HomeLogoIcon from './home/homeLogo.svg';
+import SearchIcon from './home/search.svg';
+import SaveOutlineIcon from './home/saveOutline.svg';
+import SaveFilledIcon from './home/saveFilled.svg';
+import TeamTextIcon from './splash/teamText.svg';
 
 export {
   CampingIcon,
@@ -44,4 +55,15 @@ export {
   WaterfallStrokeIcon,
   LogoIcon,
   LogoTextIcon,
+  HomeIcon,
+  HomeActiveIcon,
+  LogIcon,
+  LogActiveIcon,
+  MypageIcon,
+  MypageActiveIcon,
+  HomeLogoIcon,
+  SearchIcon,
+  SaveOutlineIcon,
+  SaveFilledIcon,
+  TeamTextIcon,
 };

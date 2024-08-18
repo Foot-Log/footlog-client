@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { LogoIcon } from '@public/icon';
+import { TeamTextIcon } from '@public/icon';
 
 export default function page() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col items-center pt-72">
       <LogoIcon />
-      <p className="fonts-splash absolute bottom-7">FootLogger</p>
+      <TeamTextIcon className="absolute bottom-7" />
     </main>
   );
 }

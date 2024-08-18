@@ -1,5 +1,19 @@
 'use client';
+import { navBarIconsData } from '@core/navBarIconsData';
+import NavItem from './NavItem';
 
 export default function NavBar() {
-  return <div>NavBar</div>;
+  return (
+    <section className="shadow-navBar z-100 absolute bottom-0 flex h-[67px] w-full items-center justify-around bg-white">
+      {navBarIconsData.map((navItem) => (
+        <NavItem
+          name={navItem.name}
+          key={navItem.path}
+          defaultIcon={navItem.defaultIcon}
+          activeIcon={navItem.activeIcon}
+          path={navItem.path}
+        />
+      ))}
+    </section>
+  );
 }

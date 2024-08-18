@@ -13,11 +13,13 @@ export default function page() {
       </section>
       <button
         type="button"
-        className={`bg-btn-yellow absolute bottom-5 flex h-12 w-[345px] items-center justify-center rounded-xl`}
+        className={`absolute bottom-5 flex h-12 w-[345px] items-center justify-center rounded-xl bg-btn-yellow`}
         onClick={() => {
           router.push('/onboarding');
         }}>
-        <p className="fonts-loginBtn">카카오톡 계정으로 로그인하기</p>
+        <p className="fonts-onboardingBtn" style={{ color: '#333333' }}>
+          카카오톡 계정으로 로그인하기
+        </p>
       </button>
     </main>
   );
