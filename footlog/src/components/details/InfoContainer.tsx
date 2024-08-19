@@ -38,15 +38,16 @@ export default function InfoContainer(props: InfoContainerProps) {
             {' ...더보기'}
           </span>
         )}
+
+        {isExpanded && (
+          <span
+            className="fonts-detailDescription cursor-pointer"
+            style={{ color: '#808080' }}
+            onClick={toggleDescription}>
+            {' ...접기'}
+          </span>
+        )}
       </p>
-      {isExpanded && (
-        <span
-          className="fonts-detailDescription cursor-pointer"
-          style={{ color: '#808080' }}
-          onClick={toggleDescription}>
-          {' ...접기'}
-        </span>
-      )}
       <section className="mb-25pxr mt-20pxr flex flex-col gap-12pxr">
         {infoItems.map((item, index) => (
           <section key={index} className="flex gap-12pxr">
