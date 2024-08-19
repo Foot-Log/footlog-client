@@ -1,6 +1,7 @@
 'use client';
-import { CourseDetailsDataTypes } from 'types/CommonTypes';
+import { CourseDetailsDataTypes, BlogPostingDataTypes } from 'types/CommonTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
+import { blogPostingData } from '@core/blogPostingData';
 import DetailsHeader from '@components/details/DetailsHeader';
 import ImageContainer from '@components/details/ImageContainer';
 import InfoContainer from '@components/details/InfoContainer';
