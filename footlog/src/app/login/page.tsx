@@ -13,7 +13,7 @@ export default function page() {
       </section>
       <button
         type="button"
-        className={`absolute bottom-5 flex h-12 w-[345px] items-center justify-center rounded-xl bg-btn-yellow`}
+        className={`w-345pxr absolute bottom-5 flex h-12 items-center justify-center rounded-xl bg-btn-yellow`}
         onClick={() => {
           router.push('/onboarding');
         }}>
