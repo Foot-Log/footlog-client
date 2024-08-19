@@ -24,3 +24,16 @@ export interface RegionsDataTypes {
   id: number;
   name: string;
 }
+
+export interface CourseDetailsDataTypes {
+  id: number;
+  title: string;
+  isSaved: boolean;
+  imgSrc: StaticImageData;
+  location: string;
+  price: string;
+  time: string;
+  call: string;
+  site: string;
+  isComplete: boolean;
+}
