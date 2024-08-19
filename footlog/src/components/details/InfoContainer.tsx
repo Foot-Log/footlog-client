@@ -21,8 +21,8 @@ export default function InfoContainer(props: InfoContainerProps) {
   ];
 
   return (
-    <section className="pt-20pxr px-24pxr flex w-full">
-      <p className="fonts-detailDescription line-clamp">{description}</p>
+    <section className="pt-20pxr px-24pxr flex w-full flex-col">
+      <p className="fonts-detailDescription line-clamp-5">{description}</p>
       <section className="mt-20pxr mb-25pxr gap-12pxr flex flex-col">
         {infoItems.map((item, index) => (
           <section key={index} className="gap-12pxr flex">
