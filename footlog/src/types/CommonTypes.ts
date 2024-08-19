@@ -30,6 +30,7 @@ export interface CourseDetailsDataTypes {
   title: string;
   isSaved: boolean;
   imgSrc: StaticImageData;
+  description: string;
   location: string;
   price: string;
   time: string;

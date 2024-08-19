@@ -1,6 +1,17 @@
 import { LocationIcon, PriceIcon, ClockIcon, CallIcon, SiteIcon } from '@public/icon';
 
-export default function InfoContainer() {
+interface InfoContainerProps {
+  description: string;
+  location: string;
+  price: string;
+  time: string;
+  call: string;
+  site: string;
+}
+
+export default function InfoContainer(props: InfoContainerProps) {
+  const { description, location, price, time, call, site } = props;
+
   return (
     <section className="px-24pxrflex w-full">
       <p className="fonts-detailDescription"></p>
