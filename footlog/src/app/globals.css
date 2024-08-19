@@ -218,16 +218,16 @@ button {
   letter-spacing: -0.00625rem;
 }
 
-/* 코스 상세 페이지에서 세부사항, 블로그 포스팅 글쓴이와 작성 날짜, 블로그 내용 요약 */
+/* 코스 상세 페이지에서 세부사항, 블로그 내용 요약 */
 .fonts-detail {
-  color: #333;
+  color: #808080;
 
   font-family: 'Noto Sans KR';
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 1.3125rem */
-  letter-spacing: -0.00625rem;
+  line-height: 130%; /* 0.975rem */
+  letter-spacing: -0.03125rem;
 }
 
 /* 블로그 포스팅 제목*/

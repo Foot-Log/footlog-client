@@ -12,28 +12,24 @@ interface InfoContainerProps {
 export default function InfoContainer(props: InfoContainerProps) {
   const { description, location, price, time, call, site } = props;
 
+  const infoItems = [
+    { icon: <LocationIcon />, text: location },
+    { icon: <PriceIcon />, text: price },
+    { icon: <ClockIcon />, text: time },
+    { icon: <CallIcon />, text: call },
+    { icon: <SiteIcon />, text: site },
+  ];
+
   return (
-    <section className="px-24pxrflex w-full">
-      <p className="fonts-detailDescription"></p>
-      <section className="gap-12pxr flex">
-        <LocationIcon />
-        <p className="fonts-detail"></p>
-      </section>
-      <section className="gap-12pxr flex">
-        <PriceIcon />
-        <p className="fonts-detail"></p>
-      </section>
-      <section className="gap-12pxr flex">
-        <ClockIcon />
-        <p className="fonts-detail"></p>
-      </section>
-      <section className="gap-12pxr flex">
-        <CallIcon />
-        <p className="fonts-detail"></p>
-      </section>
-      <section className="gap-12pxr flex">
-        <SiteIcon />
-        <p className="fonts-detail"></p>
+    <section className="pt-20pxr px-24pxr flex w-full">
+      <p className="fonts-detailDescription line-clamp">{description}</p>
+      <section className="mt-20pxr mb-25pxr gap-12pxr flex flex-col">
+        {infoItems.map((item, index) => (
+          <section key={index} className="gap-12pxr flex">
+            {item.icon}
+            <p className="fonts-detail">{item.text}</p>
+          </section>
+        ))}
       </section>
     </section>
   );
