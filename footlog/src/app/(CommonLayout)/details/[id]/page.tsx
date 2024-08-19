@@ -4,6 +4,7 @@ import { courseDetailsData } from '@core/courseDetailsData';
 import DetailsHeader from '@components/details/DetailsHeader';
 import ImageContainer from '@components/details/ImageContainer';
 import InfoContainer from '@components/details/InfoContainer';
+import BlogContainer from '@components/details/BlogContainer';
 
 /*
 interface DetailsPageProps {
@@ -30,6 +31,8 @@ export default function page() {
           call={course.call}
           site={course.site}
         />
+        <div className="h-8pxr w-full bg-gray_1" />
+        <BlogContainer />
       </section>
     </main>
   );

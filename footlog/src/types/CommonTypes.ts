@@ -38,3 +38,10 @@ export interface CourseDetailsDataTypes {
   site: string;
   isComplete: boolean;
 }
+
+export interface BlogPostingDataTypes {
+  writer: string;
+  date: string;
+  title: string;
+  description: string;
+}
