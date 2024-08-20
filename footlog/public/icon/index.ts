@@ -31,6 +31,14 @@ import SearchIcon from './home/search.svg';
 import SaveOutlineIcon from './home/saveOutline.svg';
 import SaveFilledIcon from './home/saveFilled.svg';
 import TeamTextIcon from './splash/teamText.svg';
+import SaveOutlineGreenIcon from './details/saveOutlineGreen.svg';
+import SaveFilledGreenIcon from './details/saveFilledGreen.svg';
+import LocationIcon from './details/location.svg';
+import PriceIcon from './details/price.svg';
+import ClockIcon from './details/clock.svg';
+import CallIcon from './details/call.svg';
+import SiteIcon from './details/site.svg';
+import FlagIcon from './details/flag.svg';
 
 export {
   CampingIcon,
@@ -66,4 +74,12 @@ export {
   SaveOutlineIcon,
   SaveFilledIcon,
   TeamTextIcon,
+  SaveOutlineGreenIcon,
+  SaveFilledGreenIcon,
+  LocationIcon,
+  PriceIcon,
+  ClockIcon,
+  CallIcon,
+  SiteIcon,
+  FlagIcon,
 };

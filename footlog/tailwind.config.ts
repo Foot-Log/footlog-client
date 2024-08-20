@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+const pxToRem = (px: number, base = 16) => `${px / base}rem`;
+
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,6 +10,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      spacing: Array.from({ length: 1000 }, (_, index) => {
+        const value = pxToRem(index + 1);
+        return { [`${index + 1}pxr`]: value };
+      }).reduce((acc, obj) => ({ ...acc, ...obj }), {}),
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',

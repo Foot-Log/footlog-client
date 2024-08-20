@@ -8,7 +8,7 @@ export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <HomeHeader />
-      <section className="mt-[68px] flex flex-col overflow-y-auto">
+      <section className="mt-68pxr flex flex-col overflow-y-auto">
         <RecommendContainer
           title="나를 위한 코스 추천"
           subtitle="선호도 기반으로 추천해드리는 코스들이에요"
