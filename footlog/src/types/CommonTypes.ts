@@ -44,4 +44,5 @@ export interface BlogPostingDataTypes {
   date: string;
   title: string;
   description: string;
+  link: string;
 }

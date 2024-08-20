@@ -10,7 +10,7 @@ export default function OnboardingKeywords(props: OnboardingKeywordsProps) {
   const { iconsData, selectedKeywords, onKeywordSelect } = props;
 
   return (
-    <section className="gap-22.5pxr flex">
+    <section className="flex justify-between">
       {iconsData.map(({ keyword, defaultIcon, strokeIcon }) => {
         const isSelected = selectedKeywords.includes(keyword);
         const IconComponent = isSelected ? strokeIcon : defaultIcon; // 선택된 경우 스테로크 아이콘 사용
@@ -18,7 +18,7 @@ export default function OnboardingKeywords(props: OnboardingKeywordsProps) {
         return (
           <div
             key={keyword}
-            className="gap-8pxr flex cursor-pointer flex-col items-center"
+            className="flex cursor-pointer flex-col items-center gap-8pxr"
             onClick={() => onKeywordSelect(keyword)}>
             <IconComponent />
             <span className="fonts-onboardingKeyword flex" style={{ color: isSelected ? '#05CBBE' : '#808080' }}>
