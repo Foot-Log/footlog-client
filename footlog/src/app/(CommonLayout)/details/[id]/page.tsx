@@ -33,7 +33,7 @@ export default function page() {
           site={course.site}
         />
         <div className="h-8pxr w-full bg-gray_1" />
-        <BlogContainer />
+        <BlogContainer title={course.title} />
       </section>
       <FinishBtn isComplete={course.isComplete} />
     </main>
