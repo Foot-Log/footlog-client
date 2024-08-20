@@ -11,7 +11,7 @@ export default function DetailsHeader(props: DetailsHeaderProps) {
   const router = useRouter();
 
   function handleBackBtn() {
-    router.push('/home');
+    router.back(); // 이전 페이지로 돌아가기
   }
 
   return (
