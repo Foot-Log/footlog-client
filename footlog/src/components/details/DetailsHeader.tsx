@@ -20,7 +20,7 @@ export default function DetailsHeader(props: DetailsHeaderProps) {
         <LeftArrowIcon />
       </button>
       <p className="fonts-recommendTitle">{title}</p>
-      {isSaved == true ? <SaveFilledGreenIcon /> : <SaveOutlineGreenIcon />}
+      {isSaved ? <SaveFilledGreenIcon /> : <SaveOutlineGreenIcon />}
     </section>
   );
 }
