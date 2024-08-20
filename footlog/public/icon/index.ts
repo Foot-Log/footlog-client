@@ -30,6 +30,7 @@ import HomeLogoIcon from './home/homeLogo.svg';
 import SearchIcon from './home/search.svg';
 import SaveOutlineIcon from './home/saveOutline.svg';
 import SaveFilledIcon from './home/saveFilled.svg';
+import RightArrowIcon from './home/rightArrow.svg';
 import TeamTextIcon from './splash/teamText.svg';
 import SaveOutlineGreenIcon from './details/saveOutlineGreen.svg';
 import SaveFilledGreenIcon from './details/saveFilledGreen.svg';
@@ -73,6 +74,7 @@ export {
   SearchIcon,
   SaveOutlineIcon,
   SaveFilledIcon,
+  RightArrowIcon,
   TeamTextIcon,
   SaveOutlineGreenIcon,
   SaveFilledGreenIcon,
