@@ -38,7 +38,7 @@ export default function BlogContainer(props: BlogContainerProps) {
               </p>
               <p className="fonts-detail line-clamp-3">{post.description}</p>
             </Link>
-            <div className="my-20pxr h-1pxr w-full bg-gray_1" />
+            <div className="bg-gray-1 my-20pxr h-1pxr w-full" />
           </section>
         );
       })}
