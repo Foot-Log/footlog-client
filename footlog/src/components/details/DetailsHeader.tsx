@@ -15,7 +15,7 @@ export default function DetailsHeader(props: DetailsHeaderProps) {
   }
 
   return (
-    <section className="z-100 h-68pxr px-24pxr absolute top-0 flex w-full items-center justify-between bg-white">
+    <section className="fixed top-0 flex h-68pxr w-full items-center justify-between bg-white px-24pxr">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>
