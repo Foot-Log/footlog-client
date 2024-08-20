@@ -13,7 +13,7 @@ export default function CoursesSlider(props: CoursesSliderProps) {
   return (
     <section className="mt-20pxr flex gap-12pxr overflow-x-auto">
       {courses.map((course) => (
-        <Link key={course.id} href={`/details/${course.id}`} passHref>
+        <Link key={course.id} href={`/home/details/${course.id}`} passHref>
           <figure className="relative flex h-128pxr w-128pxr cursor-pointer overflow-hidden rounded-xl">
             <div className="absolute inset-0 z-10 h-full w-full rounded-xl bg-[rgba(0,0,0,0.20)]" />
             <Image

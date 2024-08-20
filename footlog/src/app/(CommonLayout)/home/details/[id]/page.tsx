@@ -1,11 +1,11 @@
 'use client';
 import { CourseDetailsDataTypes, BlogPostingDataTypes } from 'types/CommonTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
-import DetailsHeader from '@components/details/DetailsHeader';
-import ImageContainer from '@components/details/ImageContainer';
-import InfoContainer from '@components/details/InfoContainer';
-import BlogContainer from '@components/details/BlogContainer';
-import FinishBtn from '@components/details/FinishBtn';
+import DetailsHeader from '@components/home/details/DetailsHeader';
+import ImageContainer from '@components/home/details/ImageContainer';
+import InfoContainer from '@components/home/details/InfoContainer';
+import BlogContainer from '@components/home/details/BlogContainer';
+import FinishBtn from '@components/home/details/FinishBtn';
 
 /*
 interface DetailsPageProps {
