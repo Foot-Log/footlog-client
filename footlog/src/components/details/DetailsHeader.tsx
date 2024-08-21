@@ -11,11 +11,11 @@ export default function DetailsHeader(props: DetailsHeaderProps) {
   const router = useRouter();
 
   function handleBackBtn() {
-    router.push('/home');
+    router.back();
   }
 
   return (
-    <section className="z-100 h-68pxr px-24pxr absolute top-0 flex w-full items-center justify-between bg-white">
+    <section className="z-100 absolute top-0 flex h-68pxr w-full items-center justify-between bg-white px-24pxr">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>

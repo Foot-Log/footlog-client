@@ -14,7 +14,7 @@ export default function page() {
   const currentIcons = onboardingIconsData.slice(6, 9);
 
   function handleBackBtn() {
-    router.push('/onboarding/step2');
+    router.back();
   }
 
   function handleKeywordSelect(keyword: string) {
@@ -33,7 +33,7 @@ export default function page() {
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   return (
-    <main className="px-24pxr pt-10pxr relative flex h-full w-full flex-col">
+    <main className="relative flex h-full w-full flex-col px-24pxr pt-10pxr">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>
