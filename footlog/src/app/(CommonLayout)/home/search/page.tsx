@@ -1,10 +1,14 @@
 'use client';
 import SearchHeader from '@components/home/search/SearchHeader';
+import RecentSearchContainer from '@components/home/search/RecentSearchContainer';
 
 export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <SearchHeader />
+      <section className="mt-68pxr flex flex-col overflow-y-auto">
+        <RecentSearchContainer />
+      </section>
     </main>
   );
 }
