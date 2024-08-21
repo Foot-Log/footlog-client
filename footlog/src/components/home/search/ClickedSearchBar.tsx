@@ -12,7 +12,7 @@ export default function ClickedSearchBar() {
   }, []); // 빈 배열을 전달하여 컴포넌트가 처음 렌더링될 때만 실행
 
   return (
-    <section className="flex h-42pxr w-307pxr items-center justify-between gap-16pxr rounded-searchBar bg-gray-3 pl-20pxr pr-16pxr">
+    <section className="rounded-clickedSearchBar flex h-42pxr w-317pxr items-center justify-between gap-16pxr border border-gray-8 bg-white pl-20pxr pr-16pxr">
       <input
         ref={inputRef}
         className="fonts-searchPlaceholder w-full bg-transparent"
