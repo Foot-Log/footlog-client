@@ -9,7 +9,7 @@ export default function RegionalRecommendContainer() {
           {regionsData.map((region) => (
             <div
               key={region.id}
-              className="fonts-regionName flex h-44pxr w-110pxr items-center justify-center rounded border border-gray-2">
+              className="fonts-regionName flex h-44pxr w-110pxr items-center justify-center rounded border border-gray-2 text-gray-8">
               {region.name}
             </div>
           ))}
