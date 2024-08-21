@@ -1,6 +1,4 @@
-import { regionsData } from '@core/regionsData';
-
-export default function RegionalRecommendContainer() {
+export default function PopularContainer() {
   return (
     <section className="flex w-full flex-col">
       <section className="flex w-full flex-col gap-20pxr px-24pxr py-20pxr">
