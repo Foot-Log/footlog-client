@@ -13,7 +13,7 @@ export default function PopularContainer() {
             {firstGroup.map((course, index) => (
               <div key={course.id} className="flex w-auto items-center justify-center gap-24pxr">
                 <span className="fonts-regionName text-main-green">{index + 1}</span>
-                <span className="fonts-regionName flex-1 text-gray-8">{course.name}</span>
+                <span className="fonts-regionName line-clamp-1 flex-1 text-gray-8">{course.name}</span>
               </div>
             ))}
           </section>
@@ -21,7 +21,7 @@ export default function PopularContainer() {
             {secondGroup.map((course, index) => (
               <div key={course.id} className="flex w-auto items-center justify-center gap-24pxr">
                 <span className="fonts-regionName text-main-green">{index + 6}</span> {/* 순위를 6부터 시작 */}
-                <span className="fonts-regionName flex-1 text-gray-8">{course.name}</span>
+                <span className="fonts-regionName line-clamp-1 flex-1 text-gray-8">{course.name}</span>
               </div>
             ))}
           </section>
