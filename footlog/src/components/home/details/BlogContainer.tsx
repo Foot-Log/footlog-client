@@ -22,8 +22,9 @@ export default function BlogContainer(props: BlogContainerProps) {
           <section key={index}>
             <Link href={post.link} className="flex flex-col gap-8pxr">
               <div className="flex">
-                <p className="fonts-detail">{post.writer}</p>
-                <p className="fonts-detail">{post.date}</p>
+                <p className="fonts-detail">
+                  {post.writer}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date} {/* &nbsp; 사용하여 두 칸 띄우기 */}
+                </p>
               </div>
               <p className="fonts-blogTitle">
                 {isTitleMatched ? (
@@ -38,7 +39,7 @@ export default function BlogContainer(props: BlogContainerProps) {
               </p>
               <p className="fonts-detail line-clamp-3">{post.description}</p>
             </Link>
-            <div className="bg-gray-1 my-20pxr h-1pxr w-full" />
+            <div className="my-20pxr h-1pxr w-full bg-gray-1" />
           </section>
         );
       })}
