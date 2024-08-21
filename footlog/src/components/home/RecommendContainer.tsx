@@ -17,7 +17,7 @@ export default function RecommendContainer(props: RecommendContainerProps) {
         <p className="fonts-recommendSubtitle">{subtitle}</p>
         <CoursesSlider courses={courses} />
       </section>
-      <div className="bg-gray_1 h-8pxr w-full" />
+      <div className="h-8pxr w-full bg-gray-1" />
     </section>
   );
 }

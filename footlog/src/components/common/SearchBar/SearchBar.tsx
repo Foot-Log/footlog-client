@@ -10,7 +10,7 @@ export default function SearchBar() {
   };
 
   return (
-    <section className="bg-gray_3 flex h-42pxr w-307pxr items-center gap-10pxr rounded-searchBar pl-12pxr pr-5pxr">
+    <section className="flex h-42pxr w-307pxr items-center gap-10pxr rounded-searchBar bg-gray-3 pl-12pxr pr-5pxr">
       <SearchIcon />
       <input
         className="fonts-searchPlaceholder w-5/6 bg-transparent"

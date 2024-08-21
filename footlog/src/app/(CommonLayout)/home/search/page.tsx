@@ -1,6 +1,8 @@
 'use client';
 import SearchHeader from '@components/home/search/SearchHeader';
 import RecentSearchContainer from '@components/home/search/RecentSearchContainer';
+import RecentCourseContainer from '@components/home/search/RecentCourseContainer';
+import { recommendCoursesData } from '@core/recommendCoursesData';
 
 export default function page() {
   return (
@@ -8,6 +10,7 @@ export default function page() {
       <SearchHeader />
       <section className="mt-68pxr flex flex-col overflow-y-auto">
         <RecentSearchContainer />
+        <RecentCourseContainer />
       </section>
     </main>
   );

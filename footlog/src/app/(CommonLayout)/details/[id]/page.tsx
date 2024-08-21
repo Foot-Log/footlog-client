@@ -32,7 +32,7 @@ export default function page() {
           call={course.call}
           site={course.site}
         />
-        <div className="h-8pxr w-full bg-gray_1" />
+        <div className="h-8pxr w-full bg-gray-1" />
         <BlogContainer />
       </section>
     </main>

@@ -17,7 +17,7 @@ export default function BlogContainer() {
             <p className="fonts-blogTitle">{post.title}</p>
             <p className="fonts-detail line-clamp-3">{post.description}</p>
           </section>
-          <div className="my-20pxr h-1pxr w-full bg-gray_1" />
+          <div className="my-20pxr h-1pxr w-full bg-gray-1" />
         </section>
       ))}
     </section>
