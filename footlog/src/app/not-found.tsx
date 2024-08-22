@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <main className="relative flex h-full w-full flex-col items-center overflow-hidden pt-282pxr">
       <section className="flex flex-col items-center gap-12pxr">
-        <h2 className="fonts-errorTitle">페이지를 찾을 수 없습니다</h2>
+        <h2 className="fonts-errorTitle">페이지를 찾을 수 없습니다.</h2>
         <p className="fonts-errorSubtitle">
           방문하시려는 페이지의 주소가 잘못 입력되었거나,
           <br />

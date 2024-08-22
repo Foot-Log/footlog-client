@@ -5,7 +5,7 @@ export default function Error() {
   return (
     <main className="relative flex h-full w-full flex-col items-center overflow-hidden pt-282pxr">
       <section className="flex flex-col items-center gap-12pxr">
-        <h2 className="fonts-errorTitle">요청하신 페이지에 오류가 발생하였습니다</h2>
+        <h2 className="fonts-errorTitle">요청하신 페이지에 오류가 발생하였습니다.</h2>
         <p className="fonts-errorSubtitle">
           방문하시려는 페이지의 주소가 잘못 입력되었거나,
           <br />
@@ -18,12 +18,12 @@ export default function Error() {
         <Link
           href={'#'}
           onClick={() => window.history.back()}
-          className="fonts-onboardingBtn flex h-48pxr w-167pxr items-center justify-center rounded-[12px] bg-gray-4 text-white">
+          className="fonts-onboardingBtn rounded-errorBtn flex h-48pxr w-167pxr items-center justify-center bg-gray-4 text-white">
           이전 페이지
         </Link>
         <Link
           href={'/home'}
-          className="fonts-onboardingBtn flex h-48pxr w-167pxr items-center justify-center rounded-[12px] bg-main-green text-white">
+          className="fonts-onboardingBtn rounded-errorBtn flex h-48pxr w-167pxr items-center justify-center bg-main-green text-white">
           메인 홈 화면
         </Link>
       </section>

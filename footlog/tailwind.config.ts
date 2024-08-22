@@ -32,6 +32,7 @@ const config: Config = {
       },
       borderRadius: {
         searchBar: '21px',
+        errorBtn: '12px',
       },
     },
   },
