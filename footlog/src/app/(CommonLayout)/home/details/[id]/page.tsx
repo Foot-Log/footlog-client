@@ -22,7 +22,7 @@ export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <DetailsHeader title={course.title} isSaved={course.isSaved} />
-      <section className="mt-68pxr flex flex-col">
+      <section className="mt-68pxr flex flex-col pb-68pxr">
         <ImageContainer title={course.title} imgSrc={course.imgSrc} />
         <InfoContainer
           description={course.description}

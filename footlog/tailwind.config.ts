@@ -34,6 +34,7 @@ const config: Config = {
         searchBar: '21px',
         clickedSearchBar: '8px',
         searchBox: '30px',
+        errorBtn: '12px',
       },
     },
   },
