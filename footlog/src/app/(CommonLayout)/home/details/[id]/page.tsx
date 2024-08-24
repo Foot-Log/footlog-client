@@ -1,11 +1,11 @@
 'use client';
 import { CourseDetailsDataTypes, BlogPostingDataTypes } from 'types/CommonTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
-import { blogPostingData } from '@core/blogPostingData';
-import DetailsHeader from '@components/details/DetailsHeader';
-import ImageContainer from '@components/details/ImageContainer';
-import InfoContainer from '@components/details/InfoContainer';
-import BlogContainer from '@components/details/BlogContainer';
+import DetailsHeader from '@components/home/details/DetailsHeader';
+import ImageContainer from '@components/home/details/ImageContainer';
+import InfoContainer from '@components/home/details/InfoContainer';
+import BlogContainer from '@components/home/details/BlogContainer';
+import FinishBtn from '@components/home/details/FinishBtn';
 
 /*
 interface DetailsPageProps {
@@ -22,7 +22,7 @@ export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <DetailsHeader title={course.title} isSaved={course.isSaved} />
-      <section className="mt-68pxr flex flex-col">
+      <section className="mt-68pxr flex flex-col pb-68pxr">
         <ImageContainer title={course.title} imgSrc={course.imgSrc} />
         <InfoContainer
           description={course.description}
@@ -32,9 +32,10 @@ export default function page() {
           call={course.call}
           site={course.site}
         />
-        <div className="h-8pxr w-full bg-gray_1" />
-        <BlogContainer />
+        <div className="h-8pxr w-full bg-gray-1" />
+        <BlogContainer title={course.title} />
       </section>
+      <FinishBtn isComplete={course.isComplete} />
     </main>
   );
 }
