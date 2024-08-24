@@ -11,16 +11,16 @@ export default function DetailsHeader(props: DetailsHeaderProps) {
   const router = useRouter();
 
   function handleBackBtn() {
-    router.push('/home');
+    router.back(); // 이전 페이지로 돌아가기
   }
 
   return (
-    <section className="z-100 h-68pxr px-24pxr absolute top-0 flex w-full items-center justify-between bg-white">
+    <section className="fixed top-0 z-20 flex h-68pxr w-full items-center justify-between bg-white px-24pxr">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>
       <p className="fonts-recommendTitle">{title}</p>
-      {isSaved == true ? <SaveFilledGreenIcon /> : <SaveOutlineGreenIcon />}
+      {isSaved ? <SaveFilledGreenIcon /> : <SaveOutlineGreenIcon />}
     </section>
   );
 }

@@ -20,6 +20,7 @@ import VolcanoStrokeIcon from './onboarding/volcanoStroke.svg';
 import WaterfallStrokeIcon from './onboarding/waterfallStroke.svg';
 import LogoIcon from './splash/logo.svg';
 import LogoTextIcon from './splash/logoText.svg';
+import TeamTextIcon from './splash/teamText.svg';
 import HomeIcon from './home/home.svg';
 import HomeActiveIcon from './home/homeActive.svg';
 import LogIcon from './home/log.svg';
@@ -30,15 +31,17 @@ import HomeLogoIcon from './home/homeLogo.svg';
 import SearchIcon from './home/search.svg';
 import SaveOutlineIcon from './home/saveOutline.svg';
 import SaveFilledIcon from './home/saveFilled.svg';
-import TeamTextIcon from './splash/teamText.svg';
-import SaveOutlineGreenIcon from './details/saveOutlineGreen.svg';
-import SaveFilledGreenIcon from './details/saveFilledGreen.svg';
-import LocationIcon from './details/location.svg';
-import PriceIcon from './details/price.svg';
-import ClockIcon from './details/clock.svg';
-import CallIcon from './details/call.svg';
-import SiteIcon from './details/site.svg';
-import FlagIcon from './details/flag.svg';
+import RightArrowIcon from './home/rightArrow.svg';
+import SaveOutlineGreenIcon from './home/details/saveOutlineGreen.svg';
+import SaveFilledGreenIcon from './home/details/saveFilledGreen.svg';
+import LocationIcon from './home/details/location.svg';
+import PriceIcon from './home/details/price.svg';
+import ClockIcon from './home/details/clock.svg';
+import CallIcon from './home/details/call.svg';
+import SiteIcon from './home/details/site.svg';
+import FlagIcon from './home/details/flag.svg';
+import GreenFlagIcon from './mypage/greenFlag.svg';
+import NullFlagIcon from './mypage/nullFlag.svg';
 import CloseIcon from './home/search/close.svg';
 
 export {
@@ -74,6 +77,7 @@ export {
   SearchIcon,
   SaveOutlineIcon,
   SaveFilledIcon,
+  RightArrowIcon,
   TeamTextIcon,
   SaveOutlineGreenIcon,
   SaveFilledGreenIcon,
@@ -83,5 +87,7 @@ export {
   CallIcon,
   SiteIcon,
   FlagIcon,
+  GreenFlagIcon,
+  NullFlagIcon,
   CloseIcon,
 };

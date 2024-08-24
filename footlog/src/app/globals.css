@@ -65,8 +65,6 @@ button {
 
 /* navBar */
 .fonts-navBar {
-  color: #808080;
-
   font-family: 'Noto Sans KR';
   font-size: 0.75rem;
   font-style: normal;
@@ -111,8 +109,6 @@ button {
 }
 
 .fonts-onboardingKeyword {
-  color: #808080;
-
   text-align: center;
   font-family: 'Noto Sans KR';
   font-size: 1rem;
@@ -123,8 +119,6 @@ button {
 }
 
 .fonts-onboardingBtn {
-  color: white;
-
   text-align: center;
   font-family: 'Noto Sans KR';
   font-size: 1rem;
@@ -206,8 +200,6 @@ button {
 
 /* 코스 상세 페이지에서 코스 설명 */
 .fonts-detailDescription {
-  color: #333;
-
   font-family: 'Noto Sans KR';
   font-size: 0.875rem;
   font-style: normal;
@@ -237,5 +229,39 @@ button {
   font-style: normal;
   font-weight: 500;
   line-height: 130%; /* 1.3rem */
+  letter-spacing: -0.03125rem;
+}
+
+/* 마이 페이지 최상단 제목*/
+.font-mypageTitle {
+  color: #333;
+  font-family: 'Noto Sans KR';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 1.625rem */
+  letter-spacing: -0.03125rem;
+}
+.font-mypageNickname {
+  color: #333;
+  font-family: 'Noto Sans KR';
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 1.4625rem */
+  letter-spacing: -0.03125rem;
+}
+.font-mypageLevel {
+  font-family: 'Noto Sans KR';
+  font-size: 0.875rem;
+  line-height: 130%; /* 1.1375rem */
+  letter-spacing: -0.03125rem;
+}
+.font-mypageDetail {
+  font-family: 'Noto Sans KR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 1.1375rem */
   letter-spacing: -0.03125rem;
 }
