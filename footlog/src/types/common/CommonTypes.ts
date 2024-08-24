@@ -20,17 +20,9 @@ export interface RegionsDataTypes {
   name: string;
 }
 
-// 코스 목록, 검색
-export interface LocationDataTypes {
-  id: number;
-  name: string;
-  address: string;
-  imgSrc: StaticImageData;
-  isSaved: boolean;
-}
-
 // 코스 검색 결과 LocationCard
+import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 export interface LocationCardProps {
-  location: LocationDataTypes;
+  course: CourseDetailsDataTypes;
   searchInput: string;
 }

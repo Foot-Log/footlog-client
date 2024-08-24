@@ -1,22 +1,20 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import BigLocationCard from '@components/home/search/BigLocationCard';
-import { LocationDataTypes } from 'types/common/CommonTypes';
-import { locationData } from '@core/locationData';
+import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
+import { courseDetailsData } from '@core/courseDetailsData';
 
 export default function page() {
-  const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
-  const [filteredLocations, setFilteredLocations] = useState<LocationDataTypes[]>([]);
+  const [filteredLocations, setFilteredLocations] = useState<CourseDetailsDataTypes[]>([]);
 
   useEffect(() => {
     const query = new URLSearchParams(window.location.search).get('query');
     if (query) {
       setSearchInput(decodeURIComponent(query)); // 쿼리 파라미터에서 검색어 가져오기
-      const filtered = locationData.filter((location: LocationDataTypes) =>
-        location.name.toLowerCase().includes(query.toLowerCase()),
+      const filtered = courseDetailsData.filter((course: CourseDetailsDataTypes) =>
+        course.title.toLowerCase().includes(query.toLowerCase()),
       );
       setFilteredLocations(filtered);
     }
@@ -28,9 +26,9 @@ export default function page() {
       <section className="mt-80pxr flex flex-col overflow-y-auto">
         {searchInput && filteredLocations.length > 0 ? (
           <section className="flex flex-col">
-            {filteredLocations.map((location) => (
-              <section key={location.id}>
-                <BigLocationCard location={location} searchInput={searchInput} />
+            {filteredLocations.map((course) => (
+              <section key={course.id}>
+                <BigLocationCard course={course} searchInput={searchInput} />
                 <div className="my-20pxr h-8pxr w-full bg-gray-1" />
               </section>
             ))}

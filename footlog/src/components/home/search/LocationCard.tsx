@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { LocationCardProps } from 'types/common/CommonTypes';
 
 export default function LocationCard(props: LocationCardProps) {
-  const { location, searchInput } = props;
+  const { course, searchInput } = props;
 
   // 검색어가 있을 때 강조할 텍스트 생성
   const highlightSearchTerm = (text: string, search: string) => {
@@ -25,15 +25,15 @@ export default function LocationCard(props: LocationCardProps) {
 
   return (
     <Link
-      key={location.id}
-      href={`/home/details/${location.id}`}
+      key={course.id}
+      href={`/home/details/${course.id}`}
       passHref
       className="curosr-pointer flex items-center gap-16pxr pl-24pxr">
       <figure className="relative flex h-64pxr w-64pxr overflow-hidden rounded-xl">
         <Image
           fill
-          src={location.imgSrc}
-          alt={location.name}
+          src={course.imgSrc}
+          alt={course.title}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover"
           priority
@@ -41,9 +41,9 @@ export default function LocationCard(props: LocationCardProps) {
       </figure>
       <section className="flex flex-col items-start gap-4pxr">
         <p className="fonts-onboardingKeyword text-gray-8">
-          {highlightSearchTerm(location.name, searchInput)} {/* 강조된 이름 출력 */}
+          {highlightSearchTerm(course.title, searchInput)} {/* 강조된 이름 출력 */}
         </p>
-        <p className="fonts-detail">{location.address}</p>
+        <p className="fonts-detail">{course.address}</p>
       </section>
     </Link>
   );

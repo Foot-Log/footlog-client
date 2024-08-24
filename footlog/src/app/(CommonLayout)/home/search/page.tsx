@@ -5,14 +5,14 @@ import RecentSearchContainer from '@components/home/search/RecentSearchContainer
 import RecentCourseContainer from '@components/home/search/RecentCourseContainer';
 import PopularContainer from '@components/home/search/PopularContainer';
 import LocationCard from '@components/home/search/LocationCard';
-import { LocationDataTypes } from 'types/common/CommonTypes';
-import { locationData } from '@core/locationData';
+import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
+import { courseDetailsData } from '@core/courseDetailsData';
 
 export default function page() {
   const [searchInput, setSearchInput] = useState('');
 
-  const filteredLocations = locationData.filter((location: LocationDataTypes) =>
-    location.name.toLowerCase().includes(searchInput.toLowerCase()),
+  const filteredLocations = courseDetailsData.filter((course: CourseDetailsDataTypes) =>
+    course.title.toLowerCase().includes(searchInput.toLowerCase()),
   );
 
   return (
@@ -22,8 +22,8 @@ export default function page() {
         {searchInput ? (
           filteredLocations.length > 0 ? (
             <section className="flex flex-col gap-24pxr">
-              {filteredLocations.map((location) => (
-                <LocationCard key={location.id} location={location} searchInput={searchInput} /> // location 객체 전체를 전달
+              {filteredLocations.map((course) => (
+                <LocationCard key={course.id} course={course} searchInput={searchInput} /> // location 객체 전체를 전달
               ))}
             </section>
           ) : (
