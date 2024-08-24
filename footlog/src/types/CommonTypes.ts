@@ -32,7 +32,7 @@ export interface CourseDetailsDataTypes {
   isSaved: boolean;
   imgSrc: StaticImageData;
   description: string;
-  location: string;
+  address: string;
   price: string;
   time: string;
   call: string;
@@ -51,5 +51,5 @@ export interface BlogPostingDataTypes {
 // 코스 검색 결과 LocationCard
 export interface LocationCardProps {
   course: CourseDetailsDataTypes;
-  searchInput: string;
+  searchInput?: string;
 }

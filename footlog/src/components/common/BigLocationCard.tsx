@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { LocationCardProps } from 'types/common/CommonTypes';
+import { LocationCardProps } from 'types/CommonTypes';
 import { SearchSaveFilledIcon, SearchSaveOutlineIcon } from '@public/icon';
 
 export default function BigLocationCard(props: LocationCardProps) {

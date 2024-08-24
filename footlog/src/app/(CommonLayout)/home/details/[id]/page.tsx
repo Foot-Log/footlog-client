@@ -1,5 +1,5 @@
 'use client';
-import { CourseDetailsDataTypes, BlogPostingDataTypes } from 'types/CommonTypes';
+import { CourseDetailsDataTypes } from 'types/CommonTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
 import DetailsHeader from '@components/home/details/DetailsHeader';
 import ImageContainer from '@components/home/details/ImageContainer';
@@ -26,7 +26,7 @@ export default function page() {
         <ImageContainer title={course.title} imgSrc={course.imgSrc} />
         <InfoContainer
           description={course.description}
-          location={course.location}
+          location={course.address}
           price={course.price}
           time={course.time}
           call={course.call}
