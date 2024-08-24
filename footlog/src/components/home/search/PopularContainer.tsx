@@ -6,10 +6,10 @@ export default function PopularContainer() {
 
   return (
     <section className="flex w-full flex-col">
-      <section className="flex w-full flex-col gap-20pxr px-24pxr py-20pxr">
-        <h2 className="fonts-recommendTitle">지역별 코스 찾기</h2>
+      <section className="flex w-full flex-col gap-20pxr py-20pxr pr-24pxr">
+        <h2 className="fonts-recommendTitle">인기 코스</h2>
         <div className="flex justify-between">
-          <section className="grid grid-cols-1 gap-y-32pxr">
+          <section className="grid w-171pxr grid-cols-1 gap-y-32pxr">
             {firstGroup.map((course, index) => (
               <div key={course.id} className="flex w-auto items-center justify-center gap-24pxr">
                 <span className="fonts-regionName text-main-green">{index + 1}</span>

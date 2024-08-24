@@ -3,7 +3,7 @@ import { CloseIcon } from '@public/icon';
 
 export default function RecentSearchContainer() {
   return (
-    <section className="flex w-full flex-col gap-19pxr pl-24pxr pt-12pxr">
+    <section className="flex w-full flex-col gap-19pxr pt-12pxr">
       <h2 className="fonts-recommendTitle">최근 검색어</h2>
       <section className="flex gap-8pxr overflow-x-auto">
         {recentSearchData.map((search) => (

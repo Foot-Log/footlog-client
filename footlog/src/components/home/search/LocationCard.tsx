@@ -10,7 +10,7 @@ export default function LocationCard(props: LocationCardProps) {
 
   return (
     <section className="flex gap-16pxr">
-      <figure className="relative flex h-128pxr w-128pxr cursor-pointer overflow-hidden rounded-xl">
+      <figure className="relative flex h-64pxr w-64pxr cursor-pointer overflow-hidden rounded-xl">
         <Image
           fill
           src={location.imgSrc}

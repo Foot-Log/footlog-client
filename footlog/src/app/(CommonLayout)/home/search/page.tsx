@@ -16,7 +16,7 @@ export default function page() {
   );
 
   return (
-    <main className="relative flex h-full w-full flex-col">
+    <main className="relative flex h-full w-full flex-col pl-24pxr">
       <SearchHeader searchInput={searchInput} setSearchInput={setSearchInput} />
       <section className="mt-68pxr flex flex-col overflow-y-auto">
         {searchInput ? (
