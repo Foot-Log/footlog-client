@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { RecommendCoursesDataTypes } from 'types/CommonTypes';
+import { RecommendCoursesDataTypes } from 'types/common/CommonTypes';
 import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
 
 interface CoursesSliderProps {

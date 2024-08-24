@@ -1,5 +1,5 @@
 import CoursesSlider from '@components/common/CoursesSlider/CoursesSlider';
-import { RecommendCoursesDataTypes } from 'types/CommonTypes';
+import { RecommendCoursesDataTypes } from 'types/common/CommonTypes';
 import { recommendCoursesData } from '@core/recommendCoursesData';
 
 export default function RecentCourseContainer() {

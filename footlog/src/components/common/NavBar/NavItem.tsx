@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NavBarIconsDataTypes } from 'types/CommonTypes';
+import { NavBarIconsDataTypes } from 'types/common/CommonTypes';
 
 export default function NavItem(props: NavBarIconsDataTypes) {
   const { name, path, defaultIcon, activeIcon } = props;

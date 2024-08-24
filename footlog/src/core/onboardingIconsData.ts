@@ -18,7 +18,7 @@ import {
   VolcanoStrokeIcon,
   CampingStrokeIcon,
 } from '@public/icon';
-import { OnboardingIconsDataTypes } from 'types/CommonTypes';
+import { OnboardingIconsDataTypes } from 'types/onboarding/OnboardingTypes';
 
 export const onboardingIconsData: OnboardingIconsDataTypes[] = [
   { keyword: '산', defaultIcon: MountainIcon, strokeIcon: MountainStrokeIcon },

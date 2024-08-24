@@ -1,5 +1,5 @@
 import courseExampleImg from '@public/courseExample.png';
-import { CourseDetailsDataTypes } from 'types/CommonTypes';
+import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 
 export const courseDetailsData: CourseDetailsDataTypes = {
   id: 1,

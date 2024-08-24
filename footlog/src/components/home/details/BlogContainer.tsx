@@ -1,4 +1,4 @@
-import { BlogPostingDataTypes } from 'types/CommonTypes';
+import { BlogPostingDataTypes } from 'types/home/details/DetailsTypes';
 import { blogPostingData } from '@core/blogPostingData';
 import Link from 'next/link';
 

@@ -1,4 +1,4 @@
-import { RegionsDataTypes } from 'types/CommonTypes';
+import { RegionsDataTypes } from 'types/common/CommonTypes';
 
 export const popularCourseData: RegionsDataTypes[] = [
   { id: 1, name: '주왕산 국립공원' },
