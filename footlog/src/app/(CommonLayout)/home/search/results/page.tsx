@@ -6,20 +6,20 @@ import BigLocationCard from '@components/home/search/BigLocationCard';
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
 
-export default function page() {
+export default function Page() {
   const [searchInput, setSearchInput] = useState('');
   const [filteredLocations, setFilteredLocations] = useState<CourseDetailsDataTypes[]>([]);
-  const [showBigCards, setShowBigCards] = useState(true);
+  const [showBigCards, setShowBigCards] = useState(true); // 초기값 true로 설정
 
   // 쿼리 파라미터에서 초기 검색어 가져오기
   useEffect(() => {
     const query = new URLSearchParams(window.location.search).get('query');
     if (query) {
-      setSearchInput(decodeURIComponent(query)); // 쿼리 파라미터에서 검색어 가져오기
-      const filtered = courseDetailsData.filter((course: CourseDetailsDataTypes) =>
-        course.title.toLowerCase().includes(query.toLowerCase()),
-      );
-      setFilteredLocations(filtered);
+      const decodedQuery = decodeURIComponent(query);
+      setSearchInput(decodedQuery);
+      setShowBigCards(true); // 쿼리 파라미터가 있을 경우 BigLocationCard 표시
+    } else {
+      setShowBigCards(false); // 쿼리 파라미터가 없으면 BigLocationCard 숨김
     }
   }, [window.location.search]);
 
@@ -29,12 +29,23 @@ export default function page() {
       course.title.toLowerCase().includes(searchInput.toLowerCase()),
     );
     setFilteredLocations(filtered);
-  }, [searchInput]); // searchInput을 의존성으로 추가
+
+    const query = new URLSearchParams(window.location.search).get('query');
+    if (searchInput.trim() === '') {
+      setShowBigCards(true); // 입력이 없을 때는 BigLocationCard를 보여줌
+    } else if (query && query !== searchInput) {
+      setShowBigCards(false); // searchInput이 쿼리와 다를 때는 false로 설정
+    } else {
+      setShowBigCards(true); // searchInput이 쿼리와 같거나 입력 중일 때는 true로 설정
+    }
+  }, [searchInput, window.location.search]); // window.location.search도 의존성에 추가
 
   // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      setShowBigCards(true); // BigLocationCard를 보여주도록 상태 변경
+      if (searchInput.trim()) {
+        setShowBigCards(true); // BigLocationCard를 보여주도록 상태 변경
+      }
     }
   };
 
@@ -49,6 +60,7 @@ export default function page() {
         setSearchInput={setSearchInput}
         onKeyDown={handleEnterKey} // onKeyDown 이벤트 전달
         onSearch={handleSearch}
+        shouldFocus={false}
       />
       <section className="mt-80pxr flex flex-col overflow-y-auto">
         {showBigCards ? ( // showBigCards가 true일 때 BigLocationCard 출력
@@ -63,7 +75,7 @@ export default function page() {
             </section>
           ) : (
             <p className="fonts-recommendSubtitle mt-289pxr flex justify-center">
-              `'{searchInput}'의 검색 결과가 존재하지 않습니다.`
+              {searchInput}의 검색 결과가 존재하지 않습니다.
             </p>
           )
         ) : (

@@ -9,7 +9,7 @@ import LocationCard from '@components/home/search/LocationCard';
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
 
-export default function Page() {
+export default function page() {
   const [searchInput, setSearchInput] = useState('');
   const router = useRouter();
 
@@ -35,7 +35,8 @@ export default function Page() {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         onKeyDown={handleEnterKey}
-        onSearch={handleSearch} // 검색 함수 전달
+        onSearch={handleSearch}
+        shouldFocus={true}
       />
       <section className="mt-68pxr flex flex-col overflow-y-auto">
         {searchInput ? (
@@ -46,8 +47,8 @@ export default function Page() {
               ))}
             </section>
           ) : (
-            <p className="fonts-recommendSubtitle flex justify-center">
-              `'{searchInput}'의 검색 결과가 존재하지 않습니다.`
+            <p className="fonts-recommendSubtitle mt-289pxr flex justify-center">
+              {searchInput}의 검색 결과가 존재하지 않습니다.
             </p>
           )
         ) : (

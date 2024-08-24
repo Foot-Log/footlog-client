@@ -8,23 +8,23 @@ interface SearchHeaderProps {
   setSearchInput: (input: string) => void;
   onKeyDown: (e: React.KeyboardEvent) => void;
   onSearch: () => void;
+  shouldFocus: boolean;
 }
 
 export default function SearchHeader(props: SearchHeaderProps) {
-  const { searchInput, setSearchInput, onKeyDown, onSearch } = props;
+  const { searchInput, setSearchInput, onKeyDown, onSearch, shouldFocus = false } = props;
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus(); // 컴포넌트가 렌더링될 때 input에 포커스
+    if (inputRef.current && shouldFocus) {
+      inputRef.current.focus(); // shouldFocus가 true일 때만 포커스
     }
-  }, []); // 빈 배열을 전달하여 컴포넌트가 처음 렌더링될 때만 실행
+  }, [shouldFocus]); // shouldFocus가 변경될 때마다 실행
 
   function handleBackBtn() {
     router.back();
   }
-
 
   return (
     <section className="absolute top-0 flex w-full items-center justify-around gap-20pxr bg-white pb-16pxr pl-24pxr pr-20pxr pt-9pxr">
