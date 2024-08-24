@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import LocationCard from '@components/home/search/LocationCard';
 import BigLocationCard from '@components/home/search/BigLocationCard';
@@ -7,6 +8,7 @@ import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
 
 export default function Page() {
+  const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
   const [filteredLocations, setFilteredLocations] = useState<CourseDetailsDataTypes[]>([]);
   const [showBigCards, setShowBigCards] = useState(true); // 초기값 true로 설정
@@ -45,12 +47,14 @@ export default function Page() {
     if (e.key === 'Enter') {
       if (searchInput.trim()) {
         setShowBigCards(true); // BigLocationCard를 보여주도록 상태 변경
+        router.push(`results?query=${encodeURIComponent(searchInput)}`);
       }
     }
   };
 
   const handleSearch = () => {
     setShowBigCards(true); // 돋보기 버튼 클릭 시 BigLocationCard 표시
+    router.push(`results?query=${encodeURIComponent(searchInput)}`);
   };
 
   return (

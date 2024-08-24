@@ -10,8 +10,8 @@ import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
 
 export default function page() {
-  const [searchInput, setSearchInput] = useState('');
   const router = useRouter();
+  const [searchInput, setSearchInput] = useState('');
 
   const filteredLocations = courseDetailsData.filter((course: CourseDetailsDataTypes) =>
     course.title.toLowerCase().includes(searchInput.toLowerCase()),
