@@ -1,10 +1,5 @@
 import Image from 'next/image';
-import { LocationDataTypes } from 'types/common/CommonTypes';
-
-interface LocationCardProps {
-  location: LocationDataTypes;
-  searchInput: string;
-}
+import { LocationCardProps } from 'types/common/CommonTypes';
 
 export default function LocationCard(props: LocationCardProps) {
   const { location, searchInput } = props;

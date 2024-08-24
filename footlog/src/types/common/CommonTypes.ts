@@ -27,3 +27,9 @@ export interface LocationDataTypes {
   address: string;
   imgSrc: StaticImageData;
 }
+
+// 코스 검색 결과 LocationCard
+export interface LocationCardProps {
+  location: LocationDataTypes;
+  searchInput: string;
+}

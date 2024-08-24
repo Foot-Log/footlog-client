@@ -23,6 +23,12 @@ export default function SearchHeader(props: SearchHeaderProps) {
     router.back();
   }
 
+  function handleSearch() {
+    if (searchInput.trim()) {
+      router.push(`search/results?query=${encodeURIComponent(searchInput)}`); // 검색어를 쿼리 파라미터로 전달하여 새로운 페이지로 이동
+    }
+  }
+
   return (
     <section className="absolute top-0 flex w-full items-center justify-around gap-20pxr bg-white pb-16pxr pr-20pxr pt-9pxr">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
@@ -35,8 +41,15 @@ export default function SearchHeader(props: SearchHeaderProps) {
           placeholder="코스를 검색해 보세요!"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)} // input 변화 감지
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch(); // 엔터 키를 누르면 검색
+            }
+          }}
         />
-        <SearchIcon />
+        <button type="button" onClick={handleSearch}>
+          <SearchIcon />
+        </button>
       </section>
     </section>
   );
