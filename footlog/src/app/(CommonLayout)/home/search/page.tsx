@@ -23,7 +23,7 @@ export default function page() {
           filteredLocations.length > 0 ? (
             <section className="flex flex-col gap-24pxr">
               {filteredLocations.map((location) => (
-                <LocationCard key={location.id} location={location} /> // location 객체 전체를 전달
+                <LocationCard key={location.id} location={location} searchInput={searchInput} /> // location 객체 전체를 전달
               ))}
             </section>
           ) : (
