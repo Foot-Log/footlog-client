@@ -17,12 +17,14 @@ export default function page() {
     course.title.toLowerCase().includes(searchInput.toLowerCase()),
   );
 
+  // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && searchInput.trim()) {
       router.push(`search/results?query=${encodeURIComponent(searchInput)}`);
     }
   };
 
+  // 돋보기 버튼 클릭 시 호출되는 함수
   const handleSearch = () => {
     if (searchInput.trim()) {
       router.push(`search/results?query=${encodeURIComponent(searchInput)}`);

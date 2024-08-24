@@ -11,7 +11,7 @@ export default function Page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
   const [filteredLocations, setFilteredLocations] = useState<CourseDetailsDataTypes[]>([]);
-  const [showBigCards, setShowBigCards] = useState(true); // 초기값 true로 설정
+  const [showBigCards, setShowBigCards] = useState(true);
 
   // 쿼리 파라미터에서 초기 검색어 가져오기
   useEffect(() => {
@@ -46,14 +46,15 @@ export default function Page() {
   const handleEnterKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       if (searchInput.trim()) {
-        setShowBigCards(true); // BigLocationCard를 보여주도록 상태 변경
+        setShowBigCards(true);
         router.push(`results?query=${encodeURIComponent(searchInput)}`);
       }
     }
   };
 
+  // 돋보기 버튼 클릭 시 호출되는 함수
   const handleSearch = () => {
-    setShowBigCards(true); // 돋보기 버튼 클릭 시 BigLocationCard 표시
+    setShowBigCards(true);
     router.push(`results?query=${encodeURIComponent(searchInput)}`);
   };
 
