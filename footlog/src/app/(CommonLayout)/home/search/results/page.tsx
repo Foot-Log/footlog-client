@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
-import LocationCard from '@components/home/search/LocationCard';
-import BigLocationCard from '@components/home/search/BigLocationCard';
+import LocationCard from '@components/common/LocationCard';
+import BigLocationCard from '@components/home/search/results/BigLocationCard';
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
 
