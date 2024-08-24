@@ -28,22 +28,16 @@ export default function InfoContainer(props: InfoContainerProps) {
 
   return (
     <section className="flex w-full flex-col px-24pxr pt-20pxr">
-      <p className={`fonts-detailDescription ${!isExpanded ? 'line-clamp-5' : ''}`}>
+      <p className={`fonts-detailDescription text-gray-8 ${!isExpanded ? 'line-clamp-5' : ''}`}>
         {isExpanded ? description : `${description.slice(0, 173)}`}
         {!isExpanded && (
-          <span
-            className="fonts-detailDescription cursor-pointer"
-            style={{ color: '#808080' }}
-            onClick={toggleDescription}>
+          <span className="fonts-detailDescription text-gray-4 cursor-pointer" onClick={toggleDescription}>
             {' ...더보기'}
           </span>
         )}
 
         {isExpanded && (
-          <span
-            className="fonts-detailDescription cursor-pointer"
-            style={{ color: '#808080' }}
-            onClick={toggleDescription}>
+          <span className="fonts-detailDescription text-gray-4 cursor-pointer" onClick={toggleDescription}>
             {' ...접기'}
           </span>
         )}
