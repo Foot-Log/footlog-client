@@ -2,16 +2,18 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
-import LocationCard from '@components/common/LocationCard';
-import BigLocationCard from '@components/home/search/results/BigLocationCard';
+import { filterCourses, filterLocations } from '@utils/filterData';
+import SearchedResults from '@components/home/search/results/SearchedResults';
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
+import { locationData } from '@core/locationData';
 
 export default function Page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
   const [filteredCourses, setFilteredCourses] = useState<CourseDetailsDataTypes[]>([]);
   const [showBigCards, setShowBigCards] = useState(true);
+  const filteredLocations = filterLocations(locationData, searchInput);
 
   // 쿼리 파라미터에서 초기 검색어 가져오기
   useEffect(() => {
@@ -27,9 +29,7 @@ export default function Page() {
 
   // searchInput이 변경될 때마다 필터링된 결과 업데이트
   useEffect(() => {
-    const filtered = courseDetailsData.filter((course: CourseDetailsDataTypes) =>
-      course.title.toLowerCase().includes(searchInput.toLowerCase()),
-    );
+    const filtered = filterCourses(courseDetailsData, searchInput);
     setFilteredCourses(filtered);
 
     const query = new URLSearchParams(window.location.search).get('query');
@@ -67,33 +67,12 @@ export default function Page() {
         onSearch={handleSearch}
         shouldFocus={false}
       />
-      <section className="mt-59pxr flex flex-col overflow-y-auto">
-        {showBigCards ? ( // showBigCards가 true일 때 BigLocationCard 출력
-          filteredCourses.length > 0 ? (
-            <section className="flex flex-col">
-              {filteredCourses.map((course) => (
-                <section key={course.id}>
-                  <div className="mb-20pxr h-8pxr w-full bg-gray-1" />
-                  <BigLocationCard course={course} searchInput={searchInput} />
-                </section>
-              ))}
-            </section>
-          ) : (
-            <p className="fonts-recommendSubtitle mt-289pxr flex justify-center">
-              {searchInput}의 검색 결과가 존재하지 않습니다.
-            </p>
-          )
-        ) : (
-          // 입력 중일 때 LocationCard 출력
-          <section className="mt-12pxr flex flex-col gap-24pxr">
-            {filteredCourses.map((course) => (
-              <section key={course.id}>
-                <LocationCard course={course} searchInput={searchInput} />
-              </section>
-            ))}
-          </section>
-        )}
-      </section>
+      <SearchedResults
+        filteredCourses={filteredCourses}
+        filteredLocations={filteredLocations}
+        searchInput={searchInput}
+        showBigCards={showBigCards}
+      />
     </main>
   );
 }
