@@ -43,6 +43,8 @@ import FlagIcon from './home/details/flag.svg';
 import GreenFlagIcon from './mypage/greenFlag.svg';
 import NullFlagIcon from './mypage/nullFlag.svg';
 import CloseIcon from './home/search/close.svg';
+import SearchSaveFilledIcon from './home/search/searchSaveFilled.svg';
+import SearchSaveOutlineIcon from './home/search/searchSaveOutline.svg';
 
 export {
   CampingIcon,
@@ -90,4 +92,6 @@ export {
   GreenFlagIcon,
   NullFlagIcon,
   CloseIcon,
+  SearchSaveFilledIcon,
+  SearchSaveOutlineIcon,
 };
