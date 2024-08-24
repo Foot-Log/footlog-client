@@ -47,3 +47,9 @@ export interface BlogPostingDataTypes {
   description: string;
   link: string;
 }
+
+// 코스 검색 결과 LocationCard
+export interface LocationCardProps {
+  course: CourseDetailsDataTypes;
+  searchInput: string;
+}
