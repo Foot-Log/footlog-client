@@ -10,7 +10,10 @@ export default function MainSearchHeader() {
         href="/home/search"
         className="flex h-42pxr w-307pxr items-center gap-10pxr rounded-searchBar bg-gray-3 pl-12pxr pr-5pxr">
         <SearchIcon />
-        <input className="fonts-searchPlaceholder w-5/6 bg-transparent" placeholder="코스를 검색해 보세요!" />
+        <input
+          className="fonts-searchPlaceholder w-5/6 bg-transparent text-gray-4"
+          placeholder="코스를 검색해 보세요!"
+        />
       </Link>
     </section>
   );

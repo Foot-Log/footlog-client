@@ -34,7 +34,7 @@ export default function SearchHeader(props: SearchHeaderProps) {
       <section className="rounded-clickedSearchBar flex h-42pxr w-317pxr items-center justify-between gap-16pxr border border-gray-8 bg-white pl-20pxr pr-16pxr">
         <input
           ref={inputRef}
-          className="fonts-searchPlaceholder w-full bg-transparent"
+          className="fonts-searchPlaceholder w-full bg-transparent text-gray-8 placeholder:text-gray-4"
           placeholder="코스를 검색해 보세요!"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)} // input 변화 감지
