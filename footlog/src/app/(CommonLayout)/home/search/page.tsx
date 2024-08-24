@@ -21,11 +21,11 @@ export default function page() {
       <section className="mt-68pxr flex flex-col overflow-y-auto">
         {searchInput ? (
           filteredLocations.length > 0 ? (
-            <div>
+            <section className="flex flex-col gap-24pxr">
               {filteredLocations.map((location) => (
                 <LocationCard key={location.id} location={location} /> // location 객체 전체를 전달
               ))}
-            </div>
+            </section>
           ) : (
             <></>
           )
