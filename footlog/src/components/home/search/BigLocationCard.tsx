@@ -7,7 +7,7 @@ export default function BigLocationCard(props: LocationCardProps) {
   const { course } = props;
 
   return (
-    <section className="relative flex flex-col px-24pxr">
+    <section className="relative mb-20pxr flex flex-col px-24pxr">
       <Link
         key={course.id}
         href={`/home/details/${course.id}`}

@@ -67,14 +67,14 @@ export default function Page() {
         onSearch={handleSearch}
         shouldFocus={false}
       />
-      <section className="mt-80pxr flex flex-col overflow-y-auto">
+      <section className="mt-59pxr flex flex-col overflow-y-auto">
         {showBigCards ? ( // showBigCards가 true일 때 BigLocationCard 출력
           filteredLocations.length > 0 ? (
             <section className="flex flex-col">
               {filteredLocations.map((course) => (
                 <section key={course.id}>
+                  <div className="mb-20pxr h-8pxr w-full bg-gray-1" />
                   <BigLocationCard course={course} searchInput={searchInput} />
-                  <div className="my-20pxr h-8pxr w-full bg-gray-1" />
                 </section>
               ))}
             </section>
@@ -85,7 +85,7 @@ export default function Page() {
           )
         ) : (
           // 입력 중일 때 LocationCard 출력
-          <section className="flex flex-col gap-24pxr">
+          <section className="mt-12pxr flex flex-col gap-24pxr">
             {filteredLocations.map((course) => (
               <section key={course.id}>
                 <LocationCard course={course} searchInput={searchInput} />
