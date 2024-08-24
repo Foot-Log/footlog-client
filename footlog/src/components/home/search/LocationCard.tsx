@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { LocationCardProps } from 'types/common/CommonTypes';
 
 export default function LocationCard(props: LocationCardProps) {
@@ -23,8 +24,12 @@ export default function LocationCard(props: LocationCardProps) {
   };
 
   return (
-    <section className="flex items-center gap-16pxr">
-      <figure className="relative flex h-64pxr w-64pxr cursor-pointer overflow-hidden rounded-xl">
+    <Link
+      key={location.id}
+      href={`/home/details/${location.id}`}
+      passHref
+      className="curosr-pointer flex items-center gap-16pxr pl-24pxr">
+      <figure className="relative flex h-64pxr w-64pxr overflow-hidden rounded-xl">
         <Image
           fill
           src={location.imgSrc}
@@ -40,6 +45,6 @@ export default function LocationCard(props: LocationCardProps) {
         </p>
         <p className="fonts-detail">{location.address}</p>
       </section>
-    </section>
+    </Link>
   );
 }
