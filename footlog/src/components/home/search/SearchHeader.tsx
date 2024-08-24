@@ -30,7 +30,7 @@ export default function SearchHeader(props: SearchHeaderProps) {
   }
 
   return (
-    <section className="absolute top-0 flex w-full items-center justify-around gap-20pxr bg-white pb-16pxr pr-20pxr pt-9pxr">
+    <section className="absolute top-0 flex w-full items-center justify-around gap-20pxr bg-white pb-16pxr pl-24pxr pr-20pxr pt-9pxr">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>

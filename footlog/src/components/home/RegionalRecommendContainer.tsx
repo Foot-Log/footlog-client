@@ -10,7 +10,7 @@ export default function RegionalRecommendContainer() {
           {regionsData.map((region) => (
             <div
               key={region.id}
-              className="fonts-regionName border-gray_2 flex h-44pxr w-110pxr items-center justify-center gap-7pxr rounded border text-gray-8">
+              className="fonts-regionName flex h-44pxr w-110pxr items-center justify-center gap-7pxr rounded border border-gray-2 text-gray-8">
               {region.name}
               {region.name === '전체' && <RightArrowIcon />} {/* '전체'일 경우 RightArrowIcon 추가 */}
             </div>

@@ -23,13 +23,16 @@ export default function page() {
   }, [window.location.search]);
 
   return (
-    <main className="relative flex h-full w-full flex-col pl-24pxr">
+    <main className="relative flex h-full w-full flex-col">
       <SearchHeader searchInput={searchInput} setSearchInput={setSearchInput} />
       <section className="mt-68pxr flex flex-col overflow-y-auto">
         {searchInput && filteredLocations.length > 0 ? (
           <section className="flex flex-col gap-24pxr">
             {filteredLocations.map((location) => (
-              <BigLocationCard key={location.id} location={location} searchInput={searchInput} />
+              <>
+                <BigLocationCard key={location.id} location={location} searchInput={searchInput} />
+                <div className="h-8pxr w-393pxr bg-gray-1" />
+              </>
             ))}
           </section>
         ) : (

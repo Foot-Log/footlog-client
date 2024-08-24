@@ -6,7 +6,7 @@ export default function PopularContainer() {
 
   return (
     <section className="flex w-full flex-col">
-      <section className="flex w-full flex-col gap-20pxr py-20pxr pr-24pxr">
+      <section className="flex w-full flex-col gap-20pxr px-24pxr py-20pxr">
         <h2 className="fonts-recommendTitle">인기 코스</h2>
         <div className="flex justify-between">
           <section className="grid w-171pxr grid-cols-1 gap-y-32pxr">
