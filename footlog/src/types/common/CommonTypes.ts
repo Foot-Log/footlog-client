@@ -26,6 +26,7 @@ export interface LocationDataTypes {
   name: string;
   address: string;
   imgSrc: StaticImageData;
+  isSaved: boolean;
 }
 
 // 코스 검색 결과 LocationCard
