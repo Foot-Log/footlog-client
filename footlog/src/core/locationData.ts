@@ -11,7 +11,7 @@ export const locationData: LocationDataTypes[] = [
   },
   {
     id: 2,
-    name: '문경새재 용추계곡',
+    name: '문경 용추계곡',
     address: '경상북도 문경시 가은읍 완장리',
     imgSrc: courseExampleImg,
     isSaved: false,

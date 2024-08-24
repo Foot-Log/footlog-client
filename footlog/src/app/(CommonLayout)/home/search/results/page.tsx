@@ -25,18 +25,20 @@ export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <SearchHeader searchInput={searchInput} setSearchInput={setSearchInput} />
-      <section className="mt-68pxr flex flex-col overflow-y-auto">
+      <section className="mt-80pxr flex flex-col overflow-y-auto">
         {searchInput && filteredLocations.length > 0 ? (
-          <section className="flex flex-col gap-24pxr">
+          <section className="flex flex-col">
             {filteredLocations.map((location) => (
-              <>
-                <BigLocationCard key={location.id} location={location} searchInput={searchInput} />
-                <div className="h-8pxr w-393pxr bg-gray-1" />
-              </>
+              <section key={location.id}>
+                <BigLocationCard location={location} searchInput={searchInput} />
+                <div className="my-20pxr h-8pxr w-full bg-gray-1" />
+              </section>
             ))}
           </section>
         ) : (
-          <p>{searchInput ? `'${searchInput}'의 검색 결과가 존재하지 않습니다.` : '검색어를 입력해 주세요.'}</p>
+          <p className="fonts-recommendSubtitle mt-289pxr flex justify-center">
+            {searchInput ? `'${searchInput}'의 검색 결과가 존재하지 않습니다.` : '검색어를 입력해 주세요.'}
+          </p>
         )}
       </section>
     </main>

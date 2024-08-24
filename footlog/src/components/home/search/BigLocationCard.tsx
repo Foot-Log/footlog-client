@@ -1,13 +1,17 @@
 import Image from 'next/image';
 import { LocationCardProps } from 'types/common/CommonTypes';
+import { SearchSaveFilledIcon, SearchSaveOutlineIcon } from '@public/icon';
 
 export default function BigLocationCard(props: LocationCardProps) {
   const { location } = props;
 
   return (
-    <section className="flex flex-col gap-20pxr pl-24pxr">
+    <section className="flex flex-col gap-20pxr px-24pxr">
       <section className="flex flex-col items-start gap-4pxr">
-        <p className="fonts-recommendTitle">{location.name}</p>
+        <section className="flex w-full items-center justify-between">
+          <p className="fonts-recommendTitle">{location.name}</p>
+          {location.isSaved ? <SearchSaveFilledIcon /> : <SearchSaveOutlineIcon />}
+        </section>
         <p className="fonts-detail">{location.address}</p>
       </section>
       <figure className="relative flex h-148pxr w-345pxr cursor-pointer overflow-hidden rounded-xl">
