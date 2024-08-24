@@ -39,6 +39,8 @@ import ClockIcon from './details/clock.svg';
 import CallIcon from './details/call.svg';
 import SiteIcon from './details/site.svg';
 import FlagIcon from './details/flag.svg';
+import GreenFlagIcon from './mypage/greenFlag.svg';
+import NullFlagIcon from './mypage/nullFlag.svg';
 
 export {
   CampingIcon,
@@ -82,4 +84,6 @@ export {
   CallIcon,
   SiteIcon,
   FlagIcon,
+  GreenFlagIcon,
+  NullFlagIcon,
 };
