@@ -241,3 +241,37 @@ button {
   line-height: 130%; /* 1.3rem */
   letter-spacing: -0.03125rem;
 }
+
+/* 마이 페이지 최상단 제목*/
+.font-mypageTitle {
+  color: #333;
+  font-family: 'Noto Sans KR';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 1.625rem */
+  letter-spacing: -0.03125rem;
+}
+.font-mypageNickname {
+  color: #333;
+  font-family: 'Noto Sans KR';
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 1.4625rem */
+  letter-spacing: -0.03125rem;
+}
+.font-mypageLevel {
+  font-family: 'Noto Sans KR';
+  font-size: 0.875rem;
+  line-height: 130%; /* 1.1375rem */
+  letter-spacing: -0.03125rem;
+}
+.font-mypageDetail {
+  font-family: 'Noto Sans KR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 1.1375rem */
+  letter-spacing: -0.03125rem;
+}
