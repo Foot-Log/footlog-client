@@ -24,6 +24,6 @@ export interface RegionsDataTypes {
 export interface LocationDataTypes {
   id: number;
   name: string;
-  location: string;
+  address: string;
   imgSrc: StaticImageData;
 }
