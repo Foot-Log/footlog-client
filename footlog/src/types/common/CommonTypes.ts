@@ -19,3 +19,11 @@ export interface RegionsDataTypes {
   id: number;
   name: string;
 }
+
+// 코스 목록, 검색
+export interface LocationDataTypes {
+  id: number;
+  name: string;
+  location: string;
+  imgSrc: StaticImageData;
+}
