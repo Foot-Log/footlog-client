@@ -28,7 +28,7 @@ export default function LocationCard(props: LocationCardProps) {
       key={course.id}
       href={`/home/details/${course.id}`}
       passHref
-      className="curosr-pointer flex items-center gap-16pxr pl-24pxr">
+      className="flex cursor-pointer items-center gap-16pxr pl-24pxr">
       <figure className="relative flex h-64pxr w-64pxr overflow-hidden rounded-xl">
         <Image
           fill

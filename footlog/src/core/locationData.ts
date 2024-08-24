@@ -1,8 +1,8 @@
 import { RegionCardDataTypes } from 'types/home/search/SearchTypes';
 
-export const regionsData: RegionCardDataTypes[] = [
+export const locationData: RegionCardDataTypes[] = [
   { id: 1, title: '서울', subtitle: '서울특별시' },
-  { id: 2, title: '서울', subtitle: '경기도' },
+  { id: 2, title: '마포', subtitle: '서울특별시' },
   { id: 3, title: '경기', subtitle: '경기도' },
   { id: 4, title: '인천', subtitle: '인천광역시' },
   { id: 5, title: '부산', subtitle: '부산광역시' },

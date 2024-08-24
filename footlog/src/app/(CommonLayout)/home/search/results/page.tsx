@@ -10,7 +10,7 @@ import { courseDetailsData } from '@core/courseDetailsData';
 export default function Page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
-  const [filteredLocations, setFilteredLocations] = useState<CourseDetailsDataTypes[]>([]);
+  const [filteredCourses, setFilteredCourses] = useState<CourseDetailsDataTypes[]>([]);
   const [showBigCards, setShowBigCards] = useState(true);
 
   // 쿼리 파라미터에서 초기 검색어 가져오기
@@ -30,7 +30,7 @@ export default function Page() {
     const filtered = courseDetailsData.filter((course: CourseDetailsDataTypes) =>
       course.title.toLowerCase().includes(searchInput.toLowerCase()),
     );
-    setFilteredLocations(filtered);
+    setFilteredCourses(filtered);
 
     const query = new URLSearchParams(window.location.search).get('query');
     if (searchInput.trim() === '') {
@@ -69,9 +69,9 @@ export default function Page() {
       />
       <section className="mt-59pxr flex flex-col overflow-y-auto">
         {showBigCards ? ( // showBigCards가 true일 때 BigLocationCard 출력
-          filteredLocations.length > 0 ? (
+          filteredCourses.length > 0 ? (
             <section className="flex flex-col">
-              {filteredLocations.map((course) => (
+              {filteredCourses.map((course) => (
                 <section key={course.id}>
                   <div className="mb-20pxr h-8pxr w-full bg-gray-1" />
                   <BigLocationCard course={course} searchInput={searchInput} />
@@ -86,7 +86,7 @@ export default function Page() {
         ) : (
           // 입력 중일 때 LocationCard 출력
           <section className="mt-12pxr flex flex-col gap-24pxr">
-            {filteredLocations.map((course) => (
+            {filteredCourses.map((course) => (
               <section key={course.id}>
                 <LocationCard course={course} searchInput={searchInput} />
               </section>

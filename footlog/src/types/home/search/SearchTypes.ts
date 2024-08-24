@@ -4,3 +4,8 @@ export interface RegionCardDataTypes {
   title: string;
   subtitle?: string;
 }
+
+export interface RegionCardProps {
+  location: RegionCardDataTypes;
+  searchInput: string;
+}
