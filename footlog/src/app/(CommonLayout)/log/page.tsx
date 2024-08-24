@@ -1,9 +1,9 @@
-import LogoSearchHeader from '@components/common/LogoSearchHeader/LogoSearchHeader';
+import MainSearchHeader from '@components/common/MainSearchHeader/MainSearchHeader';
 
 export default function page() {
   return (
     <div>
-      <LogoSearchHeader />
+      <MainSearchHeader />
     </div>
   );
 }

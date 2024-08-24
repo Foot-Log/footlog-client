@@ -1,4 +1,4 @@
-import LogoSearchHeader from '@components/common/LogoSearchHeader/LogoSearchHeader';
+import MainSearchHeader from '@components/common/MainSearchHeader/MainSearchHeader';
 import RecommendContainer from '@components/home/RecommendContainer';
 import RegionalRecommendContainer from '@components/home/RegionalRecommendContainer';
 import { recommendCoursesData } from '@core/recommendCoursesData';
@@ -6,7 +6,7 @@ import { recommendCoursesData } from '@core/recommendCoursesData';
 export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
-      <LogoSearchHeader />
+      <MainSearchHeader />
       <section className="mt-68pxr flex flex-col overflow-y-auto">
         <RecommendContainer
           title="나를 위한 코스 추천"
