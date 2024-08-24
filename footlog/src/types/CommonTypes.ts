@@ -20,6 +20,7 @@ export interface RecommendCoursesDataTypes {
   isSaved: boolean;
 }
 
+// 지역명, 최근 검색어, 인기 코스
 export interface RegionsDataTypes {
   id: number;
   name: string;

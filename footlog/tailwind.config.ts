@@ -32,6 +32,8 @@ const config: Config = {
       },
       borderRadius: {
         searchBar: '21px',
+        clickedSearchBar: '8px',
+        searchBox: '30px',
       },
     },
   },

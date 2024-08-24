@@ -153,7 +153,7 @@ button {
 }
 
 /* 추천 부제 폰트 */
-.fonts-recommnedSubtitle {
+.fonts-recommendSubtitle {
   color: #808080;
 
   font-family: 'Noto Sans KR';
@@ -190,8 +190,6 @@ button {
 
 /* 지역별 코스 찾기에서 지역 이름 폰트 */
 .fonts-regionName {
-  color: #333333;
-
   font-family: 'Noto Sans KR';
   font-size: 0.875rem;
   font-style: normal;

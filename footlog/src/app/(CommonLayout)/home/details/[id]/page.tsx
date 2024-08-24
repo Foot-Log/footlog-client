@@ -32,7 +32,7 @@ export default function page() {
           call={course.call}
           site={course.site}
         />
-        <div className="bg-gray-1 h-8pxr w-full" />
+        <div className="h-8pxr w-full bg-gray-1" />
         <BlogContainer title={course.title} />
       </section>
       <FinishBtn isComplete={course.isComplete} />

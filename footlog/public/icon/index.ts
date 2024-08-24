@@ -42,6 +42,7 @@ import SiteIcon from './home/details/site.svg';
 import FlagIcon from './home/details/flag.svg';
 import GreenFlagIcon from './mypage/greenFlag.svg';
 import NullFlagIcon from './mypage/nullFlag.svg';
+import CloseIcon from './home/search/close.svg';
 
 export {
   CampingIcon,
@@ -88,4 +89,5 @@ export {
   FlagIcon,
   GreenFlagIcon,
   NullFlagIcon,
+  CloseIcon,
 };

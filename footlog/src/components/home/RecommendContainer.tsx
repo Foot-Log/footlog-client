@@ -14,10 +14,10 @@ export default function RecommendContainer(props: RecommendContainerProps) {
     <section className="flex w-full flex-col">
       <section className="flex w-full flex-col py-20pxr pl-24pxr">
         <h2 className="fonts-recommendTitle mb-4pxr">{title}</h2>
-        <p className="fonts-recommnedSubtitle">{subtitle}</p>
+        <p className="fonts-recommendSubtitle">{subtitle}</p>
         <CoursesSlider courses={courses} />
       </section>
-      <div className="bg-gray-1 h-8pxr w-full" />
+      <div className="h-8pxr w-full bg-gray-1" />
     </section>
   );
 }

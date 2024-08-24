@@ -1,3 +1,9 @@
+import MainSearchHeader from '@components/common/MainSearchHeader/MainSearchHeader';
+
 export default function page() {
-  return <div>page</div>;
+  return (
+    <div>
+      <MainSearchHeader />
+    </div>
+  );
 }
