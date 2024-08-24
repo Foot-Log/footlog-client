@@ -6,10 +6,12 @@ import { LeftArrowIcon, SearchIcon } from '@public/icon';
 interface SearchHeaderProps {
   searchInput: string;
   setSearchInput: (input: string) => void;
+  onKeyDown: (e: React.KeyboardEvent) => void;
+  onSearch: () => void;
 }
 
 export default function SearchHeader(props: SearchHeaderProps) {
-  const { searchInput, setSearchInput } = props;
+  const { searchInput, setSearchInput, onKeyDown, onSearch } = props;
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -23,11 +25,6 @@ export default function SearchHeader(props: SearchHeaderProps) {
     router.back();
   }
 
-  function handleSearch() {
-    if (searchInput.trim()) {
-      router.push(`search/results?query=${encodeURIComponent(searchInput)}`); // 검색어를 쿼리 파라미터로 전달하여 새로운 페이지로 이동
-    }
-  }
 
   return (
     <section className="absolute top-0 flex w-full items-center justify-around gap-20pxr bg-white pb-16pxr pl-24pxr pr-20pxr pt-9pxr">
@@ -41,13 +38,9 @@ export default function SearchHeader(props: SearchHeaderProps) {
           placeholder="코스를 검색해 보세요!"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)} // input 변화 감지
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              handleSearch(); // 엔터 키를 누르면 검색
-            }
-          }}
+          onKeyDown={onKeyDown}
         />
-        <button type="button" onClick={handleSearch}>
+        <button type="button" onClick={onSearch}>
           <SearchIcon />
         </button>
       </section>
