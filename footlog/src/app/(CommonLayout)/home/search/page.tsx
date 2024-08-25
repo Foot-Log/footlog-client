@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import RecentSearchContainer from '@components/home/search/RecentSearchContainer';
-import RecentCourseContainer from '@components/home/search/RecentCourseContainer';
+import RecentCourseContainer from '@components/common/RecentCourseContainer';
 import PopularContainer from '@components/home/search/PopularContainer';
 import SearchingResults from '@components/home/search/SearchingResults';
 import { courseDetailsData } from '@core/courseDetailsData';

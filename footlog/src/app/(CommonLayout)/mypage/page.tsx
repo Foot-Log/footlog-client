@@ -1,4 +1,5 @@
 import MypageContainer from '@components/mypage/MypageContainer';
+import RecentCourseContainer from '@components/common/RecentCourseContainer';
 import { recommendCoursesData } from '@core/recommendCoursesData';
 import { GreenFlagIcon, NullFlagIcon } from '@public/icon';
 
@@ -31,10 +32,8 @@ export default function page() {
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
-      <section className="ml-24pxr">
-        <MypageContainer title="저장 목록" courses={recommendCoursesData} />
-        <MypageContainer title="최근 확인한 코스" courses={recommendCoursesData} />
-      </section>
+      <MypageContainer title="저장 목록" courses={recommendCoursesData} />
+      <RecentCourseContainer />
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 

@@ -42,6 +42,7 @@ import SiteIcon from './home/details/site.svg';
 import FlagIcon from './home/details/flag.svg';
 import GreenFlagIcon from './mypage/greenFlag.svg';
 import NullFlagIcon from './mypage/nullFlag.svg';
+import MypageRightArrowIcon from './mypage/mypageRightArrow.svg';
 import CloseIcon from './home/search/close.svg';
 import SearchSaveFilledIcon from './home/search/searchSaveFilled.svg';
 import SearchSaveOutlineIcon from './home/search/searchSaveOutline.svg';
@@ -96,4 +97,5 @@ export {
   SearchSaveFilledIcon,
   SearchSaveOutlineIcon,
   SearchLocationIcon,
+  MypageRightArrowIcon,
 };
