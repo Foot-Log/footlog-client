@@ -6,7 +6,7 @@ export default function page() {
   return (
     <div>
       <MainSearchHeader />
-      <KakaoMap />
+      <KakaoMap locations={['서울', '대구']} />
     </div>
   );
 }
