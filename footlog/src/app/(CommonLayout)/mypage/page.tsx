@@ -1,7 +1,7 @@
 import MypageContainer from '@components/mypage/MypageContainer';
 import RecentCourseContainer from '@components/common/RecentCourseContainer';
 import { recommendCoursesData } from '@core/recommendCoursesData';
-import { GreenFlagIcon, NullFlagIcon } from '@public/icon';
+import { Flag2 } from '@public/icon';
 
 export default function page() {
   return (
@@ -22,9 +22,8 @@ export default function page() {
               <div className="font-mypageLevel font-medium text-gray-4">레벨 1</div>
               <div className="font-mypageLevel ml-2pxr font-bold text-main-green">새싹 플로거</div>
             </div>
-            <div className="flex">
-              <GreenFlagIcon />
-              <NullFlagIcon />
+            <div className="mt-12pxr">
+              <Flag2 />
             </div>
           </div>
         </div>
