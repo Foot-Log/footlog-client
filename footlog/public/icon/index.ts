@@ -45,6 +45,7 @@ import NullFlagIcon from './mypage/nullFlag.svg';
 import CloseIcon from './home/search/close.svg';
 import SearchSaveFilledIcon from './home/search/searchSaveFilled.svg';
 import SearchSaveOutlineIcon from './home/search/searchSaveOutline.svg';
+import SearchLocationIcon from './home/search/searchLocation.svg';
 
 export {
   CampingIcon,
@@ -94,4 +95,5 @@ export {
   CloseIcon,
   SearchSaveFilledIcon,
   SearchSaveOutlineIcon,
+  SearchLocationIcon,
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecommendCoursesDataTypes } from 'types/CommonTypes';
+import { RecommendCoursesDataTypes } from 'types/common/CommonTypes';
 import CoursesSlider from '@components/common/CoursesSlider/CoursesSlider';
 
 interface MypageContainerProps {
@@ -12,7 +12,7 @@ export default function MypageContainer(props: MypageContainerProps) {
 
   return (
     <section className="flex w-full flex-col">
-      <section className="py-20pxr flex w-full flex-col">
+      <section className="flex w-full flex-col py-20pxr">
         <h2 className="fonts-recommendTitle mb-4pxr">{title}</h2>
         <CoursesSlider courses={courses} />
       </section>

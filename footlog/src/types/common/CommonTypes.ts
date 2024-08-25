@@ -1,9 +1,3 @@
-export interface OnboardingIconsDataTypes {
-  keyword: string;
-  defaultIcon: React.FC;
-  strokeIcon: React.FC;
-}
-
 export interface NavBarIconsDataTypes {
   name: string;
   path: string;
@@ -26,30 +20,9 @@ export interface RegionsDataTypes {
   name: string;
 }
 
-export interface CourseDetailsDataTypes {
-  id: number;
-  title: string;
-  isSaved: boolean;
-  imgSrc: StaticImageData;
-  description: string;
-  address: string;
-  price: string;
-  time: string;
-  call: string;
-  site: string;
-  isComplete: boolean;
-}
-
-export interface BlogPostingDataTypes {
-  writer: string;
-  date: string;
-  title: string;
-  description: string;
-  link: string;
-}
-
 // 코스 검색 결과 LocationCard
+import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 export interface LocationCardProps {
   course: CourseDetailsDataTypes;
-  searchInput?: string;
+  searchInput: string;
 }

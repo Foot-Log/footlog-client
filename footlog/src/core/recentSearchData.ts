@@ -1,4 +1,4 @@
-import { RegionsDataTypes } from 'types/CommonTypes';
+import { RegionsDataTypes } from 'types/common/CommonTypes';
 
 export const recentSearchData: RegionsDataTypes[] = [
   { id: 1, name: '국립공원' },

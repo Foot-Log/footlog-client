@@ -1,5 +1,5 @@
 import { HomeIcon, HomeActiveIcon, LogIcon, LogActiveIcon, MypageIcon, MypageActiveIcon } from '@public/icon';
-import { NavBarIconsDataTypes } from 'types/CommonTypes';
+import { NavBarIconsDataTypes } from 'types/common/CommonTypes';
 
 export const navBarIconsData: NavBarIconsDataTypes[] = [
   { name: '홈', path: '/home', defaultIcon: HomeIcon, activeIcon: HomeActiveIcon },

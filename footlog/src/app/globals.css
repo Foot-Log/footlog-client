@@ -130,8 +130,6 @@ button {
 
 /* 검색 placeholder 폰트 */
 .fonts-searchPlaceholder {
-  color: #808080;
-
   font-family: 'Noto Sans KR';
   font-size: 0.875rem;
   font-style: normal;
