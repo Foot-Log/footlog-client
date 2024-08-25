@@ -15,7 +15,7 @@ export default function ListHeader(props: ListHeaderProps) {
   }
 
   return (
-    <section className="flex gap-20pxr">
+    <section className="fixed top-0 z-20 flex h-68pxr w-full items-center gap-20pxr bg-white pl-24pxr">
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>
