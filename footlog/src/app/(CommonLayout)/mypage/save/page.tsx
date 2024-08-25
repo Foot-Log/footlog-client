@@ -5,7 +5,7 @@ import BigLocationCard from '@components/common/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 
 export default function page() {
-  // 나중에 지역 api 연결하기
+  // 나중에 저장목록 api 연결하기
   //const course: CourseDetailsDataTypes = await getMovieDetails(params.id);
 
   const course: CourseDetailsDataTypes[] = courseDetailsData;

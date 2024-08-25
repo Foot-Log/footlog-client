@@ -14,7 +14,7 @@ export default function MypageContainer(props: MypageContainerProps) {
   const router = useRouter();
 
   return (
-    <section className="flex w-full flex-col">
+    <section className="ml-24pxr flex w-full flex-col">
       <section className="flex w-full flex-col py-20pxr">
         <section className="flex w-full items-center justify-between">
           <h2 className="fonts-recommendTitle">{title}</h2>
