@@ -3,7 +3,7 @@ import { LocationIcon, PriceIcon, ClockIcon, CallIcon, SiteIcon } from '@public/
 
 interface InfoContainerProps {
   description: string;
-  location: string;
+  address: string;
   price: string;
   time: string;
   call: string;
@@ -11,11 +11,11 @@ interface InfoContainerProps {
 }
 
 export default function InfoContainer(props: InfoContainerProps) {
-  const { description, location, price, time, call, site } = props;
+  const { description, address, price, time, call, site } = props;
   const [isExpanded, setIsExpanded] = useState(false);
 
   const infoItems = [
-    { icon: <LocationIcon />, text: location },
+    { icon: <LocationIcon />, text: address },
     { icon: <PriceIcon />, text: price },
     { icon: <ClockIcon />, text: time },
     { icon: <CallIcon />, text: call },
@@ -31,13 +31,13 @@ export default function InfoContainer(props: InfoContainerProps) {
       <p className={`fonts-detailDescription text-gray-8 ${!isExpanded ? 'line-clamp-5' : ''}`}>
         {isExpanded ? description : `${description.slice(0, 173)}`}
         {!isExpanded && (
-          <span className="fonts-detailDescription text-gray-4 cursor-pointer" onClick={toggleDescription}>
+          <span className="fonts-detailDescription cursor-pointer text-gray-4" onClick={toggleDescription}>
             {' ...더보기'}
           </span>
         )}
 
         {isExpanded && (
-          <span className="fonts-detailDescription text-gray-4 cursor-pointer" onClick={toggleDescription}>
+          <span className="fonts-detailDescription cursor-pointer text-gray-4" onClick={toggleDescription}>
             {' ...접기'}
           </span>
         )}

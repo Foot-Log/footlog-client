@@ -1,4 +1,4 @@
-import { BlogPostingDataTypes } from 'types/CommonTypes';
+import { BlogPostingDataTypes } from 'types/home/details/DetailsTypes';
 
 export const blogPostingData: BlogPostingDataTypes[] = [
   {

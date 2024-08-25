@@ -1,4 +1,4 @@
-import { OnboardingIconsDataTypes } from 'types/CommonTypes';
+import { OnboardingIconsDataTypes } from 'types/onboarding/OnboardingTypes';
 
 interface OnboardingKeywordsProps {
   iconsData: OnboardingIconsDataTypes[]; // 아이콘 데이터 타입

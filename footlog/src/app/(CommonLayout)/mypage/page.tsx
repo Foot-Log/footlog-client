@@ -18,7 +18,7 @@ export default function page() {
           <div className="ml-24pxr">
             <div className="font-mypageNickname">닉네임</div>
             <div className="mt-8pxr flex">
-              <div className="font-mypageLevel font-medium text-gray_4">레벨 1</div>
+              <div className="font-mypageLevel font-medium text-gray-4">레벨 1</div>
               <div className="font-mypageLevel ml-2pxr font-bold text-main-green">새싹 플로거</div>
             </div>
             <div className="flex">
@@ -29,18 +29,18 @@ export default function page() {
         </div>
       </section>
 
-      <div className="h-8pxr w-393pxr bg-gray_1" />
+      <div className="h-8pxr w-393pxr bg-gray-1" />
 
       <section className="ml-24pxr">
         <MypageContainer title="저장 목록" courses={recommendCoursesData} />
         <MypageContainer title="최근 확인한 코스" courses={recommendCoursesData} />
       </section>
 
-      <div className="h-8pxr w-393pxr bg-gray_1" />
+      <div className="h-8pxr w-393pxr bg-gray-1" />
 
       <div className="ml-24pxr">
-        <div className="font-mypageDetail mt-20pxr text-gray_8">선호도 재설정</div>
-        <div className="font-mypageDetai mt-20pxr text-gray_4">로그아웃</div>
+        <div className="font-mypageDetail mt-20pxr text-gray-8">선호도 재설정</div>
+        <div className="font-mypageDetai mt-20pxr text-gray-4">로그아웃</div>
       </div>
     </div>
   );

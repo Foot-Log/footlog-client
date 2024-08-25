@@ -1,5 +1,5 @@
 'use client';
-import { CourseDetailsDataTypes, BlogPostingDataTypes } from 'types/CommonTypes';
+import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
 import DetailsHeader from '@components/home/details/DetailsHeader';
 import ImageContainer from '@components/home/details/ImageContainer';
@@ -17,7 +17,7 @@ export default function page() {
   // 나중에 api 연결하기
   //const course: CourseDetailsDataTypes = await getMovieDetails(params.id); 이런식으로
 
-  const course: CourseDetailsDataTypes = courseDetailsData;
+  const course: CourseDetailsDataTypes = courseDetailsData[0];
 
   return (
     <main className="relative flex h-full w-full flex-col">
@@ -26,7 +26,7 @@ export default function page() {
         <ImageContainer title={course.title} imgSrc={course.imgSrc} />
         <InfoContainer
           description={course.description}
-          location={course.location}
+          address={course.address}
           price={course.price}
           time={course.time}
           call={course.call}
