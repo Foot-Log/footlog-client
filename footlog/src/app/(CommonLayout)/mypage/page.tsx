@@ -24,6 +24,7 @@ export default function page() {
             </div>
             <div className="mt-12pxr">
               <Flag2 />
+              {/* 추후 깃발 조정 */}
             </div>
           </div>
         </div>
