@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import 'react-kakao-maps-sdk';
-import { LogFlag } from '@public/icon';
 
 const KakaoMap = ({ locations }: { locations: string[] }) => {
   useEffect(() => {
@@ -36,22 +35,13 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
                 image: markerImage,
               });
 
-              // 인포윈도우 생성
-              const infowindow = new window.kakao.maps.InfoWindow({
-                content: `<div style="width:150px;text-align:center;padding:6px 0;">${location}</div>`,
+              const customOverlay = new window.kakao.maps.CustomOverlay({
+                position: coords,
+                content: `<div class="fonts-logLocation">${location}</div>`,
+                yAnchor: 1, // 위치 조정 (마커 위에 텍스트를 표시하도록)
               });
 
-              // 마커에 클릭 이벤트를 등록하여 인포윈도우를 토글
-              let infowindowVisible = false; // 인포윈도우의 초기 상태는 숨김
-
-              window.kakao.maps.event.addListener(marker, 'click', function () {
-                if (infowindowVisible) {
-                  infowindow.close();
-                } else {
-                  infowindow.open(map, marker);
-                }
-                infowindowVisible = !infowindowVisible; // 토글 상태 변경
-              });
+              customOverlay.setMap(map);
             }
           });
         });

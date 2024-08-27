@@ -6,7 +6,7 @@ export default function page() {
   return (
     <div>
       <MainSearchHeader />
-      <KakaoMap locations={['서울', '대구']} />
+      <KakaoMap locations={['서울', '대구', '문경새재 도립공원']} />
     </div>
   );
 }
