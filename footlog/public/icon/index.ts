@@ -40,8 +40,6 @@ import ClockIcon from './home/details/clock.svg';
 import CallIcon from './home/details/call.svg';
 import SiteIcon from './home/details/site.svg';
 import FlagIcon from './home/details/flag.svg';
-import GreenFlagIcon from './mypage/greenFlag.svg';
-import NullFlagIcon from './mypage/nullFlag.svg';
 import MypageRightArrowIcon from './mypage/mypageRightArrow.svg';
 import CloseIcon from './home/search/close.svg';
 import SearchSaveFilledIcon from './home/search/searchSaveFilled.svg';
@@ -50,6 +48,12 @@ import SearchLocationIcon from './home/search/searchLocation.svg';
 import LogCloseBtn from './log/logCloseBtn.svg';
 import Blank from './log/blank.svg';
 import BlankPlus from './log/blankPlus.svg';
+import Flag0 from './mypage/flag0.svg';
+import Flag1 from './mypage/flag1.svg';
+import Flag2 from './mypage/flag2.svg';
+import Flag3 from './mypage/flag3.svg';
+import Flag4 from './mypage/flag4.svg';
+import Flag5 from './mypage/flag5.svg';
 
 export {
   CampingIcon,
@@ -94,8 +98,6 @@ export {
   CallIcon,
   SiteIcon,
   FlagIcon,
-  GreenFlagIcon,
-  NullFlagIcon,
   CloseIcon,
   SearchSaveFilledIcon,
   SearchSaveOutlineIcon,
@@ -104,4 +106,10 @@ export {
   LogCloseBtn,
   Blank,
   BlankPlus,
+  Flag0,
+  Flag1,
+  Flag2,
+  Flag3,
+  Flag4,
+  Flag5,
 };
