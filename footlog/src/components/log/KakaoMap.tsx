@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'react-kakao-maps-sdk';
-import { LogFlag } from '@public/icon';
+import MarkerModal from './MarkerModal';
 
 const KakaoMap = ({ locations }: { locations: string[] }) => {
+  const [selectLocation, setSelectLocation] = useState<string | null>(null);
+
   useEffect(() => {
     if (window.kakao) {
       window.kakao.maps.load(() => {
@@ -36,21 +38,16 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
                 image: markerImage,
               });
 
-              // 인포윈도우 생성
-              const infowindow = new window.kakao.maps.InfoWindow({
-                content: `<div style="width:150px;text-align:center;padding:6px 0;">${location}</div>`,
+              const customOverlay = new window.kakao.maps.CustomOverlay({
+                position: coords,
+                content: `<div class="fonts-logLocations">${location}</div>`,
+                yAnchor: 1, // 위치 조정 (마커 위에 텍스트를 표시하도록)
               });
 
-              // 마커에 클릭 이벤트를 등록하여 인포윈도우를 토글
-              let infowindowVisible = false; // 인포윈도우의 초기 상태는 숨김
+              customOverlay.setMap(map);
 
               window.kakao.maps.event.addListener(marker, 'click', function () {
-                if (infowindowVisible) {
-                  infowindow.close();
-                } else {
-                  infowindow.open(map, marker);
-                }
-                infowindowVisible = !infowindowVisible; // 토글 상태 변경
+                setSelectLocation(location);
               });
             }
           });
@@ -60,9 +57,10 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
   }, [locations]);
 
   return (
-    // id가 'map'인 div 출력, width와 heigth를 설정해줘야 정상 출력됨
-
-    <div id="map" className="mt-68pxr h-680pxr w-full" />
+    <div>
+      <div id="map" className="mt-68pxr h-688pxr w-full" />
+      {selectLocation && <MarkerModal location={selectLocation} onClose={() => setSelectLocation(null)} />}
+    </div>
   );
 };
 

@@ -29,12 +29,14 @@ const config: Config = {
       },
       boxShadow: {
         navBar: '0px -2px 8px 0px rgba(0, 0, 0, 0.10)',
+        markerModal: '0px -4px 8px rgba(0,0,0,0.20)',
       },
       borderRadius: {
         searchBar: '21px',
         clickedSearchBar: '8px',
         searchBox: '30px',
         errorBtn: '12px',
+        markerModal: '20px 20px 0px 0px',
       },
     },
   },

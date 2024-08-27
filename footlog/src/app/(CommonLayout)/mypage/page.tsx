@@ -1,7 +1,7 @@
 import MypageContainer from '@components/mypage/MypageContainer';
 import RecentCourseContainer from '@components/common/RecentCourseContainer';
 import { recommendCoursesData } from '@core/recommendCoursesData';
-import { Flag2 } from '@public/icon';
+import { Flag2Icon } from '@public/icon';
 
 export default function page() {
   return (
@@ -23,7 +23,7 @@ export default function page() {
               <div className="font-mypageLevel ml-2pxr font-bold text-main-green">새싹 플로거</div>
             </div>
             <div className="mt-12pxr">
-              <Flag2 />
+              <Flag2Icon />
               {/* 추후 깃발 조정 */}
             </div>
           </div>
