@@ -9,19 +9,7 @@ interface MarkerModalProps {
 export default function MarkerModal({ location, onClose }: MarkerModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex bg-black bg-opacity-50">
-      <div
-        style={{
-          width: '393px',
-          height: '374px',
-          flexShrink: 0,
-          borderRadius: '20px 20px 0px 0px',
-          background: '#FFF',
-          boxShadow: '0px -4px 8px 0px rgba(0, 0, 0, 0.20)',
-          position: 'fixed',
-          bottom: 0,
-          left: '50%',
-          transform: 'translateX(-50%)',
-        }}>
+      <div className="shadow-markerModal rounded-markerModal fixed bottom-0 left-1/2 h-374pxr w-393pxr flex-shrink-0 -translate-x-1/2 transform bg-white">
         <div className="mx-24pxr mb-40pxr mt-20pxr">
           <div className="flex">
             <div className="fonts-logOneLocation">{location}</div>
@@ -34,11 +22,8 @@ export default function MarkerModal({ location, onClose }: MarkerModalProps) {
             나만의 기록을 남겨 보세요.
           </div>
 
-          <div className="relative mt-20pxr">
+          <div className="mt-20pxr">
             <Blank />
-            <div className="absolute bottom-0 left-0 right-0 top-0 flex h-104pxr w-104pxr items-center justify-center">
-              <BlankPlus />
-            </div>
           </div>
 
           <button
