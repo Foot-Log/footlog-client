@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'react-kakao-maps-sdk';
+import MarkerModal from './MarkerModal';
 
 const KakaoMap = ({ locations }: { locations: string[] }) => {
+  const [selectLocation, setSelectLocation] = useState<string | null>(null);
+
   useEffect(() => {
     if (window.kakao) {
       window.kakao.maps.load(() => {
@@ -37,11 +40,15 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
 
               const customOverlay = new window.kakao.maps.CustomOverlay({
                 position: coords,
-                content: `<div class="fonts-logLocation">${location}</div>`,
+                content: `<div class="fonts-logLocations">${location}</div>`,
                 yAnchor: 1, // 위치 조정 (마커 위에 텍스트를 표시하도록)
               });
 
               customOverlay.setMap(map);
+
+              window.kakao.maps.event.addListener(marker, 'click', function () {
+                setSelectLocation(location);
+              });
             }
           });
         });
@@ -50,9 +57,10 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
   }, [locations]);
 
   return (
-    // id가 'map'인 div 출력, width와 heigth를 설정해줘야 정상 출력됨
-
-    <div id="map" className="mt-68pxr h-680pxr w-full" />
+    <div>
+      <div id="map" className="mt-68pxr h-688pxr w-full" />
+      {selectLocation && <MarkerModal location={selectLocation} onClose={() => setSelectLocation(null)} />}
+    </div>
   );
 };
 

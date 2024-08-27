@@ -47,6 +47,9 @@ import CloseIcon from './home/search/close.svg';
 import SearchSaveFilledIcon from './home/search/searchSaveFilled.svg';
 import SearchSaveOutlineIcon from './home/search/searchSaveOutline.svg';
 import SearchLocationIcon from './home/search/searchLocation.svg';
+import LogCloseBtn from './log/logCloseBtn.svg';
+import Blank from './log/blank.svg';
+import BlankPlus from './log/blankPlus.svg';
 
 export {
   CampingIcon,
@@ -98,4 +101,7 @@ export {
   SearchSaveOutlineIcon,
   SearchLocationIcon,
   MypageRightArrowIcon,
+  LogCloseBtn,
+  Blank,
+  BlankPlus,
 };
