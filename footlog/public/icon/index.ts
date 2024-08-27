@@ -48,12 +48,12 @@ import SearchLocationIcon from './home/search/searchLocation.svg';
 import LogCloseBtn from './log/logCloseBtn.svg';
 import Blank from './log/blank.svg';
 import BlankPlus from './log/blankPlus.svg';
-import Flag0 from './mypage/flag0.svg';
-import Flag1 from './mypage/flag1.svg';
-import Flag2 from './mypage/flag2.svg';
-import Flag3 from './mypage/flag3.svg';
-import Flag4 from './mypage/flag4.svg';
-import Flag5 from './mypage/flag5.svg';
+import Flag0Icon from './mypage/flag0.svg';
+import Flag1Icon from './mypage/flag1.svg';
+import Flag2Icon from './mypage/flag2.svg';
+import Flag3Icon from './mypage/flag3.svg';
+import Flag4Icon from './mypage/flag4.svg';
+import Flag5Icon from './mypage/flag5.svg';
 
 export {
   CampingIcon,
@@ -106,10 +106,10 @@ export {
   LogCloseBtn,
   Blank,
   BlankPlus,
-  Flag0,
-  Flag1,
-  Flag2,
-  Flag3,
-  Flag4,
-  Flag5,
+  Flag0Icon,
+  Flag1Icon,
+  Flag2Icon,
+  Flag3Icon,
+  Flag4Icon,
+  Flag5Icon,
 };
