@@ -315,6 +315,14 @@ button {
   letter-spacing: -0.03125rem;
 }
 .fonts-logContent {
+  color: #808080;
+  font-family: 'Noto Sans KR';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.0625rem; /* 121.429% */
+  letter-spacing: -0.03125rem;
+}
 .fonts-mypageNull {
   color: #808080;
   font-family: 'Noto Sans KR';
