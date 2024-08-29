@@ -4,15 +4,15 @@ import api from '@api/api';
 import { loginErrorProps, loginResProps } from 'types/login/loginProps';
 import { setToken } from '@utils/token';
 
-export const usePostLogin = () => {
+export function usePostLogin() {
   const KAKAO_CODE = new URL(window.location.href).searchParams.get('code');
   const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태를 추적
+  const [_, setIsLoggedIn] = useState(false); // 로그인 상태를 추적
 
   useEffect(() => {
     if (KAKAO_CODE) {
       api
-        .post(`api/users/kakao/simpleLogin?code=${KAKAO_CODE}`) // api 명세서 보고 바꾸기
+        .post(`api/login/kakao?code=${KAKAO_CODE}`)
         .then((res) => {
           const data = res.data as loginResProps; // AxiosResponse의 data를 loginResProps로 단언
           setToken(data.response.accessToken);
@@ -32,4 +32,4 @@ export const usePostLogin = () => {
         });
     }
   }, [KAKAO_CODE, router]);
-};
+}
