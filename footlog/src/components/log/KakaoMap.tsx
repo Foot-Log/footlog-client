@@ -69,7 +69,7 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
           location={selectLocation}
           onClose={() => setSelectLocation(null)}
           onSubmit={handleSubmit}
-          initialText="ㅇㅇㅇ"
+          initialText="대구 풋!로그~"
           initialImages={['https://cdn.crowdpic.net/detail-thumb/thumb_d_AE044C445F1F75281B4E7F996004555A.jpg']}
         />
       )}
