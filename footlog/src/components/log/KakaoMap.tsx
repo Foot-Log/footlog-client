@@ -5,6 +5,11 @@ import MarkerModal from './MarkerModal';
 const KakaoMap = ({ locations }: { locations: string[] }) => {
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
 
+  const handleSubmit = (text: String, images: (string | File)[]) => {
+    console.log('text', text);
+    console.log('images', images);
+  };
+
   useEffect(() => {
     if (window.kakao) {
       window.kakao.maps.load(() => {
@@ -59,7 +64,15 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
   return (
     <div>
       <div id="map" className="mt-68pxr h-688pxr w-full" />
-      {selectLocation && <MarkerModal location={selectLocation} onClose={() => setSelectLocation(null)} />}
+      {selectLocation && (
+        <MarkerModal
+          location={selectLocation}
+          onClose={() => setSelectLocation(null)}
+          onSubmit={handleSubmit}
+          initialText="ㅇㅇㅇ"
+          initialImages={['https://cdn.crowdpic.net/detail-thumb/thumb_d_AE044C445F1F75281B4E7F996004555A.jpg']}
+        />
+      )}
     </div>
   );
 };
