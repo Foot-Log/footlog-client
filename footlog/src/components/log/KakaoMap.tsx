@@ -32,7 +32,7 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
               const coords = new window.kakao.maps.LatLng(latitude, longitude);
 
               // 마커 이미지 생성
-              const imageSrc = '/icon/log/logFlag.svg';
+              const imageSrc = '/icon/log/logFlag.png';
               const imageSize = new window.kakao.maps.Size(36, 42); // 이미지 크기 설정
               const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
 

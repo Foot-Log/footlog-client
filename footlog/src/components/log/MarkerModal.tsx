@@ -17,7 +17,7 @@ export default function MarkerModal({
   initialImages = [],
 }: MarkerModalProps) {
   const [text, setText] = useState<string>(initialText);
-  const [hasText, setHasText] = useState(false);
+  const [hasText, setHasText] = useState(true);
   const [images, setImages] = useState<File[]>([]);
   const [imageUrls, setImageUrls] = useState<string[]>(initialImages);
 
@@ -73,10 +73,11 @@ export default function MarkerModal({
           <textarea
             className={`${
               hasText ? 'fonts-newLogContent' : 'fonts-logContent'
-            } mt-24pxr h-72pxr w-345pxr rounded-md bg-gray-3 px-16pxr py-12pxr opacity-50`}
+            } mt-24pxr h-72pxr w-345pxr resize-none rounded-md bg-gray-3 px-16pxr py-12pxr opacity-50`}
             value={text}
             onChange={handleTextChange}
             placeholder="나만의 기록을 남겨 보세요."
+            maxLength={48}
           />
 
           {/* 이미지 영역 */}
