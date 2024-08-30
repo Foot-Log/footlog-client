@@ -48,7 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ReactQueryProviders>
         <Script
           src="https://developers.kakao.com/sdk/js/kakao.js"
-          async
           onLoad={() => {
             if (window.Kakao) {
               initializeKakao();
@@ -58,7 +57,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script
           type="text/javascript"
           src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_KEY}&autoload=false&libraries=services`}
-          async
           onLoad={() => {
             if (window.Kakao) {
               initializeKakao();
