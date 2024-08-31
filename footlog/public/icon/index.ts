@@ -54,6 +54,7 @@ import Flag2Icon from './mypage/flag2.svg';
 import Flag3Icon from './mypage/flag3.svg';
 import Flag4Icon from './mypage/flag4.svg';
 import Flag5Icon from './mypage/flag5.svg';
+import RemoveBtn from './log/removeBtn.svg';
 
 export {
   CampingIcon,
@@ -112,4 +113,5 @@ export {
   Flag3Icon,
   Flag4Icon,
   Flag5Icon,
+  RemoveBtn,
 };
