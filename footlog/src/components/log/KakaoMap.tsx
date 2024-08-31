@@ -5,6 +5,11 @@ import MarkerModal from './MarkerModal';
 const KakaoMap = ({ locations }: { locations: string[] }) => {
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
 
+  const handleSubmit = (text: String, images: (string | File)[]) => {
+    console.log('text', text);
+    console.log('images', images);
+  };
+
   useEffect(() => {
     if (window.kakao) {
       window.kakao.maps.load(() => {
@@ -27,7 +32,7 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
               const coords = new window.kakao.maps.LatLng(latitude, longitude);
 
               // 마커 이미지 생성
-              const imageSrc = '/icon/log/logFlag.svg';
+              const imageSrc = '/icon/log/logFlag.png';
               const imageSize = new window.kakao.maps.Size(36, 42); // 이미지 크기 설정
               const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize);
 
@@ -59,7 +64,15 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
   return (
     <div>
       <div id="map" className="mt-68pxr h-688pxr w-full" />
-      {selectLocation && <MarkerModal location={selectLocation} onClose={() => setSelectLocation(null)} />}
+      {selectLocation && (
+        <MarkerModal
+          location={selectLocation}
+          onClose={() => setSelectLocation(null)}
+          onSubmit={handleSubmit}
+          initialText="대구 풋!로그~"
+          initialImages={['https://cdn.crowdpic.net/detail-thumb/thumb_d_AE044C445F1F75281B4E7F996004555A.jpg']}
+        />
+      )}
     </div>
   );
 };
