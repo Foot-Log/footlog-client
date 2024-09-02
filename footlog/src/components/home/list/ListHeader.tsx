@@ -1,5 +1,4 @@
 import { useRouter } from 'next/navigation';
-
 import { LeftArrowIcon } from '@public/icon';
 
 interface ListHeaderProps {

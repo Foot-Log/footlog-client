@@ -24,5 +24,5 @@ export interface RegionsDataTypes {
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 export interface LocationCardProps {
   course: CourseDetailsDataTypes;
-  searchInput: string;
+  searchInput?: string;
 }

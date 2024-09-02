@@ -24,7 +24,7 @@ export default function LocationCard(props: LocationCardProps) {
       </figure>
       <section className="flex flex-col items-start gap-4pxr">
         <p className="fonts-onboardingKeyword text-gray-8">
-          {highlightSearchTerm(course.title, searchInput)} {/* 강조된 이름 출력 */}
+          {highlightSearchTerm(course.title, searchInput || '')} {/* 강조된 이름 출력 */}
         </p>
         <p className="fonts-detail">{course.address}</p>
       </section>
