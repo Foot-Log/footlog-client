@@ -16,14 +16,14 @@ const usePostLogin = () => {
         .post(`user/kakao/callback?code=${KAKAO_CODE}`)
         .then((res) => {
           const data = res.data as loginResProps; // AxiosResponse의 data를 loginResProps로 단언
-          setToken(data.response.accessToken);
+          setToken(data.result.accessToken);
           setIsLoggedIn(true); // 로그인 성공 시 상태 업데이트
           console.log('로그인 성공');
           router.push('/onboarding');
         })
         .catch((err) => {
           const errorData = err.response.data as loginErrorProps; // 에러 응답 데이터 단언
-          if (errorData?.success_or_error_code?.status === 404) {
+          if (errorData?.code === '404') {
             console.log('404에러');
             router.push('/login');
           } else {
