@@ -1,3 +1,3 @@
-import usePostLogin from '@hooks/login/usePostLogin';
+import useGetLogin from '@hooks/login/useGetLogin';
 
-export default usePostLogin;
+export default useGetLogin;
