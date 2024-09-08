@@ -15,8 +15,11 @@ const useGetLogin = () => {
       api
         .get(`user/kakao/callback?code=${KAKAO_CODE}`)
         .then((res) => {
-          const data = res.data as loginResProps; // AxiosResponse의 data를 loginResProps로 단언
-          setToken(data.result.accessToken);
+          console.log('res!', res);
+          console.log('res.data!!', res.data);
+          //const data = res.data as loginResProps; // AxiosResponse의 data를 loginResProps로 단언
+          console.log('acccc', res.data.accessToken);
+          setToken(res.data.accessToken);
           setIsLoggedIn(true); // 로그인 성공 시 상태 업데이트
           console.log('로그인 성공');
           router.push('/onboarding');
