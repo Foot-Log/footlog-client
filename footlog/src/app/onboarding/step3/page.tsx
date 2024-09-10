@@ -1,17 +1,23 @@
 'use client';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { useRouter } from 'next/navigation';
 import { LeftArrowIcon } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
 import OnboardingKeywords from '@components/onboarding/OnboardingKeywords';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
-import { thirdOnboardingState } from '@recoil/atom';
 import { onboardingIconsData } from '@core/onboardingIconsData';
+import { firstOnboardingState, secondOnboardingState, thirdOnboardingState } from '@recoil/atom';
+import usePostPreferKeyword from '@hooks/onboarding/usePostPreferKeyword';
 
 export default function page() {
   const router = useRouter();
   const [selectedKeywords, setSelectedKeywords] = useRecoilState(thirdOnboardingState);
   const currentIcons = onboardingIconsData.slice(6, 9);
+
+  const firstState = useRecoilValue(firstOnboardingState);
+  const secondState = useRecoilValue(secondOnboardingState);
+  const thirdState = useRecoilValue(thirdOnboardingState);
+  const { mutate: postPreferKeywordMutate } = usePostPreferKeyword();
 
   function handleBackBtn() {
     router.back();
@@ -31,6 +37,14 @@ export default function page() {
   }
 
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
+
+  function handleOnboardingBtn() {
+    postPreferKeywordMutate({
+      firstOnboardingState: firstState,
+      secondOnboardingState: secondState,
+      thirdOnboardingState: thirdState,
+    });
+  }
 
   return (
     <main className="relative flex h-full w-full flex-col px-24pxr pt-10pxr">
@@ -54,11 +68,7 @@ export default function page() {
         onKeywordSelect={handleKeywordSelect}
         iconsData={currentIcons}
       />
-      <OnboardingBtn
-        text="완료"
-        $disabled={isOnboardingBtnDisabled}
-        handleOnboardingBtn={() => router.push('/onboarding/step4')}
-      />
+      <OnboardingBtn text="완료" $disabled={isOnboardingBtnDisabled} handleOnboardingBtn={handleOnboardingBtn} />
     </main>
   );
 }

@@ -11,7 +11,7 @@ const usePostPreferKeyword = () => {
     mutationFn: (data: PostPreferKeywordDataTypes) => postPreferKeyword(data),
     onSuccess: (data) => {
       console.log('온보딩 전송 성공', data);
-      router.push('/home'); // API 요청 성공 후 홈으로 이동
+      router.push('/onboarding/step4');
     },
     onError: (error) => {
       console.log('온보딩 전송 실패', error);
