@@ -4,10 +4,11 @@ import { LeftArrowIcon, SaveOutlineGreenIcon, SaveFilledGreenIcon } from '@publi
 interface DetailsHeaderProps {
   title: string;
   isSaved: boolean;
+  onClick: () => void;
 }
 
 export default function DetailsHeader(props: DetailsHeaderProps) {
-  const { title, isSaved } = props;
+  const { title, isSaved, onClick } = props;
   const router = useRouter();
 
   function handleBackBtn() {
@@ -20,7 +21,9 @@ export default function DetailsHeader(props: DetailsHeaderProps) {
         <LeftArrowIcon />
       </button>
       <p className="fonts-recommendTitle">{title}</p>
-      {isSaved ? <SaveFilledGreenIcon /> : <SaveOutlineGreenIcon />}
+      <button type="button" className="cursor-pointer" onClick={onClick}>
+        {isSaved ? <SaveFilledGreenIcon /> : <SaveOutlineGreenIcon />}
+      </button>
     </section>
   );
 }

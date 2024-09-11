@@ -7,6 +7,7 @@ import InfoContainer from '@components/home/details/InfoContainer';
 import BlogContainer from '@components/home/details/BlogContainer';
 import FinishBtn from '@components/home/details/FinishBtn';
 import useGetCourseDetails from '@hooks/details/useGetCourseDetails';
+import usePostSave from '@hooks/details/usePostSave';
 import usePostComplete from '@hooks/details/usePostComplete';
 
 export default function page() {
@@ -14,6 +15,7 @@ export default function page() {
   const course_id = searchParams.get('course_id');
   const [courseIdNumber, setCourseIdNumber] = useState<number>(0);
   const { mutate: postCompleteMutate } = usePostComplete();
+  const { mutate: postSaveMutate } = usePostSave();
 
   // course_id가 있을 때만 상태 업데이트
   useEffect(() => {
@@ -30,13 +32,17 @@ export default function page() {
 
   const course = courseResponse.result;
 
+  const handleSaveClick = () => {
+    postSaveMutate({ course_id: course.course_id });
+  };
+
   const handleFinishClick = () => {
     postCompleteMutate({ course_id: course.course_id });
   };
 
   return (
     <main className="relative flex h-full w-full flex-col">
-      <DetailsHeader title={course.name} isSaved={course.isSave} />
+      <DetailsHeader title={course.name} isSaved={course.isSave} onClick={handleSaveClick} />
       <section className="mt-68pxr flex flex-col pb-68pxr">
         <ImageContainer title={course.name} imgSrc={course.image} />
         <InfoContainer
