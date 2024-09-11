@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { postComplete } from '@api/details/postComplete';
-import { RequestPathVariable } from '@api/details/postComplete';
+import { RequestPathVariable } from 'types/home/details/DetailsTypes';
 
 const usePostComplete = () => {
   return useMutation({

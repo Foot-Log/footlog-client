@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { postSave } from '@api/details/postSave';
-import { RequestPathVariable } from '@api/details/postSave';
+import { RequestPathVariable } from 'types/home/details/DetailsTypes';
 
 const usePostSave = () => {
   return useMutation({

@@ -21,3 +21,7 @@ export interface BlogPostingDataTypes {
   description: string;
   link: string;
 }
+
+export interface RequestPathVariable {
+  course_id: number;
+}
