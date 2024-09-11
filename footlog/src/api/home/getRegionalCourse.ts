@@ -13,8 +13,9 @@ export interface RequestPathVariable {
   area_name: string;
 }
 
-export async function getRegionalCourse(props: RequestPathVariable): Promise<Response<CourseResponseDtoDataTypes>> {
+export async function getRegionalCourse(props: RequestPathVariable): Promise<Response<CourseResponseDtoDataTypes[]>> {
   const { area_name } = props;
 
-  return await api.get(`/api/course/area/${area_name}`);
+  const { data } = await api.get(`/api/course/area/${area_name}`);
+  return data;
 }
