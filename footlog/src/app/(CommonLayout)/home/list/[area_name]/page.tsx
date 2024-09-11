@@ -1,25 +1,24 @@
 'use client';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react'; // useEffect와 useState import
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { CourseResponseDtoDataTypes } from '@api/home/getRegionalCourse';
 import BigLocationCard from '@components/common/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 import useGetRegionalCourse from '@hooks/home/useGetRegionalCourse';
 
 export default function Page() {
-  const searchParams = useSearchParams(); // 쿼리 파라미터 가져오기
-  const area_name = searchParams.get('area_name');
+  const pathname = usePathname(); // 현재 경로 가져오기
+  const area_name = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 area_name으로 사용
 
-  // 상태를 관리하기 위한 useState 사용
   const [areaNameString, setAreaNameString] = useState<string>('');
-  const { data: courses } = useGetRegionalCourse(areaNameString); // areaNameString을 사용하여 코스 데이터 가져오기
+  const { data: courses } = useGetRegionalCourse(areaNameString);
 
   useEffect(() => {
     // area_name이 string일 때만 상태 업데이트
     if (typeof area_name === 'string') {
       setAreaNameString(area_name);
     }
-  }, [area_name]); // area_name이 변경될 때마다 실행
+  }, [area_name]);
 
   if (!areaNameString) {
     return <></>;
@@ -32,7 +31,7 @@ export default function Page() {
         {courses &&
           courses.data &&
           courses.data.map((course: CourseResponseDtoDataTypes) => (
-            <BigLocationCard key={course.course_id} course={course} /> // course.id 대신 course.course_id 사용
+            <BigLocationCard key={course.course_id} course={course} />
           ))}
       </section>
     </main>

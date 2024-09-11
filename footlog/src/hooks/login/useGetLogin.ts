@@ -14,8 +14,7 @@ const useGetLogin = () => {
       api
         .get(`user/kakao/callback?code=${KAKAO_CODE}`)
         .then((res) => {
-          console.log(res);
-          setToken(res.data.accessToken);
+          setToken(res.data.data.accessToken);
           setIsLoggedIn(true); // 로그인 성공 시 상태 업데이트
           console.log('로그인 성공');
           router.push('/onboarding');
