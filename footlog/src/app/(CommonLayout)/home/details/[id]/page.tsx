@@ -7,11 +7,13 @@ import InfoContainer from '@components/home/details/InfoContainer';
 import BlogContainer from '@components/home/details/BlogContainer';
 import FinishBtn from '@components/home/details/FinishBtn';
 import useGetCourseDetails from '@hooks/details/useGetCourseDetails';
+import usePostComplete from '@hooks/details/usePostComplete';
 
 export default function page() {
   const searchParams = useSearchParams(); // 쿼리 파라미터 가져오기
   const course_id = searchParams.get('course_id');
   const [courseIdNumber, setCourseIdNumber] = useState<number>(0);
+  const { mutate: postCompleteMutate } = usePostComplete();
 
   // course_id가 있을 때만 상태 업데이트
   useEffect(() => {
@@ -27,6 +29,10 @@ export default function page() {
   }
 
   const course = courseResponse.result;
+
+  const handleFinishClick = () => {
+    postCompleteMutate({ course_id: course.course_id });
+  };
 
   return (
     <main className="relative flex h-full w-full flex-col">
@@ -44,7 +50,7 @@ export default function page() {
         <div className="h-8pxr w-full bg-gray-1" />
         <BlogContainer title={course.name} />
       </section>
-      <FinishBtn isComplete={course.isComplete} />
+      <FinishBtn isComplete={course.isComplete} onClick={handleFinishClick} />
     </main>
   );
 }
