@@ -1,5 +1,5 @@
 'use client';
-import { useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import DetailsHeader from '@components/home/details/DetailsHeader';
 import ImageContainer from '@components/home/details/ImageContainer';
@@ -11,8 +11,8 @@ import usePostSave from '@hooks/details/usePostSave';
 import usePostComplete from '@hooks/details/usePostComplete';
 
 export default function page() {
-  const searchParams = useSearchParams(); // 쿼리 파라미터 가져오기
-  const course_id = searchParams.get('course_id');
+  const pathname = usePathname(); // 현재 경로 가져오기
+  const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
   const [courseIdNumber, setCourseIdNumber] = useState<number>(0);
   const { mutate: postCompleteMutate } = usePostComplete();
   const { mutate: postSaveMutate } = usePostSave();
