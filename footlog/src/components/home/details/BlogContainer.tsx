@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { BlogPostingDataTypes } from 'types/home/details/DetailsTypes';
 import { blogPostingData } from '@core/blogPostingData';
 import Link from 'next/link';
+import useGetBlogPosting from '@hooks/details/useGetBlogPosting';
 
 interface BlogContainerProps {
   title: string;
@@ -8,7 +11,26 @@ interface BlogContainerProps {
 
 export default function BlogContainer(props: BlogContainerProps) {
   const { title } = props;
-  const posting: BlogPostingDataTypes[] = blogPostingData;
+  const pathname = usePathname(); // 현재 경로 가져오기
+  const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
+  const [courseIdNumber, setCourseIdNumber] = useState<number>(0);
+
+  // const posting: BlogPostingDataTypes[] = blogPostingData;
+
+  // course_id가 있을 때만 상태 업데이트
+  useEffect(() => {
+    if (course_id) {
+      setCourseIdNumber(Number(course_id)); // course_id를 숫자로 변환하여 상태 업데이트
+    }
+  }, [course_id]);
+
+  const { data: blogResponse } = useGetBlogPosting(courseIdNumber);
+
+  if (!blogResponse) {
+    return <></>;
+  }
+
+  const posting = blogResponse.result;
 
   // 제목에서 코스 이름을 강조하는 함수
   const highlightSearchTerm = (text: string, search: string) => {
@@ -37,11 +59,11 @@ export default function BlogContainer(props: BlogContainerProps) {
             <Link href={post.link} className="flex flex-col gap-8pxr">
               <div className="flex">
                 <p className="fonts-detail">
-                  {post.writer}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date} {/* &nbsp; 사용하여 두 칸 띄우기 */}
+                  {post.blog_name}&nbsp;&nbsp;|&nbsp;&nbsp;{post.post_date} {/* &nbsp; 사용하여 두 칸 띄우기 */}
                 </p>
               </div>
               <p className="fonts-blogTitle">{highlightSearchTerm(post.title, title)}</p>
-              <p className="fonts-detail line-clamp-3">{post.description}</p>
+              <p className="fonts-detail line-clamp-3">{post.summary}</p>
             </Link>
             <div className="my-20pxr h-1pxr w-full bg-gray-1" />
           </section>

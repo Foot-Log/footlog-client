@@ -10,7 +10,7 @@ export interface NaverBlogDtoDataTypes {
   post_date: string;
 }
 
-export async function getBlogPosting(props: RequestPathVariable): Promise<Response<NaverBlogDtoDataTypes>> {
+export async function getBlogPosting(props: RequestPathVariable): Promise<Response<NaverBlogDtoDataTypes[]>> {
   const { course_id } = props;
 
   const { data } = await api.get(`/api/course/post/${course_id}`);
