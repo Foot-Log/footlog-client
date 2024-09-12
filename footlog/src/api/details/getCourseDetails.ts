@@ -1,5 +1,6 @@
 import api from 'api/api';
 import { Response } from 'types/common/Response';
+import { RequestPathVariable } from 'types/home/details/DetailsTypes';
 
 export interface CourseDetailDtoDataTypes {
   course_id: number;
@@ -9,10 +10,6 @@ export interface CourseDetailDtoDataTypes {
   address: string;
   tel: string;
   isSave: boolean;
-}
-
-export interface RequestPathVariable {
-  course_id: number;
 }
 
 export async function getCourseDetails(props: RequestPathVariable): Promise<Response<CourseDetailDtoDataTypes>> {
