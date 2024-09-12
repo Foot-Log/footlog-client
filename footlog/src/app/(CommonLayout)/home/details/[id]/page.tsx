@@ -7,12 +7,6 @@ import InfoContainer from '@components/home/details/InfoContainer';
 import BlogContainer from '@components/home/details/BlogContainer';
 import FinishBtn from '@components/home/details/FinishBtn';
 
-/*
-interface DetailsPageProps {
-  params: { id: string };
-}
-*/
-
 export default function page() {
   // 나중에 api 연결하기
   //const course: CourseDetailsDataTypes = await getMovieDetails(params.id); 이런식으로

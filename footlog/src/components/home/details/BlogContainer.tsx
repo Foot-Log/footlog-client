@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { BlogPostingDataTypes } from 'types/home/details/DetailsTypes';
-import { blogPostingData } from '@core/blogPostingData';
 import Link from 'next/link';
 import useGetBlogPosting from '@hooks/details/useGetBlogPosting';
 
@@ -14,8 +12,6 @@ export default function BlogContainer(props: BlogContainerProps) {
   const pathname = usePathname(); // 현재 경로 가져오기
   const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
   const [courseIdNumber, setCourseIdNumber] = useState<number>(0);
-
-  // const posting: BlogPostingDataTypes[] = blogPostingData;
 
   // course_id가 있을 때만 상태 업데이트
   useEffect(() => {

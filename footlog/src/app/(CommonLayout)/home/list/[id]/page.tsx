@@ -1,18 +1,10 @@
 'use client';
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { courseDetailsData } from '@core/courseDetailsData';
-import BigLocationCard from '@components/common/BigLocationCard';
+import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 
-/*
-interface ListPageProps {
-  params: { id: string };
-  title: string;
-}
-*/
-
 export default function page() {
-  //const {params, string} = props;
   // 나중에 지역 api 연결하기
   //const course: CourseDetailsDataTypes = await getMovieDetails(params.id);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import RegionCard from '@components/home/search/RegionCard';
-import LocationCard from '@components/common/LocationCard';
+import LocationCard from '@components/common/LocationCard/LocationCard';
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { RegionCardDataTypes } from 'types/home/search/SearchTypes';
 
