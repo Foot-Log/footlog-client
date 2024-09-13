@@ -1,7 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { CourseResponseDtoDataTypes } from '@api/home/getRegionalCourse';
+import { CourseResponseDtoDataTypes } from '@api/home/list/getRegionalCourse';
 import BigLocationCard from '@components/common/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 import useGetRegionalCourse from '@hooks/home/useGetRegionalCourse';

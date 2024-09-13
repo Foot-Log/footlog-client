@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getRegionalCourse } from '@api/home/getRegionalCourse';
+import { getRegionalCourse } from '@api/home/list/getRegionalCourse';
 
 const useGetRegionalCourse = (area_name: string) => {
   const queryKey = ['getRegionalCourse']; // 쿼리 키 설정
