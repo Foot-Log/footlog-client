@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { CourseResponseDtoDataTypes } from '@api/home/list/getRegionalCourse';
 import BigLocationCard from '@components/common/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
-import useGetRegionalCourse from '@hooks/home/useGetRegionalCourse';
+import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 
 export default function Page() {
   const pathname = usePathname(); // 현재 경로 가져오기
