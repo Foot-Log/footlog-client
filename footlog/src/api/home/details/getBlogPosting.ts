@@ -13,6 +13,6 @@ export interface NaverBlogDtoDataTypes {
 export async function getBlogPosting(props: RequestPathVariable): Promise<Response<NaverBlogDtoDataTypes[]>> {
   const { course_id } = props;
 
-  const { data } = await api.get(`/api/course/post/${course_id}`);
+  const { data } = await api.get(`/course/post/${course_id}`);
   return data;
 }

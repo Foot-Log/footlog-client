@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import useGetBlogPosting from '@hooks/details/useGetBlogPosting';
+import useGetBlogPosting from '@hooks/home/details/useGetBlogPosting';
 
 interface BlogContainerProps {
   title: string;
@@ -26,7 +26,7 @@ export default function BlogContainer(props: BlogContainerProps) {
     return <></>;
   }
 
-  const posting = blogResponse.result;
+  const posting = blogResponse.data;
 
   // 제목에서 코스 이름을 강조하는 함수
   const highlightSearchTerm = (text: string, search: string) => {
