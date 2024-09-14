@@ -10,11 +10,12 @@ export interface CourseDetailDtoDataTypes {
   address: string;
   tel: string;
   isSave: boolean;
+  isComplete: boolean;
 }
 
 export async function getCourseDetails(props: RequestPathVariable): Promise<Response<CourseDetailDtoDataTypes>> {
   const { course_id } = props;
 
-  const { data } = await api.get(`/api/course/detail/${course_id}`);
+  const { data } = await api.get(`/course/detail/${course_id}`);
   return data;
 }

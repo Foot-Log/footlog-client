@@ -12,7 +12,7 @@ export default function ImageContainer(props: ImageContainerProps) {
     <figure className="relative flex h-214pxr w-full cursor-pointer overflow-hidden">
       <Image
         fill
-        src={imgSrc}
+        src={imgSrc || '/courseExample.png'}
         alt={title}
         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
         priority

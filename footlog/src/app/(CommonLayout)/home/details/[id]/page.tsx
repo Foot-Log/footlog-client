@@ -6,14 +6,14 @@ import ImageContainer from '@components/home/details/ImageContainer';
 import InfoContainer from '@components/home/details/InfoContainer';
 import BlogContainer from '@components/home/details/BlogContainer';
 import FinishBtn from '@components/home/details/FinishBtn';
-import useGetCourseDetails from '@hooks/details/useGetCourseDetails';
-import usePostSave from '@hooks/details/usePostSave';
-import usePostComplete from '@hooks/details/usePostComplete';
+import useGetCourseDetails from '@hooks/home/details/useGetCourseDetails';
+import usePostSave from '@hooks/home/details/usePostSave';
+import usePostComplete from '@hooks/home/details/usePostComplete';
 
 export default function page() {
   const pathname = usePathname(); // 현재 경로 가져오기
   const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
-  const [courseIdNumber, setCourseIdNumber] = useState<number>(0);
+  const [courseIdNumber, setCourseIdNumber] = useState<number>(1);
   const { mutate: postCompleteMutate } = usePostComplete();
   const { mutate: postSaveMutate } = usePostSave();
 
@@ -27,10 +27,10 @@ export default function page() {
   const { data: courseResponse } = useGetCourseDetails(courseIdNumber);
 
   if (!courseResponse) {
-    return <div>Loading...</div>;
+    return <></>;
   }
 
-  const course = courseResponse.result;
+  const course = courseResponse.data;
 
   const handleSaveClick = () => {
     postSaveMutate({ course_id: course.course_id });
