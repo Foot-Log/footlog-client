@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
+import usePostSave from '@hooks/home/details/usePostSave';
 
 interface CoursesSliderProps {
   courses: CourseResponseDtoDataTypes[];
@@ -9,6 +10,23 @@ interface CoursesSliderProps {
 
 export default function CoursesSlider(props: CoursesSliderProps) {
   const { courses } = props;
+
+  const { mutate: postSaveMutate } = usePostSave();
+
+  const handleSaveClick = (course_id: number, e: React.MouseEvent) => {
+    e.stopPropagation(); // 링크 클릭 이벤트 방지
+    e.preventDefault(); // 기본 링크 동작 방지
+
+    postSaveMutate(
+      { course_id: course_id },
+      {
+        onSuccess: () => {
+          // 성공적으로 저장한 후, course details를 다시 fetch
+          // queryClient.invalidateQueries({ queryKey: ['getCourseDetails', courseIdNumber] });
+        },
+      },
+    );
+  };
 
   return (
     <section className="mt-20pxr flex gap-12pxr overflow-x-auto">
@@ -28,9 +46,12 @@ export default function CoursesSlider(props: CoursesSliderProps) {
               <h2 className="fonts-courseName line-clamp-1">{course.name}</h2>
               <p className="fonts-courseLocation">{course.area}</p>
             </figcaption>
-            <div className="absolute right-12pxr top-12pxr">
+            <button
+              type="button"
+              className="absolute right-12pxr top-12pxr z-10 cursor-pointer"
+              onClick={(e) => handleSaveClick(course.course_id, e)}>
               {course.isSave ? <SaveFilledIcon /> : <SaveOutlineIcon />}
-            </div>
+            </button>
           </figure>
         </Link>
       ))}

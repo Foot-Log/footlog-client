@@ -1,13 +1,11 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import DetailsHeader from '@components/home/details/DetailsHeader';
 import ImageContainer from '@components/home/details/ImageContainer';
 import InfoContainer from '@components/home/details/InfoContainer';
 import BlogContainer from '@components/home/details/BlogContainer';
 import FinishBtn from '@components/home/details/FinishBtn';
-import { getCourseDetails } from '@api/home/details/getCourseDetails';
 import useGetCourseDetails from '@hooks/home/details/useGetCourseDetails';
 import usePostSave from '@hooks/home/details/usePostSave';
 import usePostComplete from '@hooks/home/details/usePostComplete';
