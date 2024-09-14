@@ -14,21 +14,21 @@ export default function Page() {
 
   const { data: regions } = useGetRegions();
   const [area_name, setAreaName] = useState<string>('');
+  const areaIdNumber = area_id ? Number(area_id) : 0;
 
   // area_id에 맞는 area_name 찾기
   useEffect(() => {
-    if (regions && regions.data && area_id) {
-      const foundRegion = regions.data.find((region: AreaCodeDtoDataTypes) => region.areaCode.toString() === area_id);
-      setAreaName(foundRegion ? foundRegion.areaName : null);
+    if (regions?.data && areaIdNumber) {
+      const foundRegion = regions.data.find((region: AreaCodeDtoDataTypes) => region.areaCode === areaIdNumber);
+      if (foundRegion) {
+        setAreaName(foundRegion.areaName);
+      } else {
+        setAreaName('전체');
+      }
     }
-  }, [regions, area_id]);
+  }, [regions, areaIdNumber]);
 
-  // area_name이 설정되면 코스 데이터를 가져오기
-  const { data: courses } = useGetRegionalCourse(area_name);
-
-  if (!area_name) {
-    return <></>;
-  }
+  const { data: courses } = useGetRegionalCourse(areaIdNumber);
 
   return (
     <main className="relative flex h-full w-full flex-col">

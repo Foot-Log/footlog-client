@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { getRegionalCourse } from '@api/home/list/getRegionalCourse';
 
-const useGetRegionalCourse = (area_name: string) => {
-  const queryKey = ['getRegionalCourse', area_name];
-  const queryFn = () => getRegionalCourse({ area_name });
+const useGetRegionalCourse = (areaCode: number) => {
+  const queryKey = ['getRegionalCourse', areaCode];
+  const queryFn = () => getRegionalCourse({ areaCode });
 
   const { data } = useQuery({
     queryKey,
