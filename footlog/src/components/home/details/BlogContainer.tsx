@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import useGetBlogPosting from '@hooks/home/details/useGetBlogPosting';
+import formatDate from '@utils/formatDate';
 
 interface BlogContainerProps {
   title: string;
@@ -11,7 +12,7 @@ export default function BlogContainer(props: BlogContainerProps) {
   const { title } = props;
   const pathname = usePathname(); // 현재 경로 가져오기
   const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
-  const [courseIdNumber, setCourseIdNumber] = useState<number>(0);
+  const [courseIdNumber, setCourseIdNumber] = useState<number>(1);
 
   // course_id가 있을 때만 상태 업데이트
   useEffect(() => {
@@ -55,7 +56,8 @@ export default function BlogContainer(props: BlogContainerProps) {
             <Link href={post.link} className="flex flex-col gap-8pxr">
               <div className="flex">
                 <p className="fonts-detail">
-                  {post.blog_name}&nbsp;&nbsp;|&nbsp;&nbsp;{post.post_date} {/* &nbsp; 사용하여 두 칸 띄우기 */}
+                  {post.blog_name}&nbsp;&nbsp;|&nbsp;&nbsp;{formatDate(post.post_date)}{' '}
+                  {/* &nbsp; 사용하여 두 칸 띄우기 */}
                 </p>
               </div>
               <p className="fonts-blogTitle">{highlightSearchTerm(post.title, title)}</p>
