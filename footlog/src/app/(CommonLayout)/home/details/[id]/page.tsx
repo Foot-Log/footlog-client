@@ -24,7 +24,7 @@ export default function page() {
   const { data: courseResponse } = courseIdNumber ? useGetCourseDetails(courseIdNumber) : { data: null };
 
   if (!courseResponse || !courseResponse.data) {
-    return <></>; // 데이터가 없을 경우 빈 JSX 반환
+    return <></>;
   }
 
   const course = courseResponse.data;

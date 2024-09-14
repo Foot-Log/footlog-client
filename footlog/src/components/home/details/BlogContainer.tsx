@@ -14,7 +14,6 @@ export default function BlogContainer(props: BlogContainerProps) {
   const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
   const courseIdNumber = course_id ? Number(course_id) : undefined; // courseId를 숫자로 변환
 
-  // courseIdNumber가 정의되었을 때만 API 호출
   const { data: blogResponse } = courseIdNumber ? useGetBlogPosting(courseIdNumber) : { data: null };
 
   if (!blogResponse) {

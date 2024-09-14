@@ -14,9 +14,9 @@ export default function page() {
   const [selectedKeywords, setSelectedKeywords] = useRecoilState(thirdOnboardingState);
   const currentIcons = onboardingIconsData.slice(6, 9);
 
-  const firstState = useRecoilValue(firstOnboardingState);
-  const secondState = useRecoilValue(secondOnboardingState);
-  const thirdState = useRecoilValue(thirdOnboardingState);
+  const firstKeyword = useRecoilValue(firstOnboardingState);
+  const secondKeyword = useRecoilValue(secondOnboardingState);
+  const thirdKeyword = useRecoilValue(thirdOnboardingState);
   const { mutate: postPreferKeywordMutate } = usePostPreferKeyword();
 
   function handleBackBtn() {
@@ -40,9 +40,9 @@ export default function page() {
 
   function handleOnboardingBtn() {
     postPreferKeywordMutate({
-      firstOnboardingState: firstState,
-      secondOnboardingState: secondState,
-      thirdOnboardingState: thirdState,
+      firstKeyword: firstKeyword,
+      secondKeyword: secondKeyword,
+      thirdKeyword: thirdKeyword,
     });
   }
 
