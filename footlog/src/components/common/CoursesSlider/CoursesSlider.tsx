@@ -25,7 +25,7 @@ export default function CoursesSlider(props: CoursesSliderProps) {
               priority
             />
             <figcaption className="absolute bottom-0 left-0 z-20 pb-8pxr pl-8pxr">
-              <h2 className="fonts-courseName">{course.name}</h2>
+              <h2 className="fonts-courseName line-clamp-1">{course.name}</h2>
               <p className="fonts-courseLocation">{course.area}</p>
             </figcaption>
             <div className="absolute right-12pxr top-12pxr">
