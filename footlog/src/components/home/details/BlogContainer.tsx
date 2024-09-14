@@ -12,16 +12,10 @@ export default function BlogContainer(props: BlogContainerProps) {
   const { title } = props;
   const pathname = usePathname(); // 현재 경로 가져오기
   const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
-  const [courseIdNumber, setCourseIdNumber] = useState<number>(1);
+  const courseIdNumber = course_id ? Number(course_id) : undefined; // courseId를 숫자로 변환
 
-  // course_id가 있을 때만 상태 업데이트
-  useEffect(() => {
-    if (course_id) {
-      setCourseIdNumber(Number(course_id)); // course_id를 숫자로 변환하여 상태 업데이트
-    }
-  }, [course_id]);
-
-  const { data: blogResponse } = useGetBlogPosting(courseIdNumber);
+  // courseIdNumber가 정의되었을 때만 API 호출
+  const { data: blogResponse } = courseIdNumber ? useGetBlogPosting(courseIdNumber) : { data: null };
 
   if (!blogResponse) {
     return <></>;
