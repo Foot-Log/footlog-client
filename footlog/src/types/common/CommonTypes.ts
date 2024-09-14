@@ -21,8 +21,15 @@ export interface RegionsDataTypes {
 }
 
 // 코스 검색 결과 LocationCard
-import { CourseResponseDtoDataTypes } from '@api/home/list/getRegionalCourse';
 export interface LocationCardProps {
   course: CourseResponseDtoDataTypes;
   searchInput?: string;
+}
+
+export interface CourseResponseDtoDataTypes {
+  course_id: number;
+  image: string;
+  area: string;
+  name: string;
+  isSave: boolean;
 }

@@ -1,6 +1,6 @@
 import api from 'api/api';
 import { Response } from 'types/common/Response';
-import { CourseResponseDtoDataTypes } from '@api/home/list/getRegionalCourse';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 
 export interface PostPreferKeywordDataTypes {
   firstKeyword: string[];

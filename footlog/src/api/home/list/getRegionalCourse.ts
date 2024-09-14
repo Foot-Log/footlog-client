@@ -1,13 +1,6 @@
 import api from 'api/api';
 import { Response } from 'types/common/Response';
-
-export interface CourseResponseDtoDataTypes {
-  course_id: number;
-  image: string;
-  area: string;
-  name: string;
-  isSave: boolean;
-}
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 
 export interface RequestPathVariable {
   areaCode: number;
