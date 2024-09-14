@@ -48,7 +48,9 @@ export default function page() {
       },
       {
         onSuccess: (response) => {
-          setCourses(response.data.data); // 응답에서 코스 배열을 가져와 Recoil 상태에 저장
+          const coursesArray = response.data.data; // 응답에서 코스 배열 가져오기
+          setCourses(coursesArray); // Recoil 상태에 저장
+          localStorage.setItem('courses', JSON.stringify(coursesArray)); // 로컬 스토리지에 저장
         },
       },
     );

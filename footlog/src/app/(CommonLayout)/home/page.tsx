@@ -1,12 +1,21 @@
 'use client';
-import { useRecoilValue } from 'recoil';
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import MainSearchHeader from '@components/common/MainSearchHeader/MainSearchHeader';
 import RecommendContainer from '@components/home/RecommendContainer';
 import RegionalRecommendContainer from '@components/home/RegionalRecommendContainer';
 import { courseState } from '@recoil/atom';
 
 export default function page() {
-  const courses = useRecoilValue(courseState); // Recoil 상태에서 코스 배열 가져오기
+  const [courses, setCourses] = useRecoilState(courseState); // Recoil 상태에서 코스 배열 가져오기
+
+  useEffect(() => {
+    // 로컬 스토리지에서 코스 배열 가져오기
+    const storedCourses = localStorage.getItem('courses');
+    if (storedCourses) {
+      setCourses(JSON.parse(storedCourses)); // Recoil 상태에 저장
+    }
+  }, [setCourses]);
 
   return (
     <main className="relative flex h-full w-full flex-col">
