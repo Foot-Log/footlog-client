@@ -26,11 +26,14 @@ export default function InfoContainer(props: InfoContainerProps) {
     setIsExpanded(!isExpanded); // 펼침 상태 토글
   };
 
+  // 설명이 너무 길지 않은 경우 더보기 버튼을 숨기기 위함
+  const isDescriptionLong = description.split('\n').length > 5;
+
   return (
     <section className="flex w-full flex-col px-24pxr pt-20pxr">
       <p className={`fonts-detailDescription text-gray-8 ${!isExpanded ? 'line-clamp-5' : ''}`}>
         {isExpanded ? description : `${description.slice(0, 173)}`}
-        {!isExpanded && (
+        {isDescriptionLong && !isExpanded && (
           <span className="fonts-detailDescription cursor-pointer text-gray-4" onClick={toggleDescription}>
             {' ...더보기'}
           </span>
