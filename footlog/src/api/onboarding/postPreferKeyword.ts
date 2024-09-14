@@ -10,7 +10,7 @@ export interface PostPreferKeywordDataTypes {
 
 export async function postPreferKeyword(
   props: PostPreferKeywordDataTypes,
-): Promise<Response<CourseResponseDtoDataTypes[]>> {
+): Promise<Response<{ data: CourseResponseDtoDataTypes[] }>> {
   const { firstKeyword, secondKeyword, thirdKeyword } = props;
 
   return await api.post(`/course/analyze`, {

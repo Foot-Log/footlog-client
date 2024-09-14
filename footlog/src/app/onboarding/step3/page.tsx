@@ -6,7 +6,7 @@ import OnboardingTitle from '@components/onboarding/OnboardingTitle';
 import OnboardingKeywords from '@components/onboarding/OnboardingKeywords';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
 import { onboardingIconsData } from '@core/onboardingIconsData';
-import { firstOnboardingState, secondOnboardingState, thirdOnboardingState } from '@recoil/atom';
+import { firstOnboardingState, secondOnboardingState, thirdOnboardingState, courseState } from '@recoil/atom';
 import usePostPreferKeyword from '@hooks/onboarding/usePostPreferKeyword';
 
 export default function page() {
@@ -17,6 +17,7 @@ export default function page() {
   const firstKeyword = useRecoilValue(firstOnboardingState);
   const secondKeyword = useRecoilValue(secondOnboardingState);
   const thirdKeyword = useRecoilValue(thirdOnboardingState);
+  const [courses, setCourses] = useRecoilState(courseState);
   const { mutate: postPreferKeywordMutate } = usePostPreferKeyword();
 
   function handleBackBtn() {
@@ -39,11 +40,18 @@ export default function page() {
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   function handleOnboardingBtn() {
-    postPreferKeywordMutate({
-      firstKeyword: firstKeyword,
-      secondKeyword: secondKeyword,
-      thirdKeyword: thirdKeyword,
-    });
+    postPreferKeywordMutate(
+      {
+        firstKeyword: firstKeyword,
+        secondKeyword: secondKeyword,
+        thirdKeyword: thirdKeyword,
+      },
+      {
+        onSuccess: (response) => {
+          setCourses(response.data.data); // 응답에서 코스 배열을 가져와 Recoil 상태에 저장
+        },
+      },
+    );
   }
 
   return (
