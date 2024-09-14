@@ -2,7 +2,7 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { CourseResponseDtoDataTypes } from '@api/home/list/getRegionalCourse';
-import BigLocationCard from '@components/common/BigLocationCard';
+import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetRegions from '@hooks/home/useGetRegions';

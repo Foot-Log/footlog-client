@@ -1,5 +1,5 @@
-import LocationCard from '@components/common/LocationCard';
-import BigLocationCard from '@components/home/search/results/BigLocationCard';
+import LocationCard from '@components/common/LocationCard/LocationCard';
+import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import RegionCard from '../RegionCard';
 import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { RegionCardDataTypes } from 'types/home/search/SearchTypes';

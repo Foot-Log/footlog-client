@@ -5,7 +5,7 @@ import { Flag2Icon } from '@public/icon';
 
 export default function page() {
   return (
-    <div className="mt-16pxr flex flex-col overflow-y-auto">
+    <div className="mt-16pxr flex h-full w-full flex-col overflow-y-auto">
       <section className="ml-24pxr h-174pxr">
         <div className="font-mypageTitle">마이 페이지</div>
 

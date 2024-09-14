@@ -32,7 +32,7 @@ export default function InfoContainer(props: InfoContainerProps) {
   return (
     <section className="flex w-full flex-col px-24pxr pt-20pxr">
       <p className={`fonts-detailDescription text-gray-8 ${!isExpanded ? 'line-clamp-5' : ''}`}>
-        {isExpanded ? description : `${description.slice(0, 173)}`}
+        {isExpanded ? description : `${description.slice(0, 154)}`}
         {isDescriptionLong && !isExpanded && (
           <span className="fonts-detailDescription cursor-pointer text-gray-4" onClick={toggleDescription}>
             {' ...더보기'}
