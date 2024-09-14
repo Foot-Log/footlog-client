@@ -48,7 +48,15 @@ export default function page() {
   };
 
   const handleFinishClick = () => {
-    postCompleteMutate({ course_id: course.course_id });
+    postCompleteMutate(
+      { course_id: course.course_id },
+      {
+        onSuccess: () => {
+          // 성공적으로 저장한 후, course details를 다시 fetch
+          queryClient.invalidateQueries({ queryKey: ['getCourseDetails', courseIdNumber] });
+        },
+      },
+    );
   };
 
   return (
