@@ -7,15 +7,15 @@ import { setToken } from '@utils/token';
 const useGetLogin = () => {
   const KAKAO_CODE = typeof window !== 'undefined' ? new URL(window.location.href).searchParams.get('code') : null;
   const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [_, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (KAKAO_CODE && !isLoggedIn) {
+    if (KAKAO_CODE) {
       api
         .get(`user/kakao/callback?code=${KAKAO_CODE}`)
         .then((res) => {
-          console.log(res);
-          setToken(res.data.accessToken);
+          setToken(res.data.data.accessToken);
+          console.log(res.data.data.accessToken);
           setIsLoggedIn(true); // 로그인 성공 시 상태 업데이트
           console.log('로그인 성공');
           router.push('/onboarding');
@@ -34,7 +34,7 @@ const useGetLogin = () => {
           }
         });
     }
-  }, [KAKAO_CODE, router, isLoggedIn]);
+  }, [KAKAO_CODE, router]);
 };
 
 export default useGetLogin;
