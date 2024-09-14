@@ -14,14 +14,6 @@ export interface CourseDetailsDataTypes {
   isComplete: boolean;
 }
 
-export interface BlogPostingDataTypes {
-  writer: string;
-  date: string;
-  title: string;
-  description: string;
-  link: string;
-}
-
 export interface RequestPathVariable {
   course_id: number;
 }

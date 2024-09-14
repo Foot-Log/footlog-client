@@ -7,7 +7,6 @@ import { courseState } from '@recoil/atom';
 
 export default function page() {
   const courses = useRecoilValue(courseState); // Recoil 상태에서 코스 배열 가져오기
-  console.log(courses);
 
   return (
     <main className="relative flex h-full w-full flex-col">
