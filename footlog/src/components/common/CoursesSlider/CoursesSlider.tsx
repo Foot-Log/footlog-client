@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
@@ -10,19 +11,32 @@ interface CoursesSliderProps {
 
 export default function CoursesSlider(props: CoursesSliderProps) {
   const { courses } = props;
-
   const { mutate: postSaveMutate } = usePostSave();
+
+  // 각 코스의 저장 상태를 관리하기 위한 상태 추가
+  // 초기에는 전달 받은 코스의 isSave로 설정하고
+  // 그후는 저장 클릭에 따라 상태 저장
+  const [savedCourses, setSavedCourses] = useState<{ [key: number]: boolean }>(
+    courses.reduce(
+      (acc, course) => {
+        acc[course.course_id] = course.isSave; // 초기 상태 설정
+        return acc;
+      },
+      {} as { [key: number]: boolean },
+    ),
+  );
 
   const handleSaveClick = (course_id: number, e: React.MouseEvent) => {
     e.stopPropagation(); // 링크 클릭 이벤트 방지
     e.preventDefault(); // 기본 링크 동작 방지
 
+    const newSaveState = !savedCourses[course_id]; // 다시 클릭 시 저장 해제
+
     postSaveMutate(
       { course_id: course_id },
       {
         onSuccess: () => {
-          // 성공적으로 저장한 후, course details를 다시 fetch
-          // queryClient.invalidateQueries({ queryKey: ['getCourseDetails', courseIdNumber] });
+          setSavedCourses((prev) => ({ ...prev, [course_id]: newSaveState }));
         },
       },
     );
@@ -50,7 +64,7 @@ export default function CoursesSlider(props: CoursesSliderProps) {
               type="button"
               className="absolute right-12pxr top-12pxr z-10 cursor-pointer"
               onClick={(e) => handleSaveClick(course.course_id, e)}>
-              {course.isSave ? <SaveFilledIcon /> : <SaveOutlineIcon />}
+              {savedCourses[course.course_id] ? <SaveFilledIcon /> : <SaveOutlineIcon />}
             </button>
           </figure>
         </Link>
