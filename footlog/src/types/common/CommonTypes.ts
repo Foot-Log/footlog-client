@@ -5,15 +5,6 @@ export interface NavBarIconsDataTypes {
   activeIcon: React.FC;
 }
 
-import { StaticImageData } from 'next/image';
-export interface RecommendCoursesDataTypes {
-  id: number;
-  imgSrc: StaticImageData;
-  title: string;
-  subtitle: string;
-  isSaved: boolean;
-}
-
 // 지역명, 최근 검색어, 인기 코스
 export interface RegionsDataTypes {
   id: number;
@@ -21,8 +12,15 @@ export interface RegionsDataTypes {
 }
 
 // 코스 검색 결과 LocationCard
-import { CourseResponseDtoDataTypes } from '@api/home/list/getRegionalCourse';
 export interface LocationCardProps {
   course: CourseResponseDtoDataTypes;
   searchInput?: string;
+}
+
+export interface CourseResponseDtoDataTypes {
+  course_id: number;
+  image: string;
+  area: string;
+  name: string;
+  isSave: boolean;
 }

@@ -6,7 +6,7 @@ import OnboardingTitle from '@components/onboarding/OnboardingTitle';
 import OnboardingKeywords from '@components/onboarding/OnboardingKeywords';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
 import { onboardingIconsData } from '@core/onboardingIconsData';
-import { firstOnboardingState, secondOnboardingState, thirdOnboardingState } from '@recoil/atom';
+import { firstOnboardingState, secondOnboardingState, thirdOnboardingState, courseState } from '@recoil/atom';
 import usePostPreferKeyword from '@hooks/onboarding/usePostPreferKeyword';
 
 export default function page() {
@@ -14,9 +14,10 @@ export default function page() {
   const [selectedKeywords, setSelectedKeywords] = useRecoilState(thirdOnboardingState);
   const currentIcons = onboardingIconsData.slice(6, 9);
 
-  const firstState = useRecoilValue(firstOnboardingState);
-  const secondState = useRecoilValue(secondOnboardingState);
-  const thirdState = useRecoilValue(thirdOnboardingState);
+  const firstKeyword = useRecoilValue(firstOnboardingState);
+  const secondKeyword = useRecoilValue(secondOnboardingState);
+  const thirdKeyword = useRecoilValue(thirdOnboardingState);
+  const [courses, setCourses] = useRecoilState(courseState);
   const { mutate: postPreferKeywordMutate } = usePostPreferKeyword();
 
   function handleBackBtn() {
@@ -39,11 +40,20 @@ export default function page() {
   const isOnboardingBtnDisabled = selectedKeywords.length === 0;
 
   function handleOnboardingBtn() {
-    postPreferKeywordMutate({
-      firstOnboardingState: firstState,
-      secondOnboardingState: secondState,
-      thirdOnboardingState: thirdState,
-    });
+    postPreferKeywordMutate(
+      {
+        firstKeyword: firstKeyword,
+        secondKeyword: secondKeyword,
+        thirdKeyword: thirdKeyword,
+      },
+      {
+        onSuccess: (response) => {
+          const coursesArray = response.data.data; // 응답에서 코스 배열 가져오기
+          setCourses(coursesArray); // Recoil 상태에 저장
+          localStorage.setItem('courses', JSON.stringify(coursesArray)); // 로컬 스토리지에 저장
+        },
+      },
+    );
   }
 
   return (
