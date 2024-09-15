@@ -7,6 +7,7 @@ import InfoContainer from '@components/home/details/InfoContainer';
 import BlogContainer from '@components/home/details/BlogContainer';
 import FinishBtn from '@components/home/details/FinishBtn';
 import useGetCourseDetails from '@hooks/home/details/useGetCourseDetails';
+import useGetBlogPosting from '@hooks/home/details/useGetBlogPosting';
 import usePostSave from '@hooks/home/details/usePostSave';
 import usePostComplete from '@hooks/home/details/usePostComplete';
 
@@ -20,12 +21,14 @@ export default function page() {
   const courseIdNumber = course_id ? Number(course_id) : undefined; // courseId를 숫자로 변환
 
   const { data: courseResponse } = courseIdNumber ? useGetCourseDetails(courseIdNumber) : { data: null };
+  const { data: blogResponse } = courseIdNumber ? useGetBlogPosting(courseIdNumber) : { data: null };
 
-  if (!courseResponse || !courseResponse.data) {
+  if (!courseResponse || !courseResponse.data || !blogResponse) {
     return <></>;
   }
 
   const course = courseResponse.data;
+  const posting = blogResponse.data;
 
   const handleSaveClick = () => {
     postSaveMutate(
@@ -65,7 +68,7 @@ export default function page() {
           site="홈페이지 / 웹사이트 URL"
         />
         <div className="h-8pxr w-full bg-gray-1" />
-        <BlogContainer title={course.name} />
+        <BlogContainer title={course.name} posting={posting} />
       </section>
       <FinishBtn isComplete={course.isComplete} onClick={handleFinishClick} />
     </main>

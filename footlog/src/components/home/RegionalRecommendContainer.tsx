@@ -2,7 +2,7 @@
 import { RightArrowIcon } from '@public/icon';
 import Link from 'next/link';
 import useGetRegions from '@hooks/home/useGetRegions';
-import { AreaCodeDtoDataTypes } from '@api/getRegions';
+import { AreaCodeDtoDataTypes } from '@api/home/getRegions';
 
 export default function RegionalRecommendContainer() {
   const { data: regions } = useGetRegions();
