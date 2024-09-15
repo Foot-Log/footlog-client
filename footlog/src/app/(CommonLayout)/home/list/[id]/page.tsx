@@ -37,7 +37,10 @@ export default function Page() {
         {courses &&
           courses.data &&
           courses.data.map((course: CourseResponseDtoDataTypes) => (
-            <BigLocationCard key={course.course_id} course={course} />
+            <section key={course.course_id}>
+              <BigLocationCard course={course} />
+              <div className="h-8pxr w-full bg-gray-1" />
+            </section>
           ))}
       </section>
     </main>
