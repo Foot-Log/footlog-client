@@ -63,7 +63,7 @@ export default function page() {
           description={course.summary}
           address={course.address}
           price="각 프로그램별로 이용요금 상이"
-          time="09:00 ~ 18:00"
+          time=""
           call={course.tel}
           site="홈페이지 / 웹사이트 URL"
         />

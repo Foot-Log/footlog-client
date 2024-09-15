@@ -6,10 +6,12 @@ import RecommendContainer from '@components/home/RecommendContainer';
 import RegionalRecommendContainer from '@components/home/RegionalRecommendContainer';
 import { courseState } from '@recoil/atom';
 import useGetPopularCourse from '@hooks/home/useGetPopularCourse';
+import useGetRegions from '@hooks/home/useGetRegions';
 
 export default function page() {
   const [courses, setCourses] = useRecoilState(courseState); // Recoil 상태에서 코스 배열 가져오기
   const { data: popularCourses } = useGetPopularCourse();
+  const { data: regions } = useGetRegions();
 
   useEffect(() => {
     // 로컬 스토리지에서 코스 배열 가져오기
@@ -19,7 +21,7 @@ export default function page() {
     }
   }, [setCourses]);
 
-  if (!popularCourses?.data) {
+  if (!popularCourses?.data || !regions) {
     return <></>;
   }
 
@@ -37,7 +39,7 @@ export default function page() {
           subtitle="최근 사용자들 사이에서 떠오르는 코스들이에요"
           courses={courses}
         />
-        <RegionalRecommendContainer />
+        <RegionalRecommendContainer regions={regions.data} />
       </section>
     </main>
   );
