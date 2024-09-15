@@ -1,10 +1,28 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LocationCardProps } from 'types/common/CommonTypes';
 import { SearchSaveFilledIcon, SearchSaveOutlineIcon } from '@public/icon';
+import usePostSave from '@hooks/home/details/usePostSave';
 
 export default function BigLocationCard(props: LocationCardProps) {
   const { course } = props;
+  const { mutate: postSaveMutate } = usePostSave();
+
+  const [isSaved, setIsSaved] = useState(course.isSave); // 초기 상태 설정
+
+  const handleSaveClick = () => {
+    const newSaveState = !isSaved; // 현재 저장 상태 반전
+
+    postSaveMutate(
+      { course_id: course.course_id },
+      {
+        onSuccess: () => {
+          setIsSaved(newSaveState);
+        },
+      },
+    );
+  };
 
   return (
     <section className="relative mb-20pxr flex flex-col px-24pxr">
@@ -28,8 +46,8 @@ export default function BigLocationCard(props: LocationCardProps) {
           />
         </figure>
       </Link>
-      <button className="absolute right-24pxr top-3pxr">
-        {course.isSave ? <SearchSaveFilledIcon /> : <SearchSaveOutlineIcon />}
+      <button type="button" className="absolute right-24pxr top-3pxr cursor-pointer" onClick={handleSaveClick}>
+        {isSaved ? <SearchSaveFilledIcon /> : <SearchSaveOutlineIcon />}
       </button>
     </section>
   );
