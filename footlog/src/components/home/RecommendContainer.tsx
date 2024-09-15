@@ -1,10 +1,10 @@
 import CoursesSlider from '@components/common/CoursesSlider/CoursesSlider';
-import { RecommendCoursesDataTypes } from 'types/common/CommonTypes';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 
 interface RecommendContainerProps {
   title: string;
   subtitle: string;
-  courses: RecommendCoursesDataTypes[];
+  courses: CourseResponseDtoDataTypes[];
 }
 
 export default function RecommendContainer(props: RecommendContainerProps) {
