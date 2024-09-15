@@ -6,7 +6,7 @@ import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetRegions from '@hooks/home/useGetRegions';
-import { AreaCodeDtoDataTypes } from '@api/getRegions';
+import { AreaCodeDtoDataTypes } from '@api/home/getRegions';
 
 export default function Page() {
   const pathname = usePathname(); // 현재 경로 가져오기
