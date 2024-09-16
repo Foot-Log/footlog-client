@@ -56,7 +56,7 @@ const KakaoMap = () => {
               customOverlay.setMap(map);
 
               window.kakao.maps.event.addListener(marker, 'click', function () {
-                setSelectLocation(location.address);
+                setSelectLocation(location.name);
               });
             }
           });
