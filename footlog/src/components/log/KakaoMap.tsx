@@ -1,9 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import 'react-kakao-maps-sdk';
 import MarkerModal from './MarkerModal';
+import useGetCompletedList from '@hooks/log/useGetCompletedList';
+import useGetLogDetails from '@hooks/log/useGetLogDetails';
 
-const KakaoMap = ({ locations }: { locations: string[] }) => {
+const KakaoMap = () => {
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
+
+  const { data: locations } = useGetCompletedList();
+  console.log('locations', locations);
+
+  const [logId, setLogId] = useState<number | null>(null);
+  console.log('lodId', logId);
+
+  // logId가 있을 때만 useGetLogDetails를 호출
+  const { data: details } = useGetLogDetails(logId ?? 0, {
+    enabled: !!logId, // logId가 있을 때만 API를 호출하도록 설정
+  });
+  console.log('details', details?.data);
 
   const handleSubmit = (text: String, images: (string | File)[]) => {
     console.log('text', text);
@@ -24,8 +38,8 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
         // 주소-좌표 변환 객체 생성
         const geocoder = new window.kakao.maps.services.Geocoder();
 
-        locations.forEach((location) => {
-          geocoder.addressSearch(location, function (result: any, status: any) {
+        locations?.data.forEach((location: any) => {
+          geocoder.addressSearch(location.address, function (result: any, status: any) {
             if (status === window.kakao.maps.services.Status.OK) {
               const latitude = Number(result[0].y);
               const longitude = Number(result[0].x);
@@ -45,14 +59,15 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
 
               const customOverlay = new window.kakao.maps.CustomOverlay({
                 position: coords,
-                content: `<div class="fonts-logLocations">${location}</div>`,
+                content: `<div class="fonts-logLocations">${location.name}</div>`,
                 yAnchor: 1, // 위치 조정 (마커 위에 텍스트를 표시하도록)
               });
 
               customOverlay.setMap(map);
 
               window.kakao.maps.event.addListener(marker, 'click', function () {
-                setSelectLocation(location);
+                setSelectLocation(location.name);
+                setLogId(location.logId);
               });
             }
           });
@@ -64,13 +79,13 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
   return (
     <div>
       <div id="map" className="mt-68pxr h-688pxr w-full" />
-      {selectLocation && (
+      {selectLocation && logId && details?.data && (
         <MarkerModal
           location={selectLocation}
           onClose={() => setSelectLocation(null)}
           onSubmit={handleSubmit}
-          initialText="대구 풋!로그~"
-          initialImages={['https://cdn.crowdpic.net/detail-thumb/thumb_d_AE044C445F1F75281B4E7F996004555A.jpg']}
+          initialText={details?.data.logContent || ''}
+          initialImages={details?.data.photos || []}
         />
       )}
     </div>
