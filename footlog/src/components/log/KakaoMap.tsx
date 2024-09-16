@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import 'react-kakao-maps-sdk';
 import MarkerModal from './MarkerModal';
+import useGetCompletedList from '@hooks/log/useGetCompletedList';
 
-const KakaoMap = ({ locations }: { locations: string[] }) => {
+const KakaoMap = () => {
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
+
+  const { data: locations } = useGetCompletedList();
+  console.log('locations', locations);
 
   const handleSubmit = (text: String, images: (string | File)[]) => {
     console.log('text', text);
@@ -24,8 +28,8 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
         // 주소-좌표 변환 객체 생성
         const geocoder = new window.kakao.maps.services.Geocoder();
 
-        locations.forEach((location) => {
-          geocoder.addressSearch(location, function (result: any, status: any) {
+        locations?.data.forEach((location: any) => {
+          geocoder.addressSearch(location.address, function (result: any, status: any) {
             if (status === window.kakao.maps.services.Status.OK) {
               const latitude = Number(result[0].y);
               const longitude = Number(result[0].x);
@@ -45,14 +49,14 @@ const KakaoMap = ({ locations }: { locations: string[] }) => {
 
               const customOverlay = new window.kakao.maps.CustomOverlay({
                 position: coords,
-                content: `<div class="fonts-logLocations">${location}</div>`,
+                content: `<div class="fonts-logLocations">${location.name}</div>`,
                 yAnchor: 1, // 위치 조정 (마커 위에 텍스트를 표시하도록)
               });
 
               customOverlay.setMap(map);
 
               window.kakao.maps.event.addListener(marker, 'click', function () {
-                setSelectLocation(location);
+                setSelectLocation(location.address);
               });
             }
           });
