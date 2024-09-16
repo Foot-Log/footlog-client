@@ -2,12 +2,22 @@ import React, { useEffect, useState } from 'react';
 import 'react-kakao-maps-sdk';
 import MarkerModal from './MarkerModal';
 import useGetCompletedList from '@hooks/log/useGetCompletedList';
+import useGetLogDetails from '@hooks/log/useGetLogDetails';
 
 const KakaoMap = () => {
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
 
   const { data: locations } = useGetCompletedList();
   console.log('locations', locations);
+
+  const [logId, setLogId] = useState<number | null>(null);
+  console.log('lodId', logId);
+
+  // logId가 있을 때만 useGetLogDetails를 호출
+  const { data: details } = useGetLogDetails(logId ?? 0, {
+    enabled: !!logId, // logId가 있을 때만 API를 호출하도록 설정
+  });
+  console.log('details', details?.data);
 
   const handleSubmit = (text: String, images: (string | File)[]) => {
     console.log('text', text);
@@ -57,6 +67,7 @@ const KakaoMap = () => {
 
               window.kakao.maps.event.addListener(marker, 'click', function () {
                 setSelectLocation(location.name);
+                setLogId(location.logId);
               });
             }
           });
@@ -68,13 +79,13 @@ const KakaoMap = () => {
   return (
     <div>
       <div id="map" className="mt-68pxr h-688pxr w-full" />
-      {selectLocation && (
+      {selectLocation && logId && details?.data && (
         <MarkerModal
           location={selectLocation}
           onClose={() => setSelectLocation(null)}
           onSubmit={handleSubmit}
-          initialText="대구 풋!로그~"
-          initialImages={['https://cdn.crowdpic.net/detail-thumb/thumb_d_AE044C445F1F75281B4E7F996004555A.jpg']}
+          initialText={details?.data.logContent || ''}
+          initialImages={details?.data.photos || []}
         />
       )}
     </div>
