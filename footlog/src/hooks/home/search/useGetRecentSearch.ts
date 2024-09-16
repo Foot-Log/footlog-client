@@ -13,4 +13,4 @@ const useGetRecentSearch = () => {
   return { data };
 };
 
-export default getRecentSearch;
+export default useGetRecentSearch;

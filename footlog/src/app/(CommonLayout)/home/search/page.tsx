@@ -9,12 +9,15 @@ import SearchingResults from '@components/home/search/SearchingResults';
 import { courseDetailsData } from '@core/courseDetailsData';
 import { locationData } from '@core/locationData';
 import { filterCourses, filterLocations } from '@utils/filterData';
+import useGetRecentSearch from '@hooks/home/search/useGetRecentSearch';
 
 export default function page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
   const filteredCourses = filterCourses(courseDetailsData, searchInput);
   const filteredLocations = filterLocations(locationData, searchInput);
+
+  const { data: RecentSearch } = useGetRecentSearch();
 
   // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {
@@ -29,6 +32,10 @@ export default function page() {
       router.push(`search/results?query=${encodeURIComponent(searchInput)}`);
     }
   };
+
+  if (!RecentSearch) {
+    return <></>;
+  }
 
   return (
     <main className="relative flex h-full w-full flex-col">
@@ -48,8 +55,8 @@ export default function page() {
           />
         ) : (
           <>
-            <RecentSearchContainer />
-            <RecentCourseContainer />
+            <RecentSearchContainer recentSearchData={RecentSearch.data} />
+            {/*<RecentCourseContainer />*/}
             <PopularContainer />
           </>
         )}
