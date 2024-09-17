@@ -24,3 +24,7 @@ export interface CourseResponseDtoDataTypes {
   name: string;
   isSave: boolean;
 }
+
+export interface CoursesDataTypes {
+  courses: CourseResponseDtoDataTypes[];
+}

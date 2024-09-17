@@ -4,12 +4,9 @@ import Image from 'next/image';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
+import { CoursesDataTypes } from 'types/common/CommonTypes';
 
-interface CoursesSliderProps {
-  courses: CourseResponseDtoDataTypes[];
-}
-
-export default function CoursesSlider(props: CoursesSliderProps) {
+export default function CoursesSlider(props: CoursesDataTypes) {
   const { courses } = props;
   const { mutate: postSaveMutate } = usePostSave();
 

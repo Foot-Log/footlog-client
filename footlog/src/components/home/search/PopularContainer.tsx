@@ -1,14 +1,10 @@
-import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
+import { CoursesDataTypes } from 'types/common/CommonTypes';
 
-export interface PopularContainerProps {
-  popularCourses: CourseResponseDtoDataTypes[];
-}
+export default function PopularContainer(props: CoursesDataTypes) {
+  const { courses } = props;
 
-export default function PopularContainer(props: PopularContainerProps) {
-  const { popularCourses } = props;
-
-  const firstGroup = popularCourses.slice(0, 5);
-  const secondGroup = popularCourses.slice(5, 10);
+  const firstGroup = courses.slice(0, 5);
+  const secondGroup = courses.slice(5, 10);
 
   return (
     <section className="flex w-full flex-col">

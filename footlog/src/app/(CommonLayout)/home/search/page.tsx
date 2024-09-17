@@ -62,8 +62,8 @@ export default function page() {
         ) : (
           <>
             <RecentSearchContainer recentSearch={recentSearch.data} />
-            <RecentCourseContainer recentCourses={recentCourses.data} />
-            <PopularContainer popularCourses={popularCourses.data} />
+            <RecentCourseContainer courses={recentCourses.data} />
+            <PopularContainer courses={popularCourses.data} />
           </>
         )}
       </section>
