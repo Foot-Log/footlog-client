@@ -1,4 +1,3 @@
-import { recentSearchData } from '@core/recentSearchData';
 import { CloseIcon } from '@public/icon';
 import { SearchLogDtoDataTypes } from '@api/home/search/getRecentSearch';
 

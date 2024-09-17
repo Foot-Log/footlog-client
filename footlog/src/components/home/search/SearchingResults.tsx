@@ -1,11 +1,11 @@
 import React from 'react';
 import RegionCard from '@components/home/search/RegionCard';
 import LocationCard from '@components/common/LocationCard/LocationCard';
-import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { RegionCardDataTypes } from 'types/home/search/SearchTypes';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 
 interface SearchingResultsProps {
-  filteredCourses: CourseDetailsDataTypes[];
+  filteredCourses: CourseResponseDtoDataTypes[];
   filteredLocations: RegionCardDataTypes[];
   searchInput: string;
 }
@@ -25,7 +25,7 @@ export default function SearchingResults(props: SearchingResultsProps) {
       {filteredCourses.length > 0 ? (
         <section className="flex flex-col gap-24pxr">
           {filteredCourses.map((course) => (
-            <LocationCard key={course.id} course={course} searchInput={searchInput} />
+            <LocationCard key={course.course_id} course={course} searchInput={searchInput} />
           ))}
         </section>
       ) : (

@@ -1,11 +1,11 @@
 import LocationCard from '@components/common/LocationCard/LocationCard';
 import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import RegionCard from '../RegionCard';
-import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
 import { RegionCardDataTypes } from 'types/home/search/SearchTypes';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 
 interface SearchResultsProps {
-  filteredCourses: CourseDetailsDataTypes[];
+  filteredCourses: CourseResponseDtoDataTypes[];
   filteredLocations: RegionCardDataTypes[];
   searchInput: string;
   showBigCards: boolean;
@@ -20,7 +20,7 @@ export default function SearchedResults(props: SearchResultsProps) {
         filteredCourses.length > 0 ? (
           <section className="flex flex-col">
             {filteredCourses.map((course) => (
-              <section key={course.id}>
+              <section key={course.course_id}>
                 <div className="mb-20pxr h-8pxr w-full bg-gray-1" />
                 <BigLocationCard course={course} searchInput={searchInput} />
               </section>
@@ -41,7 +41,7 @@ export default function SearchedResults(props: SearchResultsProps) {
             </section>
           )}
           {filteredCourses.map((course) => (
-            <section key={course.id}>
+            <section key={course.course_id}>
               <LocationCard course={course} searchInput={searchInput} />
             </section>
           ))}
