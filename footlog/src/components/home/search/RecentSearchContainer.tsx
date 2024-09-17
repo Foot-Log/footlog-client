@@ -1,5 +1,5 @@
 import { CloseIcon } from '@public/icon';
-import { SearchLogDtoDataTypes } from '@api/home/search/getRecentSearch';
+import { SearchLogDtoDataTypes } from 'types/search/SearchTypes';
 
 export interface RecentSearchContainerProps {
   recentSearch: SearchLogDtoDataTypes[];
