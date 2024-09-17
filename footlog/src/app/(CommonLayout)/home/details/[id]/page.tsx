@@ -12,8 +12,8 @@ import usePostSave from '@hooks/home/details/usePostSave';
 import usePostComplete from '@hooks/home/details/usePostComplete';
 
 export default function page() {
-  const pathname = usePathname(); // 현재 경로 가져오기
-  const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
+  const pathname = usePathname();
+  const course_id = pathname.split('/').pop();
   const queryClient = useQueryClient();
   const { mutate: postCompleteMutate } = usePostComplete();
   const { mutate: postSaveMutate } = usePostSave();
@@ -23,7 +23,7 @@ export default function page() {
   const { data: courseResponse } = courseIdNumber ? useGetCourseDetails(courseIdNumber) : { data: null };
   const { data: blogResponse } = courseIdNumber ? useGetBlogPosting(courseIdNumber) : { data: null };
 
-  if (!courseResponse || !courseResponse.data || !blogResponse) {
+  if (!courseResponse || !blogResponse) {
     return <></>;
   }
 

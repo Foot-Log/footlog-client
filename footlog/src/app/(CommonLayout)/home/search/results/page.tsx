@@ -28,9 +28,9 @@ export default function Page() {
     if (query) {
       const decodedQuery = decodeURIComponent(query);
       setSearchInput(decodedQuery);
-      setShowBigCards(true); // 쿼리 파라미터가 있을 경우 BigLocationCard 표시
+      setShowBigCards(true);
     } else {
-      setShowBigCards(false); // 쿼리 파라미터가 없으면 BigLocationCard 숨김
+      setShowBigCards(false);
     }
   }, [window.location.search]);
 
@@ -41,17 +41,13 @@ export default function Page() {
 
     const query = new URLSearchParams(window.location.search).get('query');
     if (searchInput.trim() === '') {
-      setShowBigCards(true); // 입력이 없을 때는 BigLocationCard를 보여줌
+      setShowBigCards(true);
     } else if (query && query !== searchInput) {
-      setShowBigCards(false); // searchInput이 쿼리와 다를 때는 false로 설정
+      setShowBigCards(false);
     } else {
       setShowBigCards(true); // searchInput이 쿼리와 같거나 입력 중일 때는 true로 설정
     }
-  }, [searchInput, window.location.search]); // window.location.search도 의존성에 추가
-
-  useEffect(() => {
-    console.log(`Current searchInput: ${searchInput}`); // 로그 추가
-  }, [searchInput]);
+  }, [searchInput, window.location.search]);
 
   // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {
