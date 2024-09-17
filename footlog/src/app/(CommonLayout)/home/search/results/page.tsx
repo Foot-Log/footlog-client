@@ -7,6 +7,7 @@ import SearchedResults from '@components/home/search/results/SearchedResults';
 import { locationData } from '@core/locationData';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
+import useGetSearchResult from '@hooks/home/search/useGetSearchResult';
 
 export default function Page() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function Page() {
   const [showBigCards, setShowBigCards] = useState(true);
   const filteredLocations = filterLocations(locationData, searchInput);
   const { data: coursesData } = useGetRegionalCourse(0);
+  const { data: searchData } = useGetSearchResult(searchInput);
 
   if (!coursesData) {
     return <></>;
@@ -47,6 +49,10 @@ export default function Page() {
     }
   }, [searchInput, window.location.search]); // window.location.search도 의존성에 추가
 
+  useEffect(() => {
+    console.log(`Current searchInput: ${searchInput}`); // 로그 추가
+  }, [searchInput]);
+
   // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -73,7 +79,7 @@ export default function Page() {
         shouldFocus={false}
       />
       <SearchedResults
-        filteredCourses={filteredCourses}
+        filteredCourses={searchData?.data || []}
         filteredLocations={filteredLocations}
         searchInput={searchInput}
         showBigCards={showBigCards}
