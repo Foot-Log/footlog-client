@@ -10,6 +10,7 @@ import { locationData } from '@core/locationData';
 import { filterCourses, filterLocations } from '@utils/filterData';
 import useGetRecentSearch from '@hooks/home/search/useGetRecentSearch';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
+import useGetPopularCourse from '@hooks/home/useGetPopularCourse';
 
 export default function page() {
   const router = useRouter();
@@ -17,8 +18,9 @@ export default function page() {
 
   const { data: RecentSearch } = useGetRecentSearch();
   const { data: coursesData } = useGetRegionalCourse(0);
+  const { data: popularCourses } = useGetPopularCourse();
 
-  if (!RecentSearch || !coursesData) {
+  if (!RecentSearch || !coursesData || !popularCourses) {
     return <></>;
   }
 
@@ -59,7 +61,7 @@ export default function page() {
           <>
             <RecentSearchContainer recentSearchData={RecentSearch.data} />
             {/*<RecentCourseContainer />*/}
-            <PopularContainer />
+            <PopularContainer popularCourses={popularCourses.data} />
           </>
         )}
       </section>
