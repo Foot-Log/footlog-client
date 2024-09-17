@@ -1,5 +1,5 @@
 import MypageContainer from '@components/mypage/MypageContainer';
-import RecentCourseContainer from '@components/common/RecentCourseContainer';
+import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import { recommendCoursesData } from '@core/recommendCoursesData';
 import { Flag2Icon } from '@public/icon';
 

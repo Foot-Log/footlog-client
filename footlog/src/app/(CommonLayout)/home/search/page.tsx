@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import RecentSearchContainer from '@components/home/search/RecentSearchContainer';
-import RecentCourseContainer from '@components/common/RecentCourseContainer';
+import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import PopularContainer from '@components/home/search/PopularContainer';
 import SearchingResults from '@components/home/search/SearchingResults';
 import { locationData } from '@core/locationData';
@@ -11,16 +11,18 @@ import { filterCourses, filterLocations } from '@utils/filterData';
 import useGetRecentSearch from '@hooks/home/search/useGetRecentSearch';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetPopularCourse from '@hooks/home/useGetPopularCourse';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 
 export default function page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
 
-  const { data: RecentSearch } = useGetRecentSearch();
+  const { data: recentSearch } = useGetRecentSearch();
   const { data: coursesData } = useGetRegionalCourse(0);
   const { data: popularCourses } = useGetPopularCourse();
+  const { data: recentCourses } = useGetRecentCourse();
 
-  if (!RecentSearch || !coursesData || !popularCourses) {
+  if (!recentSearch || !coursesData || !popularCourses || !recentCourses) {
     return <></>;
   }
 
@@ -59,8 +61,8 @@ export default function page() {
           />
         ) : (
           <>
-            <RecentSearchContainer recentSearchData={RecentSearch.data} />
-            {/*<RecentCourseContainer />*/}
+            <RecentSearchContainer recentSearch={recentSearch.data} />
+            <RecentCourseContainer recentCourses={recentCourses.data} />
             <PopularContainer popularCourses={popularCourses.data} />
           </>
         )}
