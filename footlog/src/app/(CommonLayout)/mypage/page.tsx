@@ -1,9 +1,15 @@
 import MypageContainer from '@components/mypage/MypageContainer';
 import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
-import { recommendCoursesData } from '@core/recommendCoursesData';
 import { Flag2Icon } from '@public/icon';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 
 export default function page() {
+  const { data: recentCourses } = useGetRecentCourse();
+
+  if (!recentCourses) {
+    return <></>;
+  }
+
   return (
     <div className="mt-16pxr flex h-full w-full flex-col overflow-y-auto">
       <section className="ml-24pxr h-174pxr">
@@ -33,7 +39,7 @@ export default function page() {
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
       <MypageContainer title="저장 목록" courses={recommendCoursesData} />
-      <RecentCourseContainer />
+      <RecentCourseContainer courses={recentCourses.data} />
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
