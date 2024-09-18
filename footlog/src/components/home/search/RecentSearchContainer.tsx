@@ -10,10 +10,8 @@ export default function RecentSearchContainer(props: RecentSearchContainerProps)
   const { recentSearch } = props;
   const { mutate: deleteRecentSearchMutate } = useDeleteRecentSearch();
 
-  const handleDeleteClick = (log: string, createdAt: string) => {
-    const requestBody = { log, createdAt };
-    console.log('Request Body:', requestBody); // 요청 본문 출력
-    deleteRecentSearchMutate(requestBody);
+  const handleDeleteClick = (keyword: string) => {
+    deleteRecentSearchMutate({ keyword });
   };
 
   return (
@@ -21,17 +19,14 @@ export default function RecentSearchContainer(props: RecentSearchContainerProps)
       <h2 className="fonts-recommendTitle">최근 검색어</h2>
       <section className="flex gap-8pxr overflow-x-auto">
         {recentSearch.length === 0 ? (
-          <p className="fonts-recommendSubtitle flex text-center">최근 검색어가 존재하지 않습니다.</p>
+          <p className="fonts-recommendSubtitle flex">최근 검색어가 존재하지 않습니다.</p>
         ) : (
           recentSearch.map((search) => (
             <div
-              key={search.createdAt}
+              key={search.keyword}
               className="flex h-36pxr w-auto items-center justify-center gap-12pxr rounded-searchBox border border-gray-2 px-16pxr">
-              <span className="fonts-recommendSubtitle flex-1 whitespace-nowrap">{search.log}</span>
-              <button
-                type="button"
-                className="cursor-pointer"
-                onClick={() => handleDeleteClick(search.log, search.createdAt)}>
+              <span className="fonts-recommendSubtitle flex-1 whitespace-nowrap">{search.keyword}</span>
+              <button type="button" className="cursor-pointer" onClick={() => handleDeleteClick(search.keyword)}>
                 <CloseIcon />
               </button>
             </div>
