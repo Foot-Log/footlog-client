@@ -1,9 +1,18 @@
+'use client';
 import MypageContainer from '@components/mypage/MypageContainer';
-import RecentCourseContainer from '@components/common/RecentCourseContainer';
-import { recommendCoursesData } from '@core/recommendCoursesData';
+//import RecentCourseContainer from '@components/common/RecentCourseContainer';
+//import { recommendCoursesData } from '@core/recommendCoursesData';
 import { Flag2Icon } from '@public/icon';
+import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
 
 export default function page() {
+  const { data: saveCourseList } = useGetSaveCourseList();
+  console.log('saveCourseList', saveCourseList);
+
+  if (!saveCourseList?.data) {
+    return <></>;
+  }
+
   return (
     <div className="mt-16pxr flex h-full w-full flex-col overflow-y-auto">
       <section className="ml-24pxr h-174pxr">
@@ -32,8 +41,8 @@ export default function page() {
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
-      <MypageContainer title="저장 목록" courses={recommendCoursesData} />
-      <RecentCourseContainer />
+      <MypageContainer title="저장 목록" courses={saveCourseList?.data} />
+      {/* <RecentCourseContainer /> */}
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 

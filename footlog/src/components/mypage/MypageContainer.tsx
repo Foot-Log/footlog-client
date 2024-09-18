@@ -1,12 +1,12 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { RecommendCoursesDataTypes } from 'types/common/CommonTypes';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import CoursesSlider from '@components/common/CoursesSlider/CoursesSlider';
 import { MypageRightArrowIcon } from '@public/icon';
 
 interface MypageContainerProps {
   title: string;
-  courses: RecommendCoursesDataTypes[];
+  courses: CourseResponseDtoDataTypes[];
 }
 
 export default function MypageContainer(props: MypageContainerProps) {
