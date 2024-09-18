@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
 import { CoursesDataTypes } from 'types/common/CommonTypes';
