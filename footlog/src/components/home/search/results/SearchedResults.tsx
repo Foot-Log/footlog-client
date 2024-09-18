@@ -1,12 +1,12 @@
 import LocationCard from '@components/common/LocationCard/LocationCard';
 import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import RegionCard from '../RegionCard';
-import { RegionCardDataTypes } from 'types/home/search/SearchTypes';
+import { CityRegionsDtoDataTypes } from 'types/home/search/SearchTypes';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 
 interface SearchResultsProps {
   filteredCourses: CourseResponseDtoDataTypes[];
-  filteredLocations: RegionCardDataTypes[];
+  filteredLocations: CityRegionsDtoDataTypes[];
   searchInput: string;
   showBigCards: boolean;
 }
@@ -36,7 +36,7 @@ export default function SearchedResults(props: SearchResultsProps) {
           {filteredLocations.length > 0 && (
             <section className="mb-24pxr flex flex-col gap-24pxr">
               {filteredLocations.map((location) => (
-                <RegionCard key={location.id} location={location} searchInput={searchInput} />
+                <RegionCard key={location.sigunguCode} location={location} searchInput={searchInput} />
               ))}
             </section>
           )}

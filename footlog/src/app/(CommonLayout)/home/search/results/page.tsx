@@ -4,23 +4,26 @@ import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import { filterCourses, filterLocations } from '@utils/filterData';
 import SearchedResults from '@components/home/search/results/SearchedResults';
-import { locationData } from '@core/locationData';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetSearchResult from '@hooks/home/search/useGetSearchResult';
+import useGetCityRegions from '@hooks/home/search/useGetCityRegions';
 
 export default function Page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
-  const [filteredCourses, setFilteredCourses] = useState<CourseResponseDtoDataTypes[]>([]);
   const [showBigCards, setShowBigCards] = useState(true);
-  const filteredLocations = filterLocations(locationData, searchInput);
+
   const { data: coursesData } = useGetRegionalCourse(0);
   const { data: searchData } = useGetSearchResult(searchInput);
+  const { data: cityRegions } = useGetCityRegions();
 
-  if (!coursesData) {
+  if (!coursesData || !cityRegions) {
     return <></>;
   }
+
+  const [_, setFilteredCourses] = useState<CourseResponseDtoDataTypes[]>([]);
+  const filteredLocations = filterLocations(cityRegions.data, searchInput);
 
   // 쿼리 파라미터에서 초기 검색어 가져오기
   useEffect(() => {

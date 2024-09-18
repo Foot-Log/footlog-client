@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { deleteRecentSearch } from '@api/home/search/deleteRecentSearch';
-import { SearchLogDtoDataTypes } from 'types/search/SearchTypes';
+import { SearchLogDtoDataTypes } from 'types/home/search/SearchTypes';
 
 export function useDeleteRecentSearch() {
   return useMutation({

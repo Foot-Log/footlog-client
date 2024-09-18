@@ -6,12 +6,12 @@ import RecentSearchContainer from '@components/home/search/RecentSearchContainer
 import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import PopularContainer from '@components/home/search/PopularContainer';
 import SearchingResults from '@components/home/search/SearchingResults';
-import { locationData } from '@core/locationData';
 import { filterCourses, filterLocations } from '@utils/filterData';
 import useGetRecentSearch from '@hooks/home/search/useGetRecentSearch';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetPopularCourse from '@hooks/home/useGetPopularCourse';
 import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
+import useGetCityRegions from '@hooks/home/search/useGetCityRegions';
 
 export default function page() {
   const router = useRouter();
@@ -21,13 +21,14 @@ export default function page() {
   const { data: coursesData } = useGetRegionalCourse(0);
   const { data: popularCourses } = useGetPopularCourse();
   const { data: recentCourses } = useGetRecentCourse();
+  const { data: cityRegions } = useGetCityRegions();
 
-  if (!recentSearch || !coursesData || !popularCourses || !recentCourses) {
+  if (!recentSearch || !coursesData || !popularCourses || !recentCourses || !cityRegions) {
     return <></>;
   }
 
   const filteredCourses = filterCourses(coursesData.data, searchInput);
-  const filteredLocations = filterLocations(locationData, searchInput);
+  const filteredLocations = filterLocations(cityRegions.data, searchInput);
 
   // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {

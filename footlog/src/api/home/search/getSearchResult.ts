@@ -1,7 +1,7 @@
 import api from 'api/api';
 import { Response } from 'types/common/Response';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
-import { SearchLogDtoDataTypes } from 'types/search/SearchTypes';
+import { SearchLogDtoDataTypes } from 'types/home/search/SearchTypes';
 
 export async function getSearchResult(props: SearchLogDtoDataTypes): Promise<Response<CourseResponseDtoDataTypes[]>> {
   const { keyword } = props;
