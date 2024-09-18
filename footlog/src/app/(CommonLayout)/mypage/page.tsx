@@ -1,15 +1,21 @@
 'use client';
 import MypageContainer from '@components/mypage/MypageContainer';
-//import RecentCourseContainer from '@components/common/RecentCourseContainer';
+import RecentCourseContainer from '@components/common/RecentCourseContainer';
 //import { recommendCoursesData } from '@core/recommendCoursesData';
 import { Flag2Icon } from '@public/icon';
 import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
+import useGetRecentCourseList from '@hooks/mypage/useGetRecentCourseList';
 
 export default function page() {
   const { data: saveCourseList } = useGetSaveCourseList();
+  const { data: recentCourseList } = useGetRecentCourseList();
   console.log('saveCourseList', saveCourseList);
+  console.log('recentCourseList', recentCourseList);
 
   if (!saveCourseList?.data) {
+    return <></>;
+  }
+  if (!recentCourseList?.data) {
     return <></>;
   }
 
@@ -42,13 +48,13 @@ export default function page() {
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
       <MypageContainer title="저장 목록" courses={saveCourseList?.data} />
-      {/* <RecentCourseContainer /> */}
+      <RecentCourseContainer courses={recentCourseList?.data} />
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
       <div className="ml-24pxr">
         <div className="font-mypageDetail mt-20pxr text-gray-8">선호도 재설정</div>
-        <div className="font-mypageDetai mt-20pxr text-gray-4">로그아웃</div>
+        <div className="font-mypageDetai mt-20pxr text-gray-4">회원 탈퇴</div>
       </div>
     </div>
   );

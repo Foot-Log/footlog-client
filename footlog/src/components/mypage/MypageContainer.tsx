@@ -11,14 +11,13 @@ interface MypageContainerProps {
 
 export default function MypageContainer(props: MypageContainerProps) {
   const { title, courses } = props;
+  console.log('courrrrr', courses);
   const router = useRouter();
-
-  const isSaved = true;
 
   return (
     <section className="ml-24pxr flex w-full flex-col">
       <section className="flex w-full flex-col py-20pxr">
-        {isSaved ? (
+        {courses && courses.length > 0 ? (
           <div>
             {' '}
             <section className="flex w-full items-center justify-between">
