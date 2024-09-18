@@ -49,6 +49,7 @@ export default function page() {
         onSuccess: () => {
           // 성공적으로 저장한 후, course details를 다시 fetch
           queryClient.invalidateQueries({ queryKey: ['getCourseDetails', courseIdNumber] });
+          queryClient.invalidateQueries({ queryKey: ['getCompletedList'] });
         },
       },
     );

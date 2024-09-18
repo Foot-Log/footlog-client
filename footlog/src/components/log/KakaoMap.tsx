@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import 'react-kakao-maps-sdk';
 import MarkerModal from './MarkerModal';
 import useGetCompletedList from '@hooks/log/useGetCompletedList';
@@ -6,6 +7,7 @@ import useGetLogDetails from '@hooks/log/useGetLogDetails';
 import useUpdateLog from '@hooks/log/useUpdateLog';
 
 const KakaoMap = () => {
+  const queryClient = useQueryClient();
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
 
   const { data: locations } = useGetCompletedList();
@@ -37,6 +39,7 @@ const KakaoMap = () => {
     updateLogMutation.mutate(updateData, {
       onSuccess: (response) => {
         console.log('Log updated successfully', response);
+        queryClient.invalidateQueries({ queryKey: ['getLogDetails', logId] });
       },
       onError: (error) => {
         console.error('Error updating log:', error);
