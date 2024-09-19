@@ -1,6 +1,6 @@
 import { CloseIcon } from '@public/icon';
 import { SearchLogDtoDataTypes } from 'types/home/search/SearchTypes';
-import { useDeleteRecentSearch } from '@hooks/home/search/useDeleteRecentSearch';
+import usePatchRecentSearch from '@hooks/home/search/usePatchRecentSearch';
 
 export interface RecentSearchContainerProps {
   recentSearch: SearchLogDtoDataTypes[];
@@ -8,10 +8,10 @@ export interface RecentSearchContainerProps {
 
 export default function RecentSearchContainer(props: RecentSearchContainerProps) {
   const { recentSearch } = props;
-  const { mutate: deleteRecentSearchMutate } = useDeleteRecentSearch();
+  const { mutate: patchRecentSearchMutate } = usePatchRecentSearch();
 
   const handleDeleteClick = (keyword: string) => {
-    deleteRecentSearchMutate({ keyword });
+    patchRecentSearchMutate({ keyword });
   };
 
   return (

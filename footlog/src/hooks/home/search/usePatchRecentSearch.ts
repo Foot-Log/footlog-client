@@ -1,10 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
-import { deleteRecentSearch } from '@api/home/search/deleteRecentSearch';
+import { patchRecentSearch } from '@api/home/search/patchRecentSearch';
 import { SearchLogDtoDataTypes } from 'types/home/search/SearchTypes';
 
-export function useDeleteRecentSearch() {
+const usePatchRecentSearch = () => {
   return useMutation({
-    mutationFn: (data: SearchLogDtoDataTypes) => deleteRecentSearch(data),
+    mutationFn: (data: SearchLogDtoDataTypes) => patchRecentSearch(data),
     onSuccess: (data) => {
       console.log('삭제 성공', data);
     },
@@ -12,4 +12,6 @@ export function useDeleteRecentSearch() {
       console.log('삭제 실패', error);
     },
   });
-}
+};
+
+export default usePatchRecentSearch;

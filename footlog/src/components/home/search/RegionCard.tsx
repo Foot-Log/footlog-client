@@ -12,7 +12,7 @@ export default function RegionCard(props: RegionCardProps) {
         <p className="fonts-onboardingKeyword text-gray-8">
           {highlightSearchTerm(location.sigunguName, searchInput)} {/* 강조된 이름 출력 */}
         </p>
-        <p className="fonts-detail">{location.sigunguName}</p>
+        <p className="fonts-detail">{location.withArea}</p>
       </section>
     </section>
   );

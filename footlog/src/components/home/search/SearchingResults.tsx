@@ -18,7 +18,7 @@ export default function SearchingResults(props: SearchingResultsProps) {
       {filteredLocations.length > 0 && (
         <section className="mb-24pxr flex flex-col gap-24pxr">
           {filteredLocations.map((location) => (
-            <RegionCard key={location.sigunguCode} location={location} searchInput={searchInput} />
+            <RegionCard key={location.sigunguId} location={location} searchInput={searchInput} />
           ))}
         </section>
       )}

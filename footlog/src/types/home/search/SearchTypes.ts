@@ -1,8 +1,8 @@
 // 위치 검색 결과
 export interface CityRegionsDtoDataTypes {
-  sigunguCode: number;
-  areaCode: number;
+  sigunguId: number;
   sigunguName: string;
+  withArea: string;
 }
 
 export interface RegionCardProps {
