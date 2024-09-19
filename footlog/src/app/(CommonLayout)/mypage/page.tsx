@@ -12,10 +12,7 @@ export default function page() {
   console.log('saveCourseList', saveCourseList);
   console.log('recentCourseList', recentCourseList);
 
-  if (!saveCourseList?.data) {
-    return <></>;
-  }
-  if (!recentCourseList?.data) {
+  if (!saveCourseList?.data || !recentCourseList?.data) {
     return <></>;
   }
 
