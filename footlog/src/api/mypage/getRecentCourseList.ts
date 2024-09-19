@@ -1,15 +1,8 @@
 import api from 'api/api';
 import { Response } from 'types/common/Response';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 
-export interface RecentCourseListDtoDataTypes {
-  course_id: number;
-  image: string;
-  area: string;
-  name: string;
-  isSave: boolean;
-}
-
-export async function getRecentCourseList(): Promise<Response<RecentCourseListDtoDataTypes[]>> {
+export async function getRecentCourseList(): Promise<Response<CourseResponseDtoDataTypes[]>> {
   const { data } = await api.get(`/course/recent`);
   return data;
 }
