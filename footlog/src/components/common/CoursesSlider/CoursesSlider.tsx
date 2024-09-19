@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
 import { CoursesDataTypes } from 'types/common/CommonTypes';
+import formatAddress from '@utils/formatAddress';
 
 export default function CoursesSlider(props: CoursesDataTypes) {
   const { courses } = props;
@@ -54,7 +55,7 @@ export default function CoursesSlider(props: CoursesDataTypes) {
             />
             <figcaption className="absolute bottom-0 left-0 z-20 pb-8pxr pl-8pxr">
               <h2 className="fonts-courseName line-clamp-1">{course.name}</h2>
-              <p className="fonts-courseLocation">{course.area}</p>
+              <p className="fonts-courseLocation">{formatAddress(course.area)}</p>
             </figcaption>
             <button
               type="button"
