@@ -12,7 +12,8 @@ export default function page() {
       <ListHeader title="저장 목록" />
       <section className="mt-68pxr flex flex-col gap-24pxr pt-12pxr">
         {course.map((course) => (
-          <BigLocationCard key={course.id} course={course} />
+          // <BigLocationCard key={course.id} course={course} />
+          <div></div>
         ))}
       </section>
     </main>
