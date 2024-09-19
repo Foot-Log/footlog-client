@@ -6,7 +6,7 @@ interface LoadingPageProps {
   text: ReactNode;
 }
 
-export default function page(props: LoadingPageProps) {
+export default function Loading(props: LoadingPageProps) {
   const { text } = props;
 
   return (
@@ -27,3 +27,5 @@ const text = (
     잠시만 기다려주세요...
   </>
 );
+
+// <Suspense fallback={<Loading text={text} />} /> 이런 식으로 사용
