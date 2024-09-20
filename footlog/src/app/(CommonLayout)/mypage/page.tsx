@@ -1,14 +1,13 @@
 'use client';
 import MypageContainer from '@components/mypage/MypageContainer';
-import RecentCourseContainer from '@components/common/RecentCourseContainer';
-//import { recommendCoursesData } from '@core/recommendCoursesData';
+import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import { Flag2Icon } from '@public/icon';
 import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
-import useGetRecentCourseList from '@hooks/mypage/useGetRecentCourseList';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 
 export default function page() {
   const { data: saveCourseList } = useGetSaveCourseList();
-  const { data: recentCourseList } = useGetRecentCourseList();
+  const { data: recentCourseList } = useGetRecentCourse();
   console.log('saveCourseList', saveCourseList);
   console.log('recentCourseList', recentCourseList);
 

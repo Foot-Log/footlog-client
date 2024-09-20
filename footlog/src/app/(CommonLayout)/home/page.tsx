@@ -32,12 +32,12 @@ export default function page() {
         <RecommendContainer
           title="나를 위한 코스 추천"
           subtitle="선호도 기반으로 추천해드리는 코스들이에요"
-          courses={popularCourses.data}
+          courses={courses}
         />
         <RecommendContainer
           title="요즘 핫한 코스 추천"
           subtitle="최근 사용자들 사이에서 떠오르는 코스들이에요"
-          courses={courses}
+          courses={popularCourses.data}
         />
         <RegionalRecommendContainer regions={regions.data} />
       </section>

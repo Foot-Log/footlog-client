@@ -1,4 +1,3 @@
-'use client';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -34,7 +33,9 @@ export default function CoursesSlider(props: CoursesDataTypes) {
       { course_id: course_id },
       {
         onSuccess: () => {
-          setSavedCourses((prev) => ({ ...prev, [course_id]: newSaveState }));
+          setSavedCourses((prev) => {
+            return { ...prev, [course_id]: newSaveState };
+          });
         },
       },
     );

@@ -20,11 +20,12 @@ export default function page() {
   const { data: recentSearch, refetch: refetchRecentSearch } = useGetRecentSearch();
   const { data: coursesData } = useGetRegionalCourse(0);
   const { data: popularCourses } = useGetPopularCourse();
-  const { data: recentCourses } = useGetRecentCourse();
+  const { data: recentCourses, refetch: refetchRecentCourses } = useGetRecentCourse();
   const { data: cityRegions } = useGetCityRegions();
 
   useEffect(() => {
     refetchRecentSearch();
+    refetchRecentCourses();
   }, []);
 
   if (!recentSearch || !coursesData || !popularCourses || !recentCourses || !cityRegions) {

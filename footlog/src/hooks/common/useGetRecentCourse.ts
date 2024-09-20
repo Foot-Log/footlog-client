@@ -5,12 +5,12 @@ const useGetRecentCourse = () => {
   const queryKey = ['getRecentCourse'];
   const queryFn = () => getRecentCourse();
 
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey,
     queryFn,
   });
 
-  return { data };
+  return { data, refetch };
 };
 
 export default useGetRecentCourse;
