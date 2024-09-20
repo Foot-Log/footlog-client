@@ -1,5 +1,5 @@
 export default function formatAddress(address: string) {
-  const words = address.split(' '); // 공백을 기준으로 분리
+  const words = address.split(' ');
   if (words.length >= 2) {
     return `${words[0]} ${words[1]}`;
   }
