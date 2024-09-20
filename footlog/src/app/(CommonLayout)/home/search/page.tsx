@@ -9,7 +9,7 @@ import SearchingResults from '@components/home/search/SearchingResults';
 import { filterCourses, filterLocations } from '@utils/filterData';
 import useGetRecentSearch from '@hooks/home/search/useGetRecentSearch';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
-import useGetPopularCourse from '@hooks/home/useGetPopularCourse';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
 import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 import useGetCityRegions from '@hooks/home/search/useGetCityRegions';
 

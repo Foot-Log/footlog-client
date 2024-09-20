@@ -5,7 +5,7 @@ import MainSearchHeader from '@components/common/MainSearchHeader/MainSearchHead
 import RecommendContainer from '@components/home/RecommendContainer';
 import RegionalRecommendContainer from '@components/home/RegionalRecommendContainer';
 import { courseState } from '@recoil/atom';
-import useGetPopularCourse from '@hooks/home/useGetPopularCourse';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
 import useGetRegions from '@hooks/home/useGetRegions';
 
 export default function page() {
