@@ -1,7 +1,7 @@
 import { CloseIcon } from '@public/icon';
-import { useQueryClient } from '@tanstack/react-query';
 import { SearchLogDtoDataTypes } from 'types/home/search/SearchTypes';
 import usePatchRecentSearch from '@hooks/home/search/usePatchRecentSearch';
+import useGetRecentSearch from '@hooks/home/search/useGetRecentSearch';
 
 export interface RecentSearchContainerProps {
   recentSearch: SearchLogDtoDataTypes[];
@@ -9,15 +9,15 @@ export interface RecentSearchContainerProps {
 
 export default function RecentSearchContainer(props: RecentSearchContainerProps) {
   const { recentSearch } = props;
-  const queryClient = useQueryClient();
   const { mutate: patchRecentSearchMutate } = usePatchRecentSearch();
+  const { refetch: refetchRecentSearch } = useGetRecentSearch();
 
   const handleDeleteClick = (keyword: string) => {
     patchRecentSearchMutate(
       { keyword },
       {
         onSuccess: () => {
-          queryClient.invalidateQueries({ queryKey: ['getRecentSearch'] });
+          refetchRecentSearch();
         },
       },
     );

@@ -1,6 +1,5 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { useQueryClient } from '@tanstack/react-query';
 import DetailsHeader from '@components/home/details/DetailsHeader';
 import ImageContainer from '@components/home/details/ImageContainer';
 import InfoContainer from '@components/home/details/InfoContainer';
@@ -10,18 +9,21 @@ import useGetCourseDetails from '@hooks/home/details/useGetCourseDetails';
 import useGetBlogPosting from '@hooks/home/details/useGetBlogPosting';
 import usePostSave from '@hooks/home/details/usePostSave';
 import usePostComplete from '@hooks/home/details/usePostComplete';
+import useGetCompletedList from '@hooks/log/useGetCompletedList';
 
 export default function page() {
   const pathname = usePathname();
   const course_id = pathname.split('/').pop();
-  const queryClient = useQueryClient();
   const { mutate: postCompleteMutate } = usePostComplete();
   const { mutate: postSaveMutate } = usePostSave();
 
   const courseIdNumber = course_id ? Number(course_id) : undefined; // courseId를 숫자로 변환
 
-  const { data: courseResponse } = courseIdNumber ? useGetCourseDetails(courseIdNumber) : { data: null };
+  const { data: courseResponse, refetch: refetchCourseDetails = () => {} } = courseIdNumber
+    ? useGetCourseDetails(courseIdNumber)
+    : { data: null };
   const { data: blogResponse } = courseIdNumber ? useGetBlogPosting(courseIdNumber) : { data: null };
+  const { refetch: refetchCompletedList } = useGetCompletedList();
 
   if (!courseResponse || !blogResponse) {
     return <></>;
@@ -35,8 +37,7 @@ export default function page() {
       { course_id: course.course_id },
       {
         onSuccess: () => {
-          // 성공적으로 저장한 후, course details를 다시 fetch
-          queryClient.invalidateQueries({ queryKey: ['getCourseDetails', courseIdNumber] });
+          refetchCourseDetails();
         },
       },
     );
@@ -47,9 +48,8 @@ export default function page() {
       { course_id: course.course_id },
       {
         onSuccess: () => {
-          // 성공적으로 저장한 후, course details를 다시 fetch
-          queryClient.invalidateQueries({ queryKey: ['getCourseDetails', courseIdNumber] });
-          queryClient.invalidateQueries({ queryKey: ['getCompletedList'] });
+          refetchCourseDetails();
+          refetchCompletedList();
         },
       },
     );
