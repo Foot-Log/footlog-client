@@ -1,24 +1,23 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { RecommendCoursesDataTypes } from 'types/common/CommonTypes';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import CoursesSlider from '@components/common/CoursesSlider/CoursesSlider';
 import { MypageRightArrowIcon } from '@public/icon';
 
 interface MypageContainerProps {
   title: string;
-  courses: RecommendCoursesDataTypes[];
+  courses: CourseResponseDtoDataTypes[];
 }
 
 export default function MypageContainer(props: MypageContainerProps) {
   const { title, courses } = props;
+  console.log('courrrrr', courses);
   const router = useRouter();
-
-  const isSaved = true;
 
   return (
     <section className="ml-24pxr flex w-full flex-col">
       <section className="flex w-full flex-col py-20pxr">
-        {isSaved ? (
+        {courses && courses.length > 0 ? (
           <div>
             {' '}
             <section className="flex w-full items-center justify-between">
