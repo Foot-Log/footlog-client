@@ -31,7 +31,7 @@ export default function SearchHeader(props: SearchHeaderProps) {
       <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>
-      <section className="rounded-clickedSearchBar flex h-42pxr w-317pxr items-center justify-between gap-16pxr border border-gray-8 bg-white pl-20pxr pr-16pxr">
+      <section className="flex h-42pxr w-317pxr items-center justify-between gap-16pxr rounded-clickedSearchBar border border-gray-8 bg-white pl-20pxr pr-16pxr">
         <input
           ref={inputRef}
           className="fonts-searchPlaceholder w-full bg-transparent text-gray-8 placeholder:text-gray-4"

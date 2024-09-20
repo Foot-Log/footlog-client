@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import RecentSearchContainer from '@components/home/search/RecentSearchContainer';
@@ -17,11 +17,15 @@ export default function page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
 
-  const { data: recentSearch } = useGetRecentSearch();
+  const { data: recentSearch, refetch: refetchRecentSearch } = useGetRecentSearch();
   const { data: coursesData } = useGetRegionalCourse(0);
   const { data: popularCourses } = useGetPopularCourse();
   const { data: recentCourses } = useGetRecentCourse();
   const { data: cityRegions } = useGetCityRegions();
+
+  useEffect(() => {
+    refetchRecentSearch();
+  }, []);
 
   if (!recentSearch || !coursesData || !popularCourses || !recentCourses || !cityRegions) {
     return <></>;
