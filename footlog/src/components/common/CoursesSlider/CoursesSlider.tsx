@@ -5,10 +5,16 @@ import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
 import { CoursesDataTypes } from 'types/common/CommonTypes';
 import formatAddress from '@utils/formatAddress';
+import useGetRecommend from '@hooks/home/useGetRecommend';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
+import useGetCompletedList from '@hooks/log/useGetCompletedList';
 
 export default function CoursesSlider(props: CoursesDataTypes) {
   const { courses } = props;
   const { mutate: postSaveMutate } = usePostSave();
+  const { refetch: refetchRecommend } = useGetRecommend();
+  const { refetch: refetchPopular } = useGetPopularCourse();
+  const { refetch: refetchCompletedList } = useGetCompletedList();
 
   // 각 코스의 저장 상태를 관리하기 위한 상태 추가
   // 초기에는 전달 받은 코스의 isSave로 설정하고
@@ -33,9 +39,10 @@ export default function CoursesSlider(props: CoursesDataTypes) {
       { course_id: course_id },
       {
         onSuccess: () => {
-          setSavedCourses((prev) => {
-            return { ...prev, [course_id]: newSaveState };
-          });
+          setSavedCourses((prev) => ({ ...prev, [course_id]: newSaveState }));
+          refetchRecommend();
+          refetchPopular();
+          refetchCompletedList();
         },
       },
     );

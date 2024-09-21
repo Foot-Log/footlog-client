@@ -93,7 +93,7 @@ export default function page() {
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
-      <SaveCourseContainer title="저장 목록" courses={saveCourseList?.data} />
+      <SaveCourseContainer title="저장 목록" courses={saveCourseList.data} />
       <RecentCourseContainer courses={recentCourseList?.data} />
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
