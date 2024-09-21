@@ -62,7 +62,7 @@ export default function page() {
   };
 
   return (
-    <div className="mt-16pxr flex h-full w-full flex-col overflow-y-auto">
+    <div className="flex h-full w-full flex-col pt-16pxr">
       <section className="ml-24pxr h-174pxr">
         <div className="font-mypageTitle">마이 페이지</div>
 
@@ -91,12 +91,12 @@ export default function page() {
         </div>
       </section>
 
-      <div className="h-8pxr w-393pxr bg-gray-1" />
+      <div className="h-8pxr w-full bg-gray-1" />
 
       <SaveCourseContainer title="저장 목록" courses={saveCourseList.data} />
       <RecentCourseContainer courses={recentCourseList?.data} />
 
-      <div className="h-8pxr w-393pxr bg-gray-1" />
+      <div className="h-8pxr w-full bg-gray-1" />
 
       <div className="ml-24pxr">
         <div className="font-mypageDetail mt-20pxr text-gray-8">선호도 재설정</div>
