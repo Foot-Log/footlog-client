@@ -8,7 +8,7 @@ import { MoonLoader } from 'react-spinners';
 
 export default function page() {
   const router = useRouter();
-  const [isOnboardingBtnDisabled, setIsOnboardingBtnDisabled] = useState(true); // 초기값 true로 설정
+  const [isOnboardingBtnDisabled, setIsOnboardingBtnDisabled] = useState(true);
   const [titleText, setTitleText] = useState(
     <>
       ㅇㅇ 님께서 좋아하실 만한
@@ -17,7 +17,6 @@ export default function page() {
     </>,
   );
 
-  // 일단 3초 후 바뀌게끔 해놨는데 나중에 api 연결로 바꿀게!
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOnboardingBtnDisabled(false); // 3초 후 버튼 활성화

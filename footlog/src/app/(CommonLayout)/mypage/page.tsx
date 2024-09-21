@@ -1,16 +1,16 @@
 'use client';
 import MypageContainer from '@components/mypage/MypageContainer';
-import RecentCourseContainer from '@components/common/RecentCourseContainer';
+import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import { Flag1Icon, Flag2Icon, Flag3Icon, Flag4Icon, Flag5Icon } from '@public/icon';
 import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
-import useGetRecentCourseList from '@hooks/mypage/useGetRecentCourseList';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 import useGetUserInfo from '@hooks/mypage/useGetUserInfo';
 import React, { useEffect, useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 
 export default function page() {
   const { data: saveCourseList } = useGetSaveCourseList();
-  const { data: recentCourseList } = useGetRecentCourseList();
+  const { data: recentCourseList } = useGetRecentCourse();
   const { data: userInfo } = useGetUserInfo();
 
   console.log('userInfo', userInfo);

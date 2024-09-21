@@ -6,11 +6,11 @@ import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetRegions from '@hooks/home/useGetRegions';
-import { AreaCodeDtoDataTypes } from '@api/getRegions';
+import { AreaCodeDtoDataTypes } from '@api/home/getRegions';
 
 export default function Page() {
-  const pathname = usePathname(); // 현재 경로 가져오기
-  const area_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 area_name으로 사용
+  const pathname = usePathname();
+  const area_id = pathname.split('/').pop();
 
   const { data: regions } = useGetRegions();
   const [area_name, setAreaName] = useState<string>('');
@@ -37,7 +37,10 @@ export default function Page() {
         {courses &&
           courses.data &&
           courses.data.map((course: CourseResponseDtoDataTypes) => (
-            <BigLocationCard key={course.course_id} course={course} />
+            <section key={course.course_id}>
+              <BigLocationCard course={course} />
+              <div className="h-8pxr w-full bg-gray-1" />
+            </section>
           ))}
       </section>
     </main>

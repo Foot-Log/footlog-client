@@ -5,12 +5,12 @@ const useGetCompletedList = () => {
   const queryKey = ['getCompletedList'];
   const queryFn = () => getCompletedList();
 
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey,
     queryFn,
   });
 
-  return { data };
+  return { data, refetch };
 };
 
 export default useGetCompletedList;

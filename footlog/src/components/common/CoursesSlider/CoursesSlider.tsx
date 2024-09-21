@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
+import { CoursesDataTypes } from 'types/common/CommonTypes';
+import formatAddress from '@utils/formatAddress';
 
-interface CoursesSliderProps {
-  courses: CourseResponseDtoDataTypes[];
-}
-
-export default function CoursesSlider(props: CoursesSliderProps) {
+export default function CoursesSlider(props: CoursesDataTypes) {
   const { courses } = props;
   const { mutate: postSaveMutate } = usePostSave();
 
@@ -36,7 +33,9 @@ export default function CoursesSlider(props: CoursesSliderProps) {
       { course_id: course_id },
       {
         onSuccess: () => {
-          setSavedCourses((prev) => ({ ...prev, [course_id]: newSaveState }));
+          setSavedCourses((prev) => {
+            return { ...prev, [course_id]: newSaveState };
+          });
         },
       },
     );
@@ -58,7 +57,7 @@ export default function CoursesSlider(props: CoursesSliderProps) {
             />
             <figcaption className="absolute bottom-0 left-0 z-20 pb-8pxr pl-8pxr">
               <h2 className="fonts-courseName line-clamp-1">{course.name}</h2>
-              <p className="fonts-courseLocation">{course.area}</p>
+              <p className="fonts-courseLocation">{formatAddress(course.area)}</p>
             </figcaption>
             <button
               type="button"
