@@ -7,11 +7,15 @@ import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 import useGetUserInfo from '@hooks/mypage/useGetUserInfo';
 import React, { useEffect, useState } from 'react';
 import { useRecoilCallback } from 'recoil';
+import useDeleteUser from '@hooks/mypage/useDeleteUser';
+import { useRouter } from 'next/navigation';
 
 export default function page() {
+  const router = useRouter();
   const { data: saveCourseList } = useGetSaveCourseList();
   const { data: recentCourseList } = useGetRecentCourse();
   const { data: userInfo } = useGetUserInfo();
+  const { mutate: deleteUser } = useDeleteUser();
 
   console.log('userInfo', userInfo);
 
@@ -39,6 +43,10 @@ export default function page() {
     return <></>;
   }
 
+  const handleDeleteUser = () => {
+    deleteUser();
+    router.push('/login');
+  };
   const renderFlagIcon = () => {
     switch (stamp) {
       case 1:
@@ -95,7 +103,9 @@ export default function page() {
 
       <div className="ml-24pxr">
         <div className="font-mypageDetail mt-20pxr text-gray-8">선호도 재설정</div>
-        <div className="font-mypageDetai mt-20pxr text-gray-4">회원 탈퇴</div>
+        <button className="font-mypageDetai mt-20pxr text-gray-4" onClick={handleDeleteUser}>
+          회원 탈퇴
+        </button>
       </div>
     </div>
   );
