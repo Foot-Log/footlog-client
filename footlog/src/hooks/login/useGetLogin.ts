@@ -7,7 +7,7 @@ import { setToken } from '@utils/token';
 const useGetLogin = () => {
   const KAKAO_CODE = typeof window !== 'undefined' ? new URL(window.location.href).searchParams.get('code') : null;
   const router = useRouter();
-  const [_, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (KAKAO_CODE) {
@@ -35,6 +35,29 @@ const useGetLogin = () => {
         });
     }
   }, [KAKAO_CODE, router]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      api
+        .get(`course/recommend`)
+
+        .then((res) => {
+          if (res.data) {
+            if (res.data.isSuccess === true) {
+              console.log('코스 가져오기 성공');
+              router.push('/home');
+            }
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          if (err.data.isSuccess === false) {
+            console.log('코스 가져오기 실패');
+            router.push('/onboarding');
+          }
+        });
+    }
+  }, [isLoggedIn, router]);
 };
 
 export default useGetLogin;
