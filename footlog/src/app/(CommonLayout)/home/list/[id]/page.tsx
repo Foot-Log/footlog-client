@@ -18,12 +18,16 @@ export default function Page() {
 
   // area_id에 맞는 area_name 찾기
   useEffect(() => {
-    if (regions?.data && areaIdNumber) {
-      const foundRegion = regions.data.find((region: AreaCodeDtoDataTypes) => region.areaCode === areaIdNumber);
-      if (foundRegion) {
-        setAreaName(foundRegion.areaName);
-      } else {
+    if (regions?.data) {
+      if (areaIdNumber === 0) {
         setAreaName('전체');
+      } else {
+        const foundRegion = regions.data.find((region: AreaCodeDtoDataTypes) => region.areaCode === areaIdNumber);
+        if (foundRegion) {
+          setAreaName(foundRegion.areaName);
+        } else {
+          setAreaName('전체');
+        }
       }
     }
   }, [regions, areaIdNumber]);
