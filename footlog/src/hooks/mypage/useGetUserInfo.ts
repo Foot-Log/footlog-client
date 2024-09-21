@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getUserInfo } from '@api/mypage/getUserInfo';
 
 const useGetUserInfo = () => {
-  const queryKey = ['getCompletedList'];
+  const queryKey = ['getUserInfo'];
   const queryFn = () => getUserInfo();
 
   const { data } = useQuery({
