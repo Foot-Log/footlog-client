@@ -5,12 +5,12 @@ const useGetCourseDetails = (course_id: number) => {
   const queryKey = ['getCourseDetails', course_id];
   const queryFn = () => getCourseDetails({ course_id });
 
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey,
     queryFn,
   });
 
-  return { data };
+  return { data, refetch };
 };
 
 export default useGetCourseDetails;

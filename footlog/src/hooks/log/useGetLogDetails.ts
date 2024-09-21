@@ -5,13 +5,13 @@ const useGetLogDetails = (logId: number, options = {}) => {
   const queryKey = ['getLogDetails', logId];
   const queryFn = () => getLogDetails({ logId });
 
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey,
     queryFn,
     ...options,
   });
 
-  return { data };
+  return { data, refetch };
 };
 
 export default useGetLogDetails;

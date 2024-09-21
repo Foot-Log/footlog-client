@@ -1,20 +1,39 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import RecentSearchContainer from '@components/home/search/RecentSearchContainer';
-import RecentCourseContainer from '@components/common/RecentCourseContainer';
+import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import PopularContainer from '@components/home/search/PopularContainer';
 import SearchingResults from '@components/home/search/SearchingResults';
-import { courseDetailsData } from '@core/courseDetailsData';
-import { locationData } from '@core/locationData';
 import { filterCourses, filterLocations } from '@utils/filterData';
+import useGetRecentSearch from '@hooks/home/search/useGetRecentSearch';
+import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
+import useGetCityRegions from '@hooks/home/search/useGetCityRegions';
 
 export default function page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
-  const filteredCourses = filterCourses(courseDetailsData, searchInput);
-  const filteredLocations = filterLocations(locationData, searchInput);
+
+  const { data: recentSearch, refetch: refetchRecentSearch } = useGetRecentSearch();
+  const { data: coursesData } = useGetRegionalCourse(0);
+  const { data: popularCourses } = useGetPopularCourse();
+  const { data: recentCourses, refetch: refetchRecentCourses } = useGetRecentCourse();
+  const { data: cityRegions } = useGetCityRegions();
+
+  useEffect(() => {
+    refetchRecentSearch();
+    refetchRecentCourses();
+  }, []);
+
+  if (!recentSearch || !coursesData || !popularCourses || !recentCourses || !cityRegions) {
+    return <></>;
+  }
+
+  const filteredCourses = filterCourses(coursesData.data, searchInput);
+  const filteredLocations = filterLocations(cityRegions.data, searchInput);
 
   // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {
@@ -48,9 +67,9 @@ export default function page() {
           />
         ) : (
           <>
-            <RecentSearchContainer />
-            <RecentCourseContainer />
-            <PopularContainer />
+            <RecentSearchContainer recentSearch={recentSearch.data} />
+            <RecentCourseContainer courses={recentCourses.data} />
+            <PopularContainer courses={popularCourses.data} />
           </>
         )}
       </section>

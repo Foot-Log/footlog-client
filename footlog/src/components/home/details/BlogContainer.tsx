@@ -1,26 +1,14 @@
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import useGetBlogPosting from '@hooks/home/details/useGetBlogPosting';
 import formatDate from '@utils/formatDate';
+import { NaverBlogDtoDataTypes } from '@api/home/details/getBlogPosting';
 
 interface BlogContainerProps {
   title: string;
+  posting: NaverBlogDtoDataTypes[];
 }
 
 export default function BlogContainer(props: BlogContainerProps) {
-  const { title } = props;
-  const pathname = usePathname(); // 현재 경로 가져오기
-  const course_id = pathname.split('/').pop(); // 경로의 마지막 세그먼트를 course_id로 사용
-  const courseIdNumber = course_id ? Number(course_id) : undefined; // courseId를 숫자로 변환
-
-  const { data: blogResponse } = courseIdNumber ? useGetBlogPosting(courseIdNumber) : { data: null };
-
-  if (!blogResponse) {
-    return <></>;
-  }
-
-  const posting = blogResponse.data;
+  const { title, posting } = props;
 
   // 제목에서 코스 이름을 강조하는 함수
   const highlightSearchTerm = (text: string, search: string) => {

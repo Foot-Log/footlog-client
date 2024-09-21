@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
 import 'react-kakao-maps-sdk';
 import MarkerModal from './MarkerModal';
 import useGetCompletedList from '@hooks/log/useGetCompletedList';
@@ -7,7 +6,6 @@ import useGetLogDetails from '@hooks/log/useGetLogDetails';
 import useUpdateLog from '@hooks/log/useUpdateLog';
 
 const KakaoMap = () => {
-  const queryClient = useQueryClient();
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
 
   const { data: locations } = useGetCompletedList();
@@ -17,7 +15,7 @@ const KakaoMap = () => {
   console.log('lodId', logId);
 
   // logId가 있을 때만 useGetLogDetails를 호출
-  const { data: details } = useGetLogDetails(logId ?? 0, {
+  const { data: details, refetch: refetchLogDetails } = useGetLogDetails(logId ?? 0, {
     enabled: !!logId, // logId가 있을 때만 API를 호출하도록 설정
   });
   console.log('details', details?.data);
@@ -39,7 +37,7 @@ const KakaoMap = () => {
     updateLogMutation.mutate(updateData, {
       onSuccess: (response) => {
         console.log('Log updated successfully', response);
-        queryClient.invalidateQueries({ queryKey: ['getLogDetails', logId] });
+        refetchLogDetails();
       },
       onError: (error) => {
         console.error('Error updating log:', error);

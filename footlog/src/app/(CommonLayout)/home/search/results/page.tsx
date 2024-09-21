@@ -4,16 +4,26 @@ import { useRouter } from 'next/navigation';
 import SearchHeader from '@components/home/search/SearchHeader';
 import { filterCourses, filterLocations } from '@utils/filterData';
 import SearchedResults from '@components/home/search/results/SearchedResults';
-import { CourseDetailsDataTypes } from 'types/home/details/DetailsTypes';
-import { courseDetailsData } from '@core/courseDetailsData';
-import { locationData } from '@core/locationData';
+import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
+import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
+import useGetSearchResult from '@hooks/home/search/useGetSearchResult';
+import useGetCityRegions from '@hooks/home/search/useGetCityRegions';
 
 export default function Page() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
-  const [filteredCourses, setFilteredCourses] = useState<CourseDetailsDataTypes[]>([]);
   const [showBigCards, setShowBigCards] = useState(true);
-  const filteredLocations = filterLocations(locationData, searchInput);
+
+  const { data: coursesData } = useGetRegionalCourse(0);
+  const { data: searchData } = useGetSearchResult(searchInput);
+  const { data: cityRegions } = useGetCityRegions();
+
+  if (!coursesData || !cityRegions) {
+    return <></>;
+  }
+
+  const [_, setFilteredCourses] = useState<CourseResponseDtoDataTypes[]>([]);
+  const filteredLocations = filterLocations(cityRegions.data, searchInput);
 
   // 쿼리 파라미터에서 초기 검색어 가져오기
   useEffect(() => {
@@ -21,26 +31,26 @@ export default function Page() {
     if (query) {
       const decodedQuery = decodeURIComponent(query);
       setSearchInput(decodedQuery);
-      setShowBigCards(true); // 쿼리 파라미터가 있을 경우 BigLocationCard 표시
+      setShowBigCards(true);
     } else {
-      setShowBigCards(false); // 쿼리 파라미터가 없으면 BigLocationCard 숨김
+      setShowBigCards(false);
     }
   }, [window.location.search]);
 
   // searchInput이 변경될 때마다 필터링된 결과 업데이트
   useEffect(() => {
-    const filtered = filterCourses(courseDetailsData, searchInput);
+    const filtered = filterCourses(coursesData?.data, searchInput);
     setFilteredCourses(filtered);
 
     const query = new URLSearchParams(window.location.search).get('query');
     if (searchInput.trim() === '') {
-      setShowBigCards(true); // 입력이 없을 때는 BigLocationCard를 보여줌
+      setShowBigCards(true);
     } else if (query && query !== searchInput) {
-      setShowBigCards(false); // searchInput이 쿼리와 다를 때는 false로 설정
+      setShowBigCards(false);
     } else {
       setShowBigCards(true); // searchInput이 쿼리와 같거나 입력 중일 때는 true로 설정
     }
-  }, [searchInput, window.location.search]); // window.location.search도 의존성에 추가
+  }, [searchInput, window.location.search]);
 
   // 엔터 키를 눌렀을 때 호출되는 함수
   const handleEnterKey = (e: React.KeyboardEvent) => {
@@ -68,7 +78,7 @@ export default function Page() {
         shouldFocus={false}
       />
       <SearchedResults
-        filteredCourses={filteredCourses}
+        filteredCourses={searchData?.data || []}
         filteredLocations={filteredLocations}
         searchInput={searchInput}
         showBigCards={showBigCards}

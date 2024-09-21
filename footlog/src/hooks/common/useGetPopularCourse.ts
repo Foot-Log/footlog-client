@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getPopularCourse } from '@api/home/getPopularCourse';
+import { getPopularCourse } from '@api/common/getPopularCourse';
 
 const useGetPopularCourse = () => {
   const queryKey = ['getPopularCourse'];

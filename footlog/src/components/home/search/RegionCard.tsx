@@ -10,9 +10,9 @@ export default function RegionCard(props: RegionCardProps) {
       <SearchLocationIcon />
       <section className="flex cursor-pointer flex-col items-start gap-4pxr">
         <p className="fonts-onboardingKeyword text-gray-8">
-          {highlightSearchTerm(location.title, searchInput)} {/* 강조된 이름 출력 */}
+          {highlightSearchTerm(location.sigunguName, searchInput)} {/* 강조된 이름 출력 */}
         </p>
-        <p className="fonts-detail">{location.subtitle}</p>
+        <p className="fonts-detail">{location.withArea}</p>
       </section>
     </section>
   );
