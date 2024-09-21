@@ -1,5 +1,5 @@
 'use client';
-import MypageContainer from '@components/mypage/MypageContainer';
+import SaveCourseContainer from '@components/mypage/SaveCourseContainer';
 import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import { Flag1Icon, Flag2Icon, Flag3Icon, Flag4Icon, Flag5Icon } from '@public/icon';
 import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
@@ -93,7 +93,7 @@ export default function page() {
 
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
-      <MypageContainer title="저장 목록" courses={saveCourseList?.data} />
+      <SaveCourseContainer title="저장 목록" courses={saveCourseList?.data} />
       <RecentCourseContainer courses={recentCourseList?.data} />
 
       <div className="h-8pxr w-393pxr bg-gray-1" />

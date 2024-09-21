@@ -5,7 +5,7 @@ export default function RecentCourseContainer(props: CoursesDataTypes) {
   const { courses } = props;
 
   return (
-    <section className="flex w-full flex-col py-28pxr pl-24pxr">
+    <section className="flex w-full flex-col py-20pxr pl-24pxr">
       <h2 className="fonts-recommendTitle">최근 확인한 코스</h2>
       <section className="flex items-center">
         {courses.length === 0 ? (
