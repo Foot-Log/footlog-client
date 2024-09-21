@@ -1,27 +1,23 @@
 'use client';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
 import MainSearchHeader from '@components/common/MainSearchHeader/MainSearchHeader';
 import RecommendContainer from '@components/home/RecommendContainer';
 import RegionalRecommendContainer from '@components/home/RegionalRecommendContainer';
-import { courseState } from '@recoil/atom';
+import useGetRecommend from '@hooks/home/useGetRecommend';
 import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
 import useGetRegions from '@hooks/home/useGetRegions';
 
 export default function page() {
-  const [courses, setCourses] = useRecoilState(courseState); // Recoil 상태에서 코스 배열 가져오기
-  const { data: popularCourses } = useGetPopularCourse();
+  const { data: recommendCourses, refetch: refetchRecommend } = useGetRecommend();
+  const { data: popularCourses, refetch: refetchPopular } = useGetPopularCourse();
   const { data: regions } = useGetRegions();
 
   useEffect(() => {
-    // 로컬 스토리지에서 코스 배열 가져오기
-    const storedCourses = localStorage.getItem('courses');
-    if (storedCourses) {
-      setCourses(JSON.parse(storedCourses)); // Recoil 상태에 저장
-    }
-  }, [setCourses]);
+    refetchRecommend();
+    refetchPopular();
+  }, []);
 
-  if (!popularCourses?.data || !regions) {
+  if (!recommendCourses?.data || !popularCourses?.data || !regions) {
     return <></>;
   }
 
@@ -32,7 +28,7 @@ export default function page() {
         <RecommendContainer
           title="나를 위한 코스 추천"
           subtitle="선호도 기반으로 추천해드리는 코스들이에요"
-          courses={courses}
+          courses={recommendCourses.data}
         />
         <RecommendContainer
           title="요즘 핫한 코스 추천"
