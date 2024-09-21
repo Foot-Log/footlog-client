@@ -79,7 +79,7 @@ export default function page() {
             <div className="font-mypageNickname">{userInfo.data.nickname}</div>
             <div className="mt-8pxr flex">
               <div className="font-mypageLevel font-medium text-gray-4">레벨 {level}</div>
-              <div className="font-mypageLevel ml-2pxr font-bold text-main-green">새싹 플로거</div>
+              <div className="font-mypageLevel ml-2pxr font-bold text-main-green">{userInfo.data.level}</div>
             </div>
             <div className="mt-12pxr">{renderFlagIcon()}</div>
           </div>
