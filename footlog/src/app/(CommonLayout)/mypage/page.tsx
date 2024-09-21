@@ -1,20 +1,60 @@
 'use client';
 import MypageContainer from '@components/mypage/MypageContainer';
 import RecentCourseContainer from '@components/common/RecentCourseContainer';
-//import { recommendCoursesData } from '@core/recommendCoursesData';
-import { Flag2Icon } from '@public/icon';
+import { Flag1Icon, Flag2Icon, Flag3Icon, Flag4Icon, Flag5Icon } from '@public/icon';
 import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
 import useGetRecentCourseList from '@hooks/mypage/useGetRecentCourseList';
+import useGetUserInfo from '@hooks/mypage/useGetUserInfo';
+import React, { useEffect, useState } from 'react';
+import { useRecoilCallback } from 'recoil';
 
 export default function page() {
   const { data: saveCourseList } = useGetSaveCourseList();
   const { data: recentCourseList } = useGetRecentCourseList();
-  console.log('saveCourseList', saveCourseList);
-  console.log('recentCourseList', recentCourseList);
+  const { data: userInfo } = useGetUserInfo();
 
-  if (!saveCourseList?.data || !recentCourseList?.data) {
+  console.log('userInfo', userInfo);
+
+  const [level, setLevel] = useState<number>(1);
+  const [stamp, setStamp] = useState<number>(1);
+
+  useEffect(() => {
+    if (userInfo?.data?.level) {
+      if (userInfo.data.level == '새싹 플로거') {
+        setLevel(1);
+      } else if (userInfo.data.level == '초보 플로거') {
+        setLevel(2);
+      } else if (userInfo.data.level == '중수 플로거') {
+        setLevel(3);
+      } else if (userInfo.data.level == '고수 플로거') {
+        setLevel(4);
+      } else if (userInfo.data.level == '베스트 플로거') {
+        setLevel(5);
+      }
+    }
+    setStamp(userInfo?.data?.stampCount || 1);
+  }, [userInfo?.data?.level]);
+
+  if (!saveCourseList?.data || !recentCourseList?.data || !userInfo?.data) {
     return <></>;
   }
+
+  const renderFlagIcon = () => {
+    switch (stamp) {
+      case 1:
+        return <Flag1Icon />;
+      case 2:
+        return <Flag2Icon />;
+      case 3:
+        return <Flag3Icon />;
+      case 4:
+        return <Flag4Icon />;
+      case 5:
+        return <Flag5Icon />;
+      default:
+        return <Flag1Icon />;
+    }
+  };
 
   return (
     <div className="mt-16pxr flex h-full w-full flex-col overflow-y-auto">
@@ -23,21 +63,25 @@ export default function page() {
 
         <div className="mt-27pxr flex">
           <div className="mt-5pxr">
-            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+            {/* <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
               <circle opacity="0.5" cx="40" cy="40" r="40" fill="#D9D9D9" />
-            </svg>
+            </svg> */}
+            <img
+              src={userInfo.data.profileImg}
+              alt="profile"
+              width="80"
+              height="80"
+              style={{ borderRadius: '50%', objectFit: 'cover' }}
+            />
           </div>
 
           <div className="ml-24pxr">
-            <div className="font-mypageNickname">닉네임</div>
+            <div className="font-mypageNickname">{userInfo.data.nickname}</div>
             <div className="mt-8pxr flex">
-              <div className="font-mypageLevel font-medium text-gray-4">레벨 1</div>
+              <div className="font-mypageLevel font-medium text-gray-4">레벨 {level}</div>
               <div className="font-mypageLevel ml-2pxr font-bold text-main-green">새싹 플로거</div>
             </div>
-            <div className="mt-12pxr">
-              <Flag2Icon />
-              {/* 추후 깃발 조정 */}
-            </div>
+            <div className="mt-12pxr">{renderFlagIcon()}</div>
           </div>
         </div>
       </section>
