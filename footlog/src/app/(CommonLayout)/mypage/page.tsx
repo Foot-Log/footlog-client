@@ -9,8 +9,8 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilCallback } from 'recoil';
 
 export default function page() {
-  const { data: saveCourseList } = useGetSaveCourseList();
-  const { data: recentCourseList } = useGetRecentCourse();
+  const { data: saveCourseList, refetch: refetchSaveCourses } = useGetSaveCourseList();
+  const { data: recentCourseList, refetch: refetchRecentCourses } = useGetRecentCourse();
   const { data: userInfo } = useGetUserInfo();
 
   console.log('userInfo', userInfo);
@@ -34,6 +34,11 @@ export default function page() {
     }
     setStamp(userInfo?.data?.stampCount || 1);
   }, [userInfo?.data?.level]);
+
+  useEffect(() => {
+    refetchSaveCourses();
+    refetchRecentCourses();
+  }, []);
 
   if (!saveCourseList?.data || !recentCourseList?.data || !userInfo?.data) {
     return <></>;

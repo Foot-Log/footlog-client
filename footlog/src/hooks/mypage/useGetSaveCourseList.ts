@@ -5,12 +5,12 @@ const useGetSaveCourseList = () => {
   const queryKey = ['getSaveCourseList'];
   const queryFn = () => getSaveCourseList();
 
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey,
     queryFn,
   });
 
-  return { data };
+  return { data, refetch };
 };
 
 export default useGetSaveCourseList;
