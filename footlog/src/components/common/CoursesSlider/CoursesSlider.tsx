@@ -55,6 +55,7 @@ export default function CoursesSlider(props: CoursesDataTypes) {
           refetchPopular();
           refetchCompletedList();
           setCourseIdToRefetch(course_id);
+          refetchCompletedList();
         },
       },
     );

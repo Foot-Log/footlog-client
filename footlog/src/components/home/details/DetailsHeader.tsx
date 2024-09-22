@@ -1,7 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { LeftArrowIcon, SaveOutlineGreenIcon, SaveFilledGreenIcon } from '@public/icon';
-import useGetRecommend from '@hooks/home/useGetRecommend';
-import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 
 interface DetailsHeaderProps {
   title: string;
@@ -12,11 +11,10 @@ interface DetailsHeaderProps {
 export default function DetailsHeader(props: DetailsHeaderProps) {
   const { title, isSaved, onClick } = props;
   const router = useRouter();
-  const { refetch: refetchRecommend } = useGetRecommend();
-  const { refetch: refetchPopular } = useGetPopularCourse();
+  const { refetch: refetchRecentCourse } = useGetRecentCourse();
 
   const handleBackBtn = async () => {
-    await Promise.all([refetchRecommend(), refetchPopular()]);
+    await Promise.all([refetchRecentCourse()]);
     router.back();
   };
 

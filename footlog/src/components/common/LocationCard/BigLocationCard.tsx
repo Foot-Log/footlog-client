@@ -4,10 +4,20 @@ import Link from 'next/link';
 import { LocationCardProps } from 'types/common/CommonTypes';
 import { SearchSaveFilledIcon, SearchSaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
+import useGetCompletedList from '@hooks/log/useGetCompletedList';
+import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
+import useGetRecommend from '@hooks/home/useGetRecommend';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 
 export default function BigLocationCard(props: LocationCardProps) {
   const { course } = props;
   const { mutate: postSaveMutate } = usePostSave();
+  const { refetch: refetchCompletedList } = useGetCompletedList();
+  const { refetch: refetchSavedList } = useGetSaveCourseList();
+  const { refetch: refetchRecommend } = useGetRecommend();
+  const { refetch: refetchPopular } = useGetPopularCourse();
+  const { refetch: refetchRecentCourse } = useGetRecentCourse();
 
   const [isSaved, setIsSaved] = useState(course.isSave); // 초기 상태 설정
 
@@ -19,6 +29,11 @@ export default function BigLocationCard(props: LocationCardProps) {
       {
         onSuccess: () => {
           setIsSaved(newSaveState);
+          refetchCompletedList();
+          refetchSavedList();
+          refetchRecommend();
+          refetchPopular();
+          refetchRecentCourse();
         },
       },
     );

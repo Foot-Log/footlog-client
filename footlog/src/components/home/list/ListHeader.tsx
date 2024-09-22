@@ -1,7 +1,5 @@
 import { useRouter } from 'next/navigation';
 import { LeftArrowIcon } from '@public/icon';
-import useGetRecommend from '@hooks/home/useGetRecommend';
-import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
 
 interface ListHeaderProps {
   title: string;
@@ -10,11 +8,8 @@ interface ListHeaderProps {
 export default function ListHeader(props: ListHeaderProps) {
   const { title } = props;
   const router = useRouter();
-  const { refetch: refetchRecommend } = useGetRecommend();
-  const { refetch: refetchPopular } = useGetPopularCourse();
 
   const handleBackBtn = async () => {
-    await Promise.all([refetchRecommend(), refetchPopular()]);
     router.back();
   };
 
