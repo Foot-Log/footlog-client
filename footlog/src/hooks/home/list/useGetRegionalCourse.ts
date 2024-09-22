@@ -5,12 +5,12 @@ const useGetRegionalCourse = (areaCode: number) => {
   const queryKey = ['getRegionalCourse', areaCode];
   const queryFn = () => getRegionalCourse({ areaCode });
 
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey,
     queryFn,
   });
 
-  return { data };
+  return { data, refetch };
 };
 
 export default useGetRegionalCourse;
