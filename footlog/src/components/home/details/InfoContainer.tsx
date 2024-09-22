@@ -57,7 +57,7 @@ export default function InfoContainer(props: InfoContainerProps) {
       <section className="mb-25pxr mt-20pxr flex flex-col gap-12pxr">
         {infoItems.map((item, index) => (
           <section key={index} className="flex items-center gap-12pxr">
-            {item.icon}
+            <div className="flex">{item.icon}</div>
             <p className="fonts-detail">{item.text}</p>
           </section>
         ))}

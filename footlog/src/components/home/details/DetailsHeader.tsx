@@ -20,11 +20,11 @@ export default function DetailsHeader(props: DetailsHeaderProps) {
 
   return (
     <section className="fixed top-0 z-20 flex h-68pxr w-full items-center justify-between bg-white px-24pxr">
-      <button type="button" className="cursor-pointer" onClick={() => handleBackBtn()}>
+      <button type="button" className="cursor-pointer pr-15pxr" onClick={() => handleBackBtn()}>
         <LeftArrowIcon />
       </button>
       <p className="fonts-recommendTitle">{title}</p>
-      <button type="button" className="cursor-pointer" onClick={onClick}>
+      <button type="button" className="cursor-pointer px-15pxr" onClick={onClick}>
         {isSaved ? <SaveFilledGreenIcon /> : <SaveOutlineGreenIcon />}
       </button>
     </section>

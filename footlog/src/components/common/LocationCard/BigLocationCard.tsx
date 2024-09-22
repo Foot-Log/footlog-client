@@ -67,7 +67,7 @@ export default function BigLocationCard(props: LocationCardProps) {
         passHref
         className="flex cursor-pointer flex-col gap-20pxr">
         <section className="flex flex-col items-start gap-4pxr">
-          <p className="fonts-recommendTitle">{course.name}</p>
+          <p className="fonts-recommendTitle w-[92%]">{course.name}</p>
           <p className="fonts-detail">{course.area}</p>
         </section>
         <figure className="relative flex h-148pxr w-345pxr overflow-hidden rounded-xl">
