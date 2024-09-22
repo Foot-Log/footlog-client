@@ -14,7 +14,7 @@ export default function RecentCourseContainer(props: CoursesDataTypes) {
       <section className="flex items-center">
         {courses.length === 0 ? (
           isMyPage ? (
-            <p className="fonts-recommendSubtitle mb-57pxr justify-center">최근 확인한 코스가 없습니다.</p>
+            <p className="fonts-recommendSubtitle mb-57pxr mt-71pxr justify-center">최근 확인한 코스가 없습니다.</p>
           ) : (
             <p className="fonts-recommendSubtitle flex pt-20pxr">최근 확인한 코스가 없습니다.</p>
           )
