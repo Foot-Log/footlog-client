@@ -32,7 +32,7 @@ export default function InfoContainer(props: InfoContainerProps) {
   ];
 
   const toggleDescription = () => {
-    setIsExpanded(!isExpanded); // 펼침 상태 토글
+    setIsExpanded(!isExpanded);
   };
 
   // 150자를 기준으로 표시할 내용을 결정
