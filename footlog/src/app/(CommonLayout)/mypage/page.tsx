@@ -35,11 +35,6 @@ export default function page() {
     setStamp(userInfo?.data?.stampCount || 1);
   }, [userInfo?.data?.level]);
 
-  useEffect(() => {
-    refetchSaveCourses();
-    refetchRecentCourses();
-  }, []);
-
   if (!saveCourseList?.data || !recentCourseList?.data || !userInfo?.data) {
     return <></>;
   }
