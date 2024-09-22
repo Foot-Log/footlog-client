@@ -9,6 +9,9 @@ export interface CourseDetailDtoDataTypes {
   summary: string;
   address: string;
   tel: string;
+  telName: string;
+  charge: string;
+  homepage: string;
   isSave: boolean;
   isComplete: boolean;
 }

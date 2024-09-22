@@ -73,12 +73,12 @@ export default function page() {
       <section className="mt-68pxr flex flex-col pb-68pxr">
         <ImageContainer title={course.name} imgSrc={course.image} />
         <InfoContainer
-          description={course.summary}
+          summary={course.summary}
           address={course.address}
-          price="각 프로그램별로 이용요금 상이"
+          charge={course.charge === '정보 없음' ? '프로그램별로 이용요금 상이' : course.charge}
           time=""
-          call={course.tel}
-          site="홈페이지 / 웹사이트 URL"
+          tel={course.tel}
+          homepage={course.homepage === '정보 없음' ? '홈페이지 / 웹사이트 URL' : course.homepage}
         />
         <div className="h-8pxr w-full bg-gray-1" />
         <BlogContainer title={course.name} posting={posting} />
