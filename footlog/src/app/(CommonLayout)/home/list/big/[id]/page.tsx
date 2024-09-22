@@ -1,6 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
