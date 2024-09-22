@@ -7,6 +7,7 @@ import ListHeader from '@components/home/list/ListHeader';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetRegions from '@hooks/home/useGetRegions';
 import { AreaCodeDtoDataTypes } from '@api/home/getRegions';
+import { useInfiniteScroll } from '@hooks/common/useInfiniteScroll';
 import { MoonLoader } from 'react-spinners';
 
 export default function Page() {
@@ -16,9 +17,7 @@ export default function Page() {
   const { data: regions } = useGetRegions();
   const [area_name, setAreaName] = useState<string>('');
   const [courses, setCourses] = useState<CourseResponseDtoDataTypes[]>([]);
-  const [visibleCount, setVisibleCount] = useState(10); // 초기 표시할 데이터 수
   const areaIdNumber = area_id ? Number(area_id) : 0;
-  const observer = useRef<IntersectionObserver | null>(null);
 
   // area_id에 맞는 area_name 찾기
   useEffect(() => {
@@ -34,39 +33,11 @@ export default function Page() {
   useEffect(() => {
     if (fetchedCourses?.data) {
       setCourses(fetchedCourses.data);
-      console.log('Fetched courses:', fetchedCourses.data); // 디버깅 로그
     }
   }, [fetchedCourses]);
 
-  // Intersection Observer 설정
-  useEffect(() => {
-    if (observer.current) {
-      observer.current.disconnect();
-    }
-
-    const loadMore = (entries: IntersectionObserverEntry[]) => {
-      if (entries[0].isIntersecting) {
-        setVisibleCount((prevCount) => Math.min(prevCount + 10, courses.length));
-      }
-    };
-
-    observer.current = new IntersectionObserver(loadMore, {
-      root: null, // viewport
-      rootMargin: '0px',
-      threshold: 1.0, // 100% 가시화
-    });
-
-    const target = document.querySelector('#load-more');
-    if (target) {
-      observer.current.observe(target);
-    }
-
-    return () => {
-      if (observer.current && target) {
-        observer.current.unobserve(target);
-      }
-    };
-  }, [courses]);
+  // 무한 스크롤 훅 사용
+  const { visibleCount } = useInfiniteScroll(courses.length, () => {});
 
   return (
     <main className="relative flex h-full w-full flex-col">
