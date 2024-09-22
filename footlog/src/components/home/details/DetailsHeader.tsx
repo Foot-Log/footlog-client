@@ -1,5 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { LeftArrowIcon, SaveOutlineGreenIcon, SaveFilledGreenIcon } from '@public/icon';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 
 interface DetailsHeaderProps {
   title: string;
@@ -10,10 +11,12 @@ interface DetailsHeaderProps {
 export default function DetailsHeader(props: DetailsHeaderProps) {
   const { title, isSaved, onClick } = props;
   const router = useRouter();
+  const { refetch: refetchRecentCourse } = useGetRecentCourse();
 
-  function handleBackBtn() {
-    router.back(); // 이전 페이지로 돌아가기
-  }
+  const handleBackBtn = async () => {
+    await Promise.all([refetchRecentCourse()]);
+    router.back();
+  };
 
   return (
     <section className="fixed top-0 z-20 flex h-68pxr w-full items-center justify-between bg-white px-24pxr">

@@ -16,7 +16,7 @@ export default function RegionalRecommendContainer(props: RegionalRecommendConta
         <h2 className="fonts-recommendTitle">지역별 코스 찾기</h2>
         <section className="grid grid-cols-3 gap-8pxr">
           {regions.map((region: AreaCodeDtoDataTypes) => (
-            <Link key={region.areaCode} href={`home/list/${region.areaCode}`} passHref>
+            <Link key={region.areaCode} href={`home/list/big/${region.areaCode}`} passHref>
               <div className="fonts-regionName border-gray_2 flex h-44pxr w-110pxr cursor-pointer items-center justify-center gap-7pxr rounded border text-gray-8">
                 {region.areaName}
                 {region.areaName === '전체' && <RightArrowIcon />} {/* '전체'일 경우 RightArrowIcon 추가 */}

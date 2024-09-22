@@ -2,33 +2,34 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
+import { CityRegionsDtoDataTypes } from 'types/home/search/SearchTypes';
 import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import ListHeader from '@components/home/list/ListHeader';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
-import useGetRegions from '@hooks/home/useGetRegions';
-import { AreaCodeDtoDataTypes } from '@api/home/getRegions';
+import useGetCityRegions from '@hooks/home/search/useGetCityRegions';
+import useGetCityCourse from '@hooks/home/list/useGetCityCourse';
 
 export default function Page() {
   const pathname = usePathname();
   const area_id = pathname.split('/').pop();
 
-  const { data: regions } = useGetRegions();
+  const { data: regions } = useGetCityRegions();
   const [area_name, setAreaName] = useState<string>('');
   const areaIdNumber = area_id ? Number(area_id) : 0;
 
-  // area_id에 맞는 area_name 찾기
+  // sigunguId에 맞는 sigunguName 찾기
   useEffect(() => {
-    if (regions?.data && areaIdNumber) {
-      const foundRegion = regions.data.find((region: AreaCodeDtoDataTypes) => region.areaCode === areaIdNumber);
+    if (regions?.data) {
+      const foundRegion = regions.data.find((region: CityRegionsDtoDataTypes) => region.sigunguId === areaIdNumber);
       if (foundRegion) {
-        setAreaName(foundRegion.areaName);
+        setAreaName(foundRegion.sigunguName);
       } else {
         setAreaName('전체');
       }
     }
   }, [regions, areaIdNumber]);
 
-  const { data: courses } = useGetRegionalCourse(areaIdNumber);
+  const { data: courses } = useGetCityCourse(areaIdNumber);
 
   return (
     <main className="relative flex h-full w-full flex-col">

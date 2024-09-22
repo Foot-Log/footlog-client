@@ -5,10 +5,12 @@ import { CheckIcon } from '@public/icon';
 import OnboardingTitle from '@components/onboarding/OnboardingTitle';
 import OnboardingBtn from '@components/onboarding/OnboardingBtn';
 import { MoonLoader } from 'react-spinners';
+import useGetUserInfo from '@hooks/mypage/useGetUserInfo';
 
 export default function page() {
   const router = useRouter();
   const [isOnboardingBtnDisabled, setIsOnboardingBtnDisabled] = useState(true);
+  const { data: userInfo } = useGetUserInfo();
   const [titleText, setTitleText] = useState(
     <>
       ㅇㅇ 님께서 좋아하실 만한
@@ -16,6 +18,18 @@ export default function page() {
       플로깅 코스를 찾고 있어요.
     </>,
   );
+
+  useEffect(() => {
+    if (userInfo?.data?.nickname) {
+      setTitleText(
+        <>
+          {userInfo.data.nickname} 님께서 좋아하실 만한
+          <br />
+          플로깅 코스를 찾고 있어요.
+        </>,
+      );
+    }
+  }, [userInfo]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,7 +43,6 @@ export default function page() {
         </>,
       );
     }, 3000);
-
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
   }, []);
 

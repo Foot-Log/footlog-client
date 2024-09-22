@@ -1,13 +1,33 @@
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LocationCardProps } from 'types/common/CommonTypes';
 import { SearchSaveFilledIcon, SearchSaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
+import useGetCompletedList from '@hooks/log/useGetCompletedList';
+import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
+import useGetRecommend from '@hooks/home/useGetRecommend';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
+import useGetCityCourse from '@hooks/home/list/useGetCityCourse';
+import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 
 export default function BigLocationCard(props: LocationCardProps) {
   const { course } = props;
+  const pathname = usePathname();
+  const region_id = pathname.split('/').pop();
+  const regionIdNumber = region_id ? Number(region_id) : undefined;
+  const isBigPage = pathname.includes('/big');
   const { mutate: postSaveMutate } = usePostSave();
+  const { refetch: refetchCompletedList } = useGetCompletedList();
+  const { refetch: refetchSavedList } = useGetSaveCourseList();
+  const { refetch: refetchRecommend } = useGetRecommend();
+  const { refetch: refetchPopular } = useGetPopularCourse();
+  const { refetch: refetchRecentCourse } = useGetRecentCourse();
+
+  const { refetch: refetchSmallCourse } = regionIdNumber ? useGetCityCourse(regionIdNumber) : { refetch: null };
+  const { refetch: refetchBigCourse } = regionIdNumber ? useGetRegionalCourse(regionIdNumber) : { refetch: null };
 
   const [isSaved, setIsSaved] = useState(course.isSave); // 초기 상태 설정
 
@@ -19,6 +39,21 @@ export default function BigLocationCard(props: LocationCardProps) {
       {
         onSuccess: () => {
           setIsSaved(newSaveState);
+          refetchCompletedList();
+          refetchSavedList();
+          refetchRecommend();
+          refetchPopular();
+          refetchRecentCourse();
+
+          // BigPage일 경우 BigCourse refetch
+          if (isBigPage && refetchBigCourse) {
+            refetchBigCourse();
+          }
+
+          // SmallPage일 경우 SmallCourse refetch
+          if (!isBigPage && refetchSmallCourse) {
+            refetchSmallCourse();
+          }
         },
       },
     );

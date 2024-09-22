@@ -10,6 +10,10 @@ import useGetBlogPosting from '@hooks/home/details/useGetBlogPosting';
 import usePostSave from '@hooks/home/details/usePostSave';
 import usePostComplete from '@hooks/home/details/usePostComplete';
 import useGetCompletedList from '@hooks/log/useGetCompletedList';
+import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
+import useGetRecommend from '@hooks/home/useGetRecommend';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
+import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 
 export default function page() {
   const pathname = usePathname();
@@ -24,6 +28,10 @@ export default function page() {
     : { data: null };
   const { data: blogResponse } = courseIdNumber ? useGetBlogPosting(courseIdNumber) : { data: null };
   const { refetch: refetchCompletedList } = useGetCompletedList();
+  const { refetch: refetchSavedList } = useGetSaveCourseList();
+  const { refetch: refetchRecommend } = useGetRecommend();
+  const { refetch: refetchPopular } = useGetPopularCourse();
+  const { refetch: refetchRecentCourse } = useGetRecentCourse();
 
   if (!courseResponse || !blogResponse) {
     return <></>;
@@ -38,6 +46,10 @@ export default function page() {
       {
         onSuccess: () => {
           refetchCourseDetails();
+          refetchSavedList();
+          refetchRecommend();
+          refetchPopular();
+          refetchRecentCourse();
         },
       },
     );

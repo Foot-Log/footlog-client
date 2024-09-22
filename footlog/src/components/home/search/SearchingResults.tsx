@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from 'next/link';
 import RegionCard from '@components/home/search/RegionCard';
 import LocationCard from '@components/common/LocationCard/LocationCard';
 import { CityRegionsDtoDataTypes } from 'types/home/search/SearchTypes';
@@ -18,7 +18,9 @@ export default function SearchingResults(props: SearchingResultsProps) {
       {filteredLocations.length > 0 && (
         <section className="mb-24pxr flex flex-col gap-24pxr">
           {filteredLocations.map((location) => (
-            <RegionCard key={location.sigunguId} location={location} searchInput={searchInput} />
+            <Link key={location.sigunguId} href={`/home/list/small/${location.sigunguId}`} passHref>
+              <RegionCard location={location} searchInput={searchInput} />
+            </Link>
           ))}
         </section>
       )}

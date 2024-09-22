@@ -1,14 +1,22 @@
-import { useState } from 'react';
+'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SaveFilledIcon, SaveOutlineIcon } from '@public/icon';
 import usePostSave from '@hooks/home/details/usePostSave';
 import { CoursesDataTypes } from 'types/common/CommonTypes';
 import formatAddress from '@utils/formatAddress';
+import useGetRecommend from '@hooks/home/useGetRecommend';
+import useGetPopularCourse from '@hooks/common/useGetPopularCourse';
+import useGetCompletedList from '@hooks/log/useGetCompletedList';
+import useGetCourseDetails from '@hooks/home/details/useGetCourseDetails';
 
 export default function CoursesSlider(props: CoursesDataTypes) {
   const { courses } = props;
   const { mutate: postSaveMutate } = usePostSave();
+  const { refetch: refetchRecommend } = useGetRecommend();
+  const { refetch: refetchPopular } = useGetPopularCourse();
+  const { refetch: refetchCompletedList } = useGetCompletedList();
 
   // 각 코스의 저장 상태를 관리하기 위한 상태 추가
   // 초기에는 전달 받은 코스의 isSave로 설정하고
@@ -23,6 +31,15 @@ export default function CoursesSlider(props: CoursesDataTypes) {
     ),
   );
 
+  const [courseIdToRefetch, setCourseIdToRefetch] = useState<number>(2547525);
+  const { refetch: refetchCourseDetails } = useGetCourseDetails(courseIdToRefetch);
+
+  useEffect(() => {
+    if (courseIdToRefetch !== null) {
+      refetchCourseDetails();
+    }
+  }, [courseIdToRefetch]);
+
   const handleSaveClick = (course_id: number, e: React.MouseEvent) => {
     e.stopPropagation(); // 링크 클릭 이벤트 방지
     e.preventDefault(); // 기본 링크 동작 방지
@@ -33,9 +50,12 @@ export default function CoursesSlider(props: CoursesDataTypes) {
       { course_id: course_id },
       {
         onSuccess: () => {
-          setSavedCourses((prev) => {
-            return { ...prev, [course_id]: newSaveState };
-          });
+          setSavedCourses((prev) => ({ ...prev, [course_id]: newSaveState }));
+          refetchRecommend();
+          refetchPopular();
+          refetchCompletedList();
+          setCourseIdToRefetch(course_id);
+          refetchCompletedList();
         },
       },
     );

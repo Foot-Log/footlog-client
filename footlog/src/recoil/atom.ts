@@ -16,10 +16,3 @@ export const thirdOnboardingState = atom<string[]>({
   key: 'thirdOnboardingState',
   default: [],
 });
-
-// 선호도 코스 저장
-import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
-export const courseState = atom<CourseResponseDtoDataTypes[]>({
-  key: 'courseState',
-  default: [],
-});
