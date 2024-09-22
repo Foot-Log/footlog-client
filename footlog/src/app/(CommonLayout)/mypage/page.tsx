@@ -1,7 +1,7 @@
 'use client';
 import MypageContainer from '@components/mypage/MypageContainer';
 import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
-import { Flag1Icon, Flag2Icon, Flag3Icon, Flag4Icon, Flag5Icon } from '@public/icon';
+import { Flag0Icon, Flag1Icon, Flag2Icon, Flag3Icon, Flag4Icon, Flag5Icon } from '@public/icon';
 import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
 import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 import useGetUserInfo from '@hooks/mypage/useGetUserInfo';
@@ -20,7 +20,7 @@ export default function page() {
   console.log('userInfo', userInfo);
 
   const [level, setLevel] = useState<number>(1);
-  const [stamp, setStamp] = useState<number>(1);
+  const [stamp, setStamp] = useState<number>(0);
 
   useEffect(() => {
     if (userInfo?.data?.level) {
@@ -36,7 +36,7 @@ export default function page() {
         setLevel(5);
       }
     }
-    setStamp(userInfo?.data?.stampCount || 1);
+    setStamp(userInfo?.data?.stampCount || 0);
   }, [userInfo?.data?.level]);
 
   if (!saveCourseList?.data || !recentCourseList?.data || !userInfo?.data) {
@@ -49,6 +49,8 @@ export default function page() {
   };
   const renderFlagIcon = () => {
     switch (stamp) {
+      case 0:
+        return <Flag0Icon />;
       case 1:
         return <Flag1Icon />;
       case 2:
@@ -59,8 +61,6 @@ export default function page() {
         return <Flag4Icon />;
       case 5:
         return <Flag5Icon />;
-      default:
-        return <Flag1Icon />;
     }
   };
 
@@ -71,9 +71,6 @@ export default function page() {
 
         <div className="mt-27pxr flex">
           <div className="mt-5pxr">
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
-              <circle opacity="0.5" cx="40" cy="40" r="40" fill="#D9D9D9" />
-            </svg> */}
             <img
               src={userInfo.data.profileImg}
               alt="profile"
@@ -102,10 +99,16 @@ export default function page() {
       <div className="h-8pxr w-393pxr bg-gray-1" />
 
       <div className="ml-24pxr">
-        <div className="font-mypageDetail mt-20pxr text-gray-8">선호도 재설정</div>
-        <button className="font-mypageDetai mt-20pxr text-gray-4" onClick={handleDeleteUser}>
-          회원 탈퇴
-        </button>
+        <div>
+          <button className="font-mypageDetail mt-20pxr text-gray-8" onClick={() => router.push('/onboarding')}>
+            선호도 재설정
+          </button>
+        </div>
+        <div>
+          <button className="font-mypageDetai mt-20pxr text-gray-4" onClick={handleDeleteUser}>
+            회원 탈퇴
+          </button>
+        </div>
       </div>
     </div>
   );
