@@ -43,14 +43,18 @@ export default function Page() {
   const { refetch: refetchBigCourse } = useGetRegionalCourse(regionIdNumber ? regionIdNumber : 1);
 
   useEffect(() => {
-    const previousUrl = document.referrer; // 이전 URL 가져오기
-    const previousPathname = new URL(previousUrl).pathname; // URL의 경로만 가져오기
+    const previousUrl = localStorage.getItem('previousUrl');
+    if (previousUrl) {
+      const previousPathname = new URL(previousUrl).pathname; // URL의 경로만 가져오기
+      console.log('Previous pathname:', previousPathname);
 
-    const region_id = previousPathname.split('/').pop(); // 이전 URL의 마지막 부분
-    const regionId = region_id ? Number(region_id) : undefined; // 숫자로 변환
+      const region_id = previousPathname.split('/').pop(); // 이전 URL의 마지막 부분
+      const regionId = region_id ? Number(region_id) : undefined; // 숫자로 변환
 
-    setRegionIdNumber(regionId);
-    setIsBigPage(previousPathname.includes('/big')); // BigPage 여부 설정
+      console.log('Extracted regionId:', regionId);
+      setRegionIdNumber(regionId);
+      setIsBigPage(previousPathname.includes('/big'));
+    }
   }, []);
 
   const handleSaveClick = () => {
@@ -68,7 +72,6 @@ export default function Page() {
           if (isBigPage && regionIdNumber) {
             refetchBigCourse();
           }
-
           // SmallPage일 경우 SmallCourse refetch
           if (!isBigPage && regionIdNumber) {
             refetchSmallCourse();
@@ -90,6 +93,15 @@ export default function Page() {
     );
   };
 
+  const handleBackClick = () => {
+    console.log('Refetching for regionId:', regionIdNumber);
+    if (isBigPage) {
+      refetchBigCourse();
+    } else {
+      refetchSmallCourse();
+    }
+  };
+
   if (!courseResponse || !blogResponse) {
     return <></>;
   }
@@ -99,7 +111,12 @@ export default function Page() {
 
   return (
     <main className="relative flex h-full w-full flex-col">
-      <DetailsHeader title={course.name} isSaved={course.isSave} onClick={handleSaveClick} />
+      <DetailsHeader
+        title={course.name}
+        isSaved={course.isSave}
+        onClick={handleSaveClick}
+        onBackClick={handleBackClick}
+      />
       <section className="mt-68pxr flex flex-col pb-68pxr">
         <ImageContainer title={course.name} imgSrc={course.image} />
         <InfoContainer

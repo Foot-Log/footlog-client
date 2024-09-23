@@ -19,6 +19,11 @@ export default function Page() {
   const [courses, setCourses] = useState<CourseResponseDtoDataTypes[]>([]);
   const areaIdNumber = area_id ? Number(area_id) : 0;
 
+  useEffect(() => {
+    // 현재 URL을 로컬스토리지에 저장
+    localStorage.setItem('previousUrl', window.location.href);
+  }, []);
+
   // area_id에 맞는 area_name 찾기
   useEffect(() => {
     if (regions?.data) {
@@ -42,7 +47,7 @@ export default function Page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <ListHeader title={area_name} />
-      <section className="mt-68pxr flex flex-col gap-24pxr pt-12pxr">
+      <section className="scroll-y-auto mt-68pxr flex flex-col gap-24pxr pt-12pxr">
         {courses.slice(0, visibleCount).map((course: CourseResponseDtoDataTypes) => (
           <section key={course.course_id}>
             <BigLocationCard course={course} />

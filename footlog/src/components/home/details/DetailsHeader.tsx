@@ -6,14 +6,16 @@ interface DetailsHeaderProps {
   title: string;
   isSaved: boolean;
   onClick: () => void;
+  onBackClick: () => void;
 }
 
 export default function DetailsHeader(props: DetailsHeaderProps) {
-  const { title, isSaved, onClick } = props;
+  const { title, isSaved, onClick, onBackClick } = props;
   const router = useRouter();
   const { refetch: refetchRecentCourse } = useGetRecentCourse();
 
   const handleBackBtn = async () => {
+    onBackClick();
     await Promise.all([refetchRecentCourse()]);
     router.back();
   };
