@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CloseIcon } from '@public/icon';
 import { SearchLogDtoDataTypes } from 'types/home/search/SearchTypes';
 import usePatchRecentSearch from '@hooks/home/search/usePatchRecentSearch';
@@ -31,14 +32,14 @@ export default function RecentSearchContainer(props: RecentSearchContainerProps)
           <p className="fonts-recommendSubtitle flex">최근 검색어가 존재하지 않습니다.</p>
         ) : (
           recentSearch.map((search) => (
-            <div
-              key={search.keyword}
-              className="flex h-36pxr w-auto items-center justify-center gap-12pxr rounded-searchBox border border-gray-2 px-16pxr">
-              <span className="fonts-recommendSubtitle flex-1 whitespace-nowrap">{search.keyword}</span>
-              <button type="button" className="cursor-pointer" onClick={() => handleDeleteClick(search.keyword)}>
-                <CloseIcon />
-              </button>
-            </div>
+            <Link key={search.keyword} href={`search/results?query=${encodeURIComponent(search.keyword)}`} passHref>
+              <div className="flex h-36pxr w-auto items-center justify-center gap-12pxr rounded-searchBox border border-gray-2 px-16pxr">
+                <span className="fonts-recommendSubtitle flex-1 whitespace-nowrap">{search.keyword}</span>
+                <button type="button" className="cursor-pointer" onClick={() => handleDeleteClick(search.keyword)}>
+                  <CloseIcon />
+                </button>
+              </div>
+            </Link>
           ))
         )}
       </section>
