@@ -1,7 +1,6 @@
 'use client';
 import { atom } from 'recoil';
 
-/*온보딩 정보 post를 위한*/
 export const firstOnboardingState = atom<string[]>({
   key: 'firstOnboardingState',
   default: [],

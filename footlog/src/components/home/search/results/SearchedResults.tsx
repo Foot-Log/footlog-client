@@ -3,6 +3,8 @@ import BigLocationCard from '@components/common/LocationCard/BigLocationCard';
 import RegionCard from '../RegionCard';
 import { CityRegionsDtoDataTypes } from 'types/home/search/SearchTypes';
 import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
+import { useInfiniteScroll } from '@hooks/common/useInfiniteScroll';
+import { MoonLoader } from 'react-spinners';
 
 interface SearchResultsProps {
   filteredCourses: CourseResponseDtoDataTypes[];

@@ -11,7 +11,7 @@ export default function LocationCard(props: LocationCardProps) {
       key={course.course_id}
       href={`/home/details/${course.course_id}`}
       passHref
-      className="flex cursor-pointer items-center gap-16pxr pl-24pxr">
+      className="flex cursor-pointer items-center gap-16pxr px-24pxr">
       <figure className="relative flex h-64pxr w-64pxr overflow-hidden rounded-xl">
         <Image
           fill
@@ -23,7 +23,7 @@ export default function LocationCard(props: LocationCardProps) {
         />
       </figure>
       <section className="flex flex-col items-start gap-4pxr">
-        <p className="fonts-onboardingKeyword text-gray-8">
+        <p className="fonts-searchingCourse text-gray-8">
           {highlightSearchTerm(course.name, searchInput || '')} {/* 강조된 이름 출력 */}
         </p>
         <p className="fonts-detail">{course.area}</p>

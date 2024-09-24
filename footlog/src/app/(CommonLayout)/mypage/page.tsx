@@ -6,7 +6,6 @@ import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
 import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 import useGetUserInfo from '@hooks/mypage/useGetUserInfo';
 import React, { useEffect, useState } from 'react';
-import { useRecoilCallback } from 'recoil';
 import useDeleteUser from '@hooks/mypage/useDeleteUser';
 import { useRouter } from 'next/navigation';
 

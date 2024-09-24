@@ -1,4 +1,4 @@
-import { Blank, BlankPlus, LogCloseBtn, RemoveBtn } from '@public/icon';
+import { Blank, LogCloseBtn, RemoveBtn } from '@public/icon';
 import React, { useEffect, useState } from 'react';
 
 interface MarkerModalProps {
