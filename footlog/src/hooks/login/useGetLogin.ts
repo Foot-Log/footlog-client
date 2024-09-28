@@ -6,13 +6,14 @@ import { setToken } from '@utils/token';
 
 const useGetLogin = () => {
   const KAKAO_CODE = typeof window !== 'undefined' ? new URL(window.location.href).searchParams.get('code') : null;
+  const KAKAO_REDIRECT_URI = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (KAKAO_CODE) {
       api
-        .get(`user/kakao/callback?code=${KAKAO_CODE}`)
+        .get(`user/kakao/callback?code=${KAKAO_CODE}&redirect_uri=${KAKAO_REDIRECT_URI}`)
         .then((res) => {
           setToken(res.data.data.accessToken);
           console.log(res.data.data.accessToken);
