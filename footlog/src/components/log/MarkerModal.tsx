@@ -72,7 +72,7 @@ export default function MarkerModal({
           {/* 텍스트 영역 */}
           <textarea
             className={`${
-              hasText ? 'fonts-newLogContent' : 'fonts-logContent'
+              text.length > 0 ? 'fonts-newLogContent' : 'fonts-logContent'
             } mt-24pxr h-72pxr w-345pxr resize-none rounded-md bg-gray-3 px-16pxr py-12pxr opacity-50`}
             value={text}
             onChange={handleTextChange}
