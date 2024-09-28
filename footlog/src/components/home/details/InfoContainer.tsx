@@ -58,7 +58,13 @@ export default function InfoContainer(props: InfoContainerProps) {
         {infoItems.map((item, index) => (
           <section key={index} className="flex items-center gap-12pxr">
             <div className="flex">{item.icon}</div>
-            <p className="fonts-detail">{item.text}</p>
+            {index === 4 ? ( // homepage 아이템일 때
+              <a href={homepage} className="fonts-detail cursor-pointer" target="_blank" rel="noopener noreferrer">
+                {item.text}
+              </a>
+            ) : (
+              <p className="fonts-detail">{item.text}</p>
+            )}
           </section>
         ))}
       </section>
