@@ -90,7 +90,7 @@ export default function page() {
         </div>
       </section>
 
-      <div className="h-8pxr w-full bg-gray-1" />
+      <div className="mt-36pxr h-8pxr w-full bg-gray-1" />
 
       <SaveCourseContainer title="저장 목록" courses={saveCourseList.data} />
       <RecentCourseContainer courses={recentCourseList?.data} />
@@ -104,7 +104,7 @@ export default function page() {
           </button>
         </div>
         <div>
-          <button className="font-mypageDetai mt-20pxr text-gray-4" onClick={handleDeleteUser}>
+          <button className="font-mypageDetai mb-21pxr mt-20pxr text-gray-4" onClick={handleDeleteUser}>
             회원 탈퇴
           </button>
         </div>
