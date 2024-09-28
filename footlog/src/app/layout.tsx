@@ -3,6 +3,7 @@ import './globals.css';
 import { RecoilRoot } from 'recoil';
 import Script from 'next/script';
 import ReactQueryProviders from '@utils/ReactQueryProvider';
+import useSetScreenSize from '@hooks/common/useSetScreenSize';
 
 export const viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
 
@@ -13,6 +14,8 @@ declare global {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  useSetScreenSize();
+
   return (
     <html lang="en">
       <head>
