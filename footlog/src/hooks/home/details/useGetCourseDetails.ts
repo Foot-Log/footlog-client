@@ -8,6 +8,7 @@ const useGetCourseDetails = (course_id: number) => {
   const { data, refetch } = useQuery({
     queryKey,
     queryFn,
+    enabled: course_id !== null, // course_id가 null이 아닐 때만 쿼리 실행
   });
 
   return { data, refetch };

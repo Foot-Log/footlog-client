@@ -31,12 +31,14 @@ export default function CoursesSlider(props: CoursesDataTypes) {
     ),
   );
 
-  const [courseIdToRefetch, setCourseIdToRefetch] = useState<number>(2547525);
-  const { refetch: refetchCourseDetails } = useGetCourseDetails(courseIdToRefetch);
+  const [courseIdToRefetch, setCourseIdToRefetch] = useState<number | null>(null);
+
+  // 항상 훅을 호출합니다.
+  const { refetch: refetchCourseDetails } = useGetCourseDetails(courseIdToRefetch as number);
 
   useEffect(() => {
     if (courseIdToRefetch !== null) {
-      refetchCourseDetails();
+      refetchCourseDetails(); // courseIdToRefetch가 null이 아닐 때만 호출
     }
   }, [courseIdToRefetch]);
 
