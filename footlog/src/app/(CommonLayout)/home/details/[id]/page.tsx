@@ -122,8 +122,8 @@ export default function Page() {
         <InfoContainer
           summary={course.summary}
           address={course.address}
-          charge={course.charge === '정보 없음' ? '프로그램별로 이용요금 상이' : course.charge}
-          time=""
+          charge={course.charge === '정보 없음' ? '프로그램별로 이용 요금 상이' : course.charge}
+          time="프로그램별로 이용 시간 상이"
           tel={course.tel}
           homepage={course.homepage === '정보 없음' ? '홈페이지 / 웹사이트 URL' : course.homepage}
         />
