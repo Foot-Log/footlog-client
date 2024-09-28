@@ -97,7 +97,7 @@ export default function page() {
 
       <div className="h-8pxr w-full bg-gray-1" />
 
-      <div className="ml-24pxr">
+      <div className="mb-21pxr ml-24pxr">
         <div>
           <button className="font-mypageDetail mt-20pxr text-gray-8" onClick={() => router.push('/onboarding')}>
             선호도 재설정
