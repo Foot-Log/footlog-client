@@ -65,7 +65,7 @@ export default function page() {
 
   return (
     <div className="flex h-full w-full flex-col pt-16pxr">
-      <section className="ml-24pxr h-174pxr">
+      <section className="mb-36pxr ml-24pxr h-138pxr">
         <div className="font-mypageTitle">마이 페이지</div>
 
         <div className="mt-27pxr flex">
@@ -90,21 +90,21 @@ export default function page() {
         </div>
       </section>
 
-      <div className="mt-36pxr h-8pxr w-full bg-gray-1" />
+      <div className="h-8pxr w-full bg-gray-1" />
 
       <SaveCourseContainer title="저장 목록" courses={saveCourseList.data} />
       <RecentCourseContainer courses={recentCourseList?.data} />
 
       <div className="h-8pxr w-full bg-gray-1" />
 
-      <div className="ml-24pxr">
+      <div className="mb-21pxr ml-24pxr">
         <div>
           <button className="font-mypageDetail mt-20pxr text-gray-8" onClick={() => router.push('/onboarding')}>
             선호도 재설정
           </button>
         </div>
         <div>
-          <button className="font-mypageDetai mb-21pxr mt-20pxr text-gray-4" onClick={handleDeleteUser}>
+          <button className="font-mypageDetai mt-20pxr text-gray-4" onClick={handleDeleteUser}>
             회원 탈퇴
           </button>
         </div>
