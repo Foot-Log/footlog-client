@@ -84,7 +84,7 @@ export default function MarkerModal({
           <div className="mt-20pxr flex space-x-4">
             {imageUrls.map((url, index) => (
               <div key={index} className="relative">
-                <img src={url} alt={`이미지 ${index + 1}`} className="h-106pxr w-106pxr rounded-lg" />
+                <img src={url} alt={`이미지 ${index + 1}`} className="h-106pxr w-106pxr rounded-lg object-cover" />
                 <button className="absolute right-0 top-0 mr-2 mt-2" onClick={() => handleImageRemove(index)}>
                   <RemoveBtn />
                 </button>
@@ -95,7 +95,7 @@ export default function MarkerModal({
                 <img
                   src={URL.createObjectURL(image)}
                   alt={`이미지 ${index + imageUrls.length + 1}`}
-                  className="h-106pxr w-106pxr rounded-lg"
+                  className="h-106pxr w-106pxr rounded-lg object-cover"
                 />
                 <button
                   className="absolute right-0 top-0 mr-2 mt-2"
