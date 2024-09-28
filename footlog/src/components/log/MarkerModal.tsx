@@ -73,7 +73,10 @@ export default function MarkerModal({
           <textarea
             className={`${
               text.length > 0 ? 'fonts-newLogContent' : 'fonts-logContent'
-            } mt-24pxr h-72pxr w-345pxr resize-none rounded-md bg-gray-3 px-16pxr py-12pxr opacity-50`}
+            } mt-24pxr h-72pxr w-345pxr resize-none rounded-md bg-gray-3 px-16pxr py-12pxr`}
+            style={{
+              backgroundColor: 'rgba(226, 226, 226, 0.5)', // bg-gray-3의 rgba 값에 투명도 적용 (50%)
+            }}
             value={text}
             onChange={handleTextChange}
             placeholder="나만의 기록을 남겨 보세요."
