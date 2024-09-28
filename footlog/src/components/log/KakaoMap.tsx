@@ -23,7 +23,7 @@ const KakaoMap = () => {
   const updateLogMutation = useUpdateLog(logId ?? 0);
 
   const handleSubmit = (text: string, images: (string | File)[]) => {
-    const logContent = text || details?.data?.logContent || ''; // 기존 로그 내용을 유지
+    const logContent = text.length > 0 ? text : ''; // 기존 로그 내용을 유지
     const existingUrls = images.filter((image) => typeof image === 'string') as string[]; // 기존 이미지 URL
     const newImages = images.filter((image) => image instanceof File) as File[]; // 새로 업로드한 이미지 파일
 
