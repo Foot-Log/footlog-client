@@ -277,7 +277,7 @@ button {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 130%; /* 18.2px */
+  line-height: 130%; /* 1.1375rem */
   letter-spacing: -0.03125rem;
 }
 
