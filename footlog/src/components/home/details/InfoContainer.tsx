@@ -50,7 +50,7 @@ export default function InfoContainer(props: InfoContainerProps) {
         )}
         {isExpanded && (
           <span className="fonts-detailDescription cursor-pointer text-gray-4" onClick={toggleDescription}>
-            {' ...접기'}
+            {' 간단히 보기'}
           </span>
         )}
       </p>

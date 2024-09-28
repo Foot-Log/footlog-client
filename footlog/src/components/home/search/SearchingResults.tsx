@@ -31,9 +31,7 @@ export default function SearchingResults(props: SearchingResultsProps) {
           ))}
         </section>
       ) : (
-        <p className="fonts-recommendSubtitle mt-289pxr flex justify-center">
-          {searchInput}의 검색 결과가 존재하지 않습니다.
-        </p>
+        <></>
       )}
     </section>
   );

@@ -13,7 +13,10 @@ export default function RecentSearchContainer(props: RecentSearchContainerProps)
   const { mutate: patchRecentSearchMutate } = usePatchRecentSearch();
   const { refetch: refetchRecentSearch } = useGetRecentSearch();
 
-  const handleDeleteClick = (keyword: string) => {
+  const handleDeleteClick = (keyword: string, e: React.MouseEvent) => {
+    e.stopPropagation(); // 링크 클릭 이벤트 방지
+    e.preventDefault(); // 기본 링크 동작 방지
+
     patchRecentSearchMutate(
       { keyword },
       {
@@ -35,7 +38,7 @@ export default function RecentSearchContainer(props: RecentSearchContainerProps)
             <Link key={search.keyword} href={`search/results?query=${encodeURIComponent(search.keyword)}`} passHref>
               <div className="flex h-36pxr w-auto items-center justify-center gap-12pxr rounded-searchBox border border-gray-2 px-16pxr">
                 <span className="fonts-recommendSubtitle flex-1 whitespace-nowrap">{search.keyword}</span>
-                <button type="button" className="cursor-pointer" onClick={() => handleDeleteClick(search.keyword)}>
+                <button type="button" className="cursor-pointer" onClick={(e) => handleDeleteClick(search.keyword, e)}>
                   <CloseIcon />
                 </button>
               </div>
