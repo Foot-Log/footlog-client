@@ -24,7 +24,7 @@ export default function CoursesSlider(props: CoursesDataTypes) {
   const [savedCourses, setSavedCourses] = useState<{ [key: number]: boolean }>(
     courses.reduce(
       (acc, course) => {
-        acc[course.course_id] = course.isSave; // 초기 상태 설정
+        acc[course.course_id] = course.isSave;
         return acc;
       },
       {} as { [key: number]: boolean },
@@ -33,7 +33,6 @@ export default function CoursesSlider(props: CoursesDataTypes) {
 
   const [courseIdToRefetch, setCourseIdToRefetch] = useState<number | null>(null);
 
-  // 항상 훅을 호출합니다.
   const { refetch: refetchCourseDetails } = useGetCourseDetails(courseIdToRefetch as number);
 
   useEffect(() => {

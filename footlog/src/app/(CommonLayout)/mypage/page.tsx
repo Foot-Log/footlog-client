@@ -1,13 +1,14 @@
 'use client';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import SaveCourseContainer from '@components/mypage/SaveCourseContainer';
 import RecentCourseContainer from '@components/common/RecentCourseContainer/RecentCourseContainer';
 import { Flag0Icon, Flag1Icon, Flag2Icon, Flag3Icon, Flag4Icon, Flag5Icon } from '@public/icon';
 import useGetSaveCourseList from '@hooks/mypage/useGetSaveCourseList';
 import useGetRecentCourse from '@hooks/common/useGetRecentCourse';
 import useGetUserInfo from '@hooks/mypage/useGetUserInfo';
-import React, { useEffect, useState } from 'react';
 import useDeleteUser from '@hooks/mypage/useDeleteUser';
-import { useRouter } from 'next/navigation';
+import ConfirmModal from '@components/mypage/ConfirmModal';
 
 export default function page() {
   const router = useRouter();
@@ -15,8 +16,7 @@ export default function page() {
   const { data: recentCourseList } = useGetRecentCourse();
   const { data: userInfo } = useGetUserInfo();
   const { mutate: deleteUser } = useDeleteUser();
-
-  console.log('userInfo', userInfo);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const [level, setLevel] = useState<number>(1);
   const [stamp, setStamp] = useState<number>(0);
@@ -43,9 +43,19 @@ export default function page() {
   }
 
   const handleDeleteUser = () => {
-    deleteUser();
-    router.push('/login');
+    setModalOpen(true); // 모달 열기
   };
+
+  function handleConfirmBtn() {
+    deleteUser();
+    router.push('/');
+  }
+
+  function handleCloseBtn() {
+    setModalOpen(false);
+    router.push('/mypage');
+  }
+
   const renderFlagIcon = () => {
     switch (stamp) {
       case 0:
@@ -108,6 +118,8 @@ export default function page() {
           </div>
         </div>
       </div>
+
+      {isModalOpen && <ConfirmModal handleConfirmBtn={handleConfirmBtn} handleCloseBtn={handleCloseBtn} />}
     </div>
   );
 }

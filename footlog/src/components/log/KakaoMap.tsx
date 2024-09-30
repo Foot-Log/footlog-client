@@ -9,16 +9,13 @@ const KakaoMap = () => {
   const [selectLocation, setSelectLocation] = useState<string | null>(null);
 
   const { data: locations } = useGetCompletedList();
-  console.log('locations', locations);
 
   const [logId, setLogId] = useState<number | null>(null);
-  console.log('lodId', logId);
 
   // logId가 있을 때만 useGetLogDetails를 호출
   const { data: details, refetch: refetchLogDetails } = useGetLogDetails(logId ?? 0, {
     enabled: !!logId, // logId가 있을 때만 API를 호출하도록 설정
   });
-  console.log('details', details?.data);
 
   const updateLogMutation = useUpdateLog(logId ?? 0);
 

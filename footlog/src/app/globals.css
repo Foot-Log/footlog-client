@@ -360,3 +360,25 @@ button {
   line-height: 130%; /* 20.8px */
   letter-spacing: -0.03125rem;
 }
+
+.fonts-confirmRed {
+  color: #fa000a;
+
+  font-family: 'Noto Sans KR';
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem; /* 133.333% */
+  letter-spacing: -0.03125rem;
+}
+
+.fonts-confirmGray {
+  color: #b3b3b3;
+
+  font-family: 'Noto Sans KR';
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 133.333% */
+  letter-spacing: -0.03125rem;
+}

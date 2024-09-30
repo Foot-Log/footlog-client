@@ -32,7 +32,6 @@ export default function Page() {
     }
   }, [regions, areaIdNumber]);
 
-  // 코스 데이터 가져오기
   const { data: fetchedCourses } = useGetRegionalCourse(areaIdNumber);
 
   useEffect(() => {
