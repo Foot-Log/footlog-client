@@ -27,7 +27,6 @@ const useGetLogin = () => {
           setToken(res.data.data.accessToken);
           setIsLoggedIn(true);
           console.log('로그인 성공');
-          console.log('isLoggedIn:', true);
         })
         .catch((err) => {
           if (err.response) {
@@ -46,14 +45,12 @@ const useGetLogin = () => {
   }, [KAKAO_CODE, router]);
 
   useEffect(() => {
-    console.log('isLoggedIn in LoginLoading:', isLoggedIn); // 추가
     if (isLoggedIn) {
       setLoading(true);
       api
         .get(`course/recommend`)
         .then((res) => {
           setLoading(false);
-          console.log('API 호출 성공:', res); // 추가
           if (res.data && res.data.isSuccess) {
             router.push('/home');
           } else {
@@ -62,7 +59,6 @@ const useGetLogin = () => {
         })
         .catch((err) => {
           setLoading(false);
-          console.error('API 호출 실패:', err); // 추가
           console.error(err);
           router.push('/onboarding');
         });
@@ -73,7 +69,7 @@ const useGetLogin = () => {
     return <Loading loadingText={loadingText} />;
   }
 
-  return null; // 다른 컴포넌트 렌더링
+  return null;
 };
 
 export default useGetLogin;
