@@ -3,12 +3,21 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import api from '@api/api';
 import { setToken } from '@utils/token';
+import Loading from 'app/loading';
 
 const useGetLogin = () => {
   const KAKAO_CODE = typeof window !== 'undefined' ? new URL(window.location.href).searchParams.get('code') : null;
   const KAKAO_REDIRECT_URI = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const loadingText = (
+    <>
+      사용자 정보를 가져오고 있습니다.
+      <br />
+      잠시만 기다려주세요...
+    </>
+  );
 
   useEffect(() => {
     if (KAKAO_CODE) {
@@ -16,15 +25,14 @@ const useGetLogin = () => {
         .get(`user/kakao/callback?code=${KAKAO_CODE}&redirect_uri=${KAKAO_REDIRECT_URI}`)
         .then((res) => {
           setToken(res.data.data.accessToken);
-          console.log(res.data.data.accessToken);
-          setIsLoggedIn(true); // 로그인 성공 시 상태 업데이트
+          setIsLoggedIn(true);
           console.log('로그인 성공');
-          router.push('/onboarding');
+          console.log('isLoggedIn:', true);
         })
         .catch((err) => {
           if (err.response) {
             if (err.response.data?.code === '404') {
-              console.log('404에러');
+              console.log('err');
               router.push('/login');
             } else {
               console.log('로그인 실패');
@@ -38,27 +46,34 @@ const useGetLogin = () => {
   }, [KAKAO_CODE, router]);
 
   useEffect(() => {
+    console.log('isLoggedIn in LoginLoading:', isLoggedIn); // 추가
     if (isLoggedIn) {
+      setLoading(true);
       api
         .get(`course/recommend`)
-
         .then((res) => {
-          if (res.data) {
-            if (res.data.isSuccess === true) {
-              console.log('코스 가져오기 성공');
-              router.push('/home');
-            }
+          setLoading(false);
+          console.log('API 호출 성공:', res); // 추가
+          if (res.data && res.data.isSuccess) {
+            router.push('/home');
+          } else {
+            router.push('/onboarding');
           }
         })
         .catch((err) => {
-          console.log(err);
-          if (err.data.isSuccess === false) {
-            console.log('코스 가져오기 실패');
-            router.push('/onboarding');
-          }
+          setLoading(false);
+          console.error('API 호출 실패:', err); // 추가
+          console.error(err);
+          router.push('/onboarding');
         });
     }
   }, [isLoggedIn, router]);
+
+  if (loading) {
+    return <Loading loadingText={loadingText} />;
+  }
+
+  return null; // 다른 컴포넌트 렌더링
 };
 
 export default useGetLogin;
