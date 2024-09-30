@@ -56,11 +56,6 @@ button {
   font: inherit;
 }
 
-.children-container {
-  height: calc(100% - 67px);
-  overflow: scroll;
-}
-
 /* fonts */
 
 /* navBar */

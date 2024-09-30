@@ -6,7 +6,7 @@ export default function CommonLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="children-container">
+    <div className="h-full w-full">
       {children}
       <NavBar />
     </div>

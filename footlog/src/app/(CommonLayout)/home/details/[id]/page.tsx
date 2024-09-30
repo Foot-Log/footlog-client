@@ -114,7 +114,7 @@ export default function Page() {
         onClick={handleSaveClick}
         onBackClick={handleBackClick}
       />
-      <section className="mt-68pxr flex flex-col pb-68pxr">
+      <section className="mt-68pxr h-full max-h-[calc(100vh-68px)] flex-1 flex-col overflow-y-auto pb-155pxr">
         <ImageContainer title={course.name} imgSrc={course.image} />
         <InfoContainer
           summary={course.summary}
