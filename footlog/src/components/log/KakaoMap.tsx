@@ -96,7 +96,7 @@ const KakaoMap = () => {
 
   return (
     <div>
-      <div id="map" className="mt-68pxr h-688pxr w-full" />
+      <div id="map" className="mt-68pxr h-650pxr w-full" />
       {selectLocation && logId && details?.data && (
         <MarkerModal
           location={selectLocation}

@@ -46,7 +46,7 @@ export default function Page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <ListHeader title={area_name} />
-      <section className="scroll-y-auto mt-68pxr flex flex-col gap-24pxr pt-12pxr">
+      <section className="mt-68pxr flex flex-col gap-24pxr overflow-y-auto pb-67pxr pt-12pxr">
         {courses.slice(0, visibleCount).map((course: CourseResponseDtoDataTypes) => (
           <section key={course.course_id}>
             <BigLocationCard course={course} />

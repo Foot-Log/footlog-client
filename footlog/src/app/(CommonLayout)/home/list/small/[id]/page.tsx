@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <ListHeader title={area_name} />
-      <section className="mt-68pxr flex flex-col gap-24pxr pt-12pxr">
+      <section className="mt-68pxr flex flex-col gap-24pxr overflow-y-auto pb-67pxr pt-12pxr">
         {courses.length === 0 ? ( // 코스가 없는 경우 메시지 출력
           <p className="fonts-recommendSubtitle mt-289pxr flex justify-center">해당 지역의 코스가 없습니다.</p>
         ) : (

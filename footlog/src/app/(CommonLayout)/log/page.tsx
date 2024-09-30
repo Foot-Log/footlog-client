@@ -4,9 +4,9 @@ import KakaoMap from '@components/log/KakaoMap';
 
 export default function page() {
   return (
-    <div>
+    <main className="h-full w-full">
       <MainSearchHeader />
       <KakaoMap />
-    </div>
+    </main>
   );
 }
