@@ -46,12 +46,10 @@ export default function Page() {
     const previousUrl = localStorage.getItem('previousUrl');
     if (previousUrl) {
       const previousPathname = new URL(previousUrl).pathname; // URL의 경로만 가져오기
-      console.log('Previous pathname:', previousPathname);
 
       const region_id = previousPathname.split('/').pop(); // 이전 URL의 마지막 부분
-      const regionId = region_id ? Number(region_id) : undefined; // 숫자로 변환
+      const regionId = region_id ? Number(region_id) : undefined;
 
-      console.log('Extracted regionId:', regionId);
       setRegionIdNumber(regionId);
       setIsBigPage(previousPathname.includes('/big'));
     }
@@ -94,7 +92,6 @@ export default function Page() {
   };
 
   const handleBackClick = () => {
-    console.log('Refetching for regionId:', regionIdNumber);
     if (isBigPage) {
       refetchBigCourse();
     } else {

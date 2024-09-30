@@ -1,7 +1,7 @@
 import { OnboardingIconsDataTypes } from 'types/onboarding/OnboardingTypes';
 
 interface OnboardingKeywordsProps {
-  iconsData: OnboardingIconsDataTypes[]; // 아이콘 데이터 타입
+  iconsData: OnboardingIconsDataTypes[];
   selectedKeywords: string[];
   onKeywordSelect: (keyword: string) => void;
 }
@@ -13,7 +13,7 @@ export default function OnboardingKeywords(props: OnboardingKeywordsProps) {
     <section className="flex justify-between">
       {iconsData.map(({ keyword, defaultIcon, strokeIcon }) => {
         const isSelected = selectedKeywords.includes(keyword);
-        const IconComponent = isSelected ? strokeIcon : defaultIcon; // 선택된 경우 스테로크 아이콘 사용
+        const IconComponent = isSelected ? strokeIcon : defaultIcon;
 
         return (
           <div

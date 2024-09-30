@@ -8,8 +8,6 @@ import { CourseResponseDtoDataTypes } from 'types/common/CommonTypes';
 import useGetRegionalCourse from '@hooks/home/list/useGetRegionalCourse';
 import useGetSearchResult from '@hooks/home/search/useGetSearchResult';
 import useGetCityRegions from '@hooks/home/search/useGetCityRegions';
-import { useInfiniteScroll } from '@hooks/common/useInfiniteScroll';
-import { MoonLoader } from 'react-spinners';
 
 export default function Page() {
   const router = useRouter();

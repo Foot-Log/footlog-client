@@ -18,5 +18,3 @@ export default function Loading(props: LoadingPageProps) {
     </main>
   );
 }
-
-// <Suspense fallback={<Loading text={text} />} /> 이런 식으로 사용

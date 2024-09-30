@@ -29,7 +29,7 @@ export default function BigLocationCard(props: LocationCardProps) {
   const { refetch: refetchSmallCourse } = regionIdNumber ? useGetCityCourse(regionIdNumber) : { refetch: null };
   const { refetch: refetchBigCourse } = regionIdNumber ? useGetRegionalCourse(regionIdNumber) : { refetch: null };
 
-  const [isSaved, setIsSaved] = useState(course.isSave); // 초기 상태 설정
+  const [isSaved, setIsSaved] = useState(course.isSave);
 
   const handleSaveClick = () => {
     const newSaveState = !isSaved; // 현재 저장 상태 반전

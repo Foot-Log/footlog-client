@@ -1,7 +1,3 @@
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import useDeleteUser from '@hooks/mypage/useDeleteUser';
-
 interface ConfirmModalProps {
   handleConfirmBtn: () => void;
   handleCloseBtn: () => void;

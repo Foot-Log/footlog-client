@@ -11,7 +11,6 @@ interface SaveCourseContainerProps {
 
 export default function SaveCourseContainer(props: SaveCourseContainerProps) {
   const { title, courses } = props;
-  console.log('courrrrr', courses);
   const router = useRouter();
 
   return (

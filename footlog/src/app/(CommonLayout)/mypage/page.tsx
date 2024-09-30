@@ -18,8 +18,6 @@ export default function page() {
   const { mutate: deleteUser } = useDeleteUser();
   const [isModalOpen, setModalOpen] = useState(false);
 
-  console.log('userInfo', userInfo);
-
   const [level, setLevel] = useState<number>(1);
   const [stamp, setStamp] = useState<number>(0);
 
