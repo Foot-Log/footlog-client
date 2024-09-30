@@ -37,6 +37,7 @@ const config: Config = {
         searchBox: '30px',
         errorBtn: '12px',
         markerModal: '20px 20px 0px 0px',
+        confirmModal: '16px',
       },
     },
   },
