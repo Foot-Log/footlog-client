@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { LeftArrowIcon, SearchIcon } from '@public/icon';
 
@@ -8,19 +8,12 @@ interface SearchHeaderProps {
   setSearchInput: (input: string) => void;
   onKeyDown: (e: React.KeyboardEvent) => void;
   onSearch: () => void;
-  shouldFocus: boolean;
 }
 
 export default function SearchHeader(props: SearchHeaderProps) {
-  const { searchInput, setSearchInput, onKeyDown, onSearch, shouldFocus = false } = props;
+  const { searchInput, setSearchInput, onKeyDown, onSearch } = props;
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (inputRef.current && shouldFocus) {
-      inputRef.current.focus(); // shouldFocus가 true일 때만 포커스
-    }
-  }, [shouldFocus]); // shouldFocus가 변경될 때마다 실행
 
   function handleBackBtn() {
     router.back();
