@@ -75,7 +75,6 @@ export default function Page() {
         setSearchInput={setSearchInput}
         onKeyDown={handleEnterKey} // onKeyDown 이벤트 전달
         onSearch={handleSearch}
-        shouldFocus={false}
       />
       <SearchedResults
         filteredCourses={searchData?.data || []}

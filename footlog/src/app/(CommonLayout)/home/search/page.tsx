@@ -56,7 +56,6 @@ export default function page() {
         setSearchInput={setSearchInput}
         onKeyDown={handleEnterKey}
         onSearch={handleSearch}
-        shouldFocus={true}
       />
       <section className="mt-67pxr flex flex-col overflow-y-auto">
         {searchInput ? (
