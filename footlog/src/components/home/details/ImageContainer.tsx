@@ -9,7 +9,7 @@ export default function ImageContainer(props: ImageContainerProps) {
   const { title, imgSrc } = props;
 
   return (
-    <figure className="relative flex h-214pxr w-full cursor-pointer overflow-hidden">
+    <figure className="relative flex h-214pxr w-full cursor-pointer overflow-hidden pt-214pxr">
       <Image
         fill
         src={imgSrc || '/courseExample.png'}

@@ -60,7 +60,7 @@ export default function MarkerModal({
   };
   return (
     <div className="fixed inset-0 z-50 flex bg-black bg-opacity-50">
-      <div className="fixed bottom-0 left-1/2 h-374pxr w-393pxr flex-shrink-0 -translate-x-1/2 transform rounded-markerModal bg-white shadow-markerModal">
+      <div className="fixed bottom-0 left-1/2 h-374pxr w-full flex-shrink-0 -translate-x-1/2 transform rounded-markerModal bg-white shadow-markerModal">
         <div className="mx-24pxr mb-40pxr mt-20pxr">
           <div className="flex">
             <div className="fonts-logOneLocation">{location}</div>

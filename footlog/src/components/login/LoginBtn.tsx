@@ -12,7 +12,8 @@ export default function LoginBtn() {
   return (
     <button
       type="button"
-      className={`absolute bottom-20pxr flex h-48pxr w-345pxr items-center justify-center rounded-xl bg-btn-yellow`}
+      style={{ width: 'calc(100% - 48px)' }}
+      className={`absolute bottom-20pxr flex h-48pxr items-center justify-center rounded-xl bg-btn-yellow`}
       onClick={handleLogin}>
       <p className="fonts-onboardingBtn text-gray-8">카카오톡 계정으로 로그인하기</p>
     </button>
