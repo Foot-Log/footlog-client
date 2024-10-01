@@ -8,7 +8,7 @@ export default function MainSearchHeader() {
       <HomeLogoIcon />
       <Link
         href="/home/search"
-        className="flex h-42pxr w-307pxr items-center gap-10pxr rounded-searchBar bg-gray-3 pl-12pxr pr-5pxr">
+        className="flex h-42pxr w-full items-center gap-10pxr rounded-searchBar bg-gray-3 pl-12pxr pr-5pxr">
         <SearchIcon />
         <input
           className="fonts-searchPlaceholder w-5/6 bg-transparent text-gray-4"
