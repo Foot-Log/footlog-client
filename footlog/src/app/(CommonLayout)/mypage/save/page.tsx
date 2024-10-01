@@ -9,7 +9,7 @@ export default function page() {
   return (
     <main className="relative flex h-full w-full flex-col">
       <ListHeader title="저장 목록" />
-      <section className="mt-68pxr flex flex-col gap-24pxr pt-12pxr">
+      <section className="mt-68pxr flex flex-col gap-24pxr overflow-y-auto pt-12pxr">
         {saveCourses?.data.map((course) => (
           <section key={course.course_id}>
             <BigLocationCard course={course} />
