@@ -10,7 +10,8 @@ export default function OnboardingBtn(props: OnboardingBtnProps) {
   return (
     <button
       type="button"
-      className={`absolute bottom-20pxr flex h-48pxr w-345pxr items-center justify-center rounded-xl ${$disabled ? 'not-allowed bg-gray-2' : 'pointer bg-main-green'}`}
+      style={{ width: 'calc(100% - 48px)' }}
+      className={`absolute bottom-20pxr h-48pxr items-center justify-center rounded-xl ${$disabled ? 'not-allowed bg-gray-2' : 'pointer bg-main-green'}`}
       onClick={() => {
         if (!$disabled && handleOnboardingBtn) {
           handleOnboardingBtn();
