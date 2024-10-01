@@ -5,7 +5,7 @@ import { HomeLogoIcon, SearchIcon } from '@public/icon';
 export default function MainSearchHeader() {
   return (
     <section className="absolute top-0 flex w-full items-center justify-around gap-12pxr bg-white px-20pxr pb-16pxr pt-9pxr">
-      <Link href={'/home'}>
+      <Link href="/home">
         <HomeLogoIcon />
       </Link>
       <Link

@@ -16,14 +16,14 @@ export default function Error() {
       </section>
       <section className="absolute bottom-19pxr flex gap-11pxr">
         <Link
-          href={'#'}
+          href="#"
           onClick={() => window.history.back()}
-          className="fonts-onboardingBtn rounded-errorBtn flex h-48pxr w-167pxr items-center justify-center bg-gray-4 text-white">
+          className="fonts-onboardingBtn flex h-48pxr w-167pxr items-center justify-center rounded-errorBtn bg-gray-4 text-white">
           이전 페이지
         </Link>
         <Link
-          href={'/home'}
-          className="fonts-onboardingBtn rounded-errorBtn flex h-48pxr w-167pxr items-center justify-center bg-main-green text-white">
+          href="/home"
+          className="fonts-onboardingBtn flex h-48pxr w-167pxr items-center justify-center rounded-errorBtn bg-main-green text-white">
           메인 홈 화면
         </Link>
       </section>
