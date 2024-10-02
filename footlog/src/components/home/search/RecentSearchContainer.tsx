@@ -28,7 +28,7 @@ export default function RecentSearchContainer(props: RecentSearchContainerProps)
   };
 
   return (
-    <section className="flex w-full flex-col gap-19pxr pb-8pxr pl-24pxr pt-12pxr">
+    <section className="flex w-full flex-col gap-19pxr pl-24pxr pt-12pxr">
       <h2 className="fonts-recommendTitle">최근 검색어</h2>
       <section className="flex gap-8pxr overflow-x-auto">
         {recentSearch.length === 0 ? (

@@ -16,6 +16,7 @@ export const viewport: Viewport = {
 };
 
 const viewportMetaContent = `width=${viewport.width}, initial-scale=${viewport.initialScale}, maximum-scale=${viewport.maximumScale}, viewport-fit=${viewport.viewportFit}, user-scalable=${viewport.userScalable ? 'yes' : 'no'}`;
+
 declare global {
   interface Window {
     kakao: any;

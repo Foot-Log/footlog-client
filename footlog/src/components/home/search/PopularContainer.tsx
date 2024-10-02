@@ -9,7 +9,7 @@ export default function PopularContainer(props: CoursesDataTypes) {
 
   return (
     <section className="flex w-full flex-col">
-      <section className="flex w-full flex-col gap-20pxr px-24pxr pt-8pxr">
+      <section className="flex w-full flex-col gap-20pxr px-24pxr">
         <h2 className="fonts-recommendTitle">인기 코스</h2>
         <div className="flex justify-between">
           <section className="grid w-171pxr grid-cols-1 gap-y-32pxr">
