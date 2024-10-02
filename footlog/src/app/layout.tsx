@@ -12,6 +12,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   maximumScale: 1,
   viewportFit: 'cover',
+  userScalable: false,
 };
 
 const viewportMetaContent = `width=${viewport.width}, initial-scale=${viewport.initialScale}, maximum-scale=${viewport.maximumScale}, viewport-fit=${viewport.viewportFit}`;
