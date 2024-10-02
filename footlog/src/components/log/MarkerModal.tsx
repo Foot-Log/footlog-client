@@ -59,8 +59,8 @@ export default function MarkerModal({
     }
   };
   return (
-    <div className="fixed inset-0 z-50 flex bg-black bg-opacity-50">
-      <div className="fixed bottom-0 left-1/2 h-374pxr w-full flex-shrink-0 -translate-x-1/2 transform rounded-markerModal bg-white shadow-markerModal">
+    <div className="absolute inset-0 z-50 flex w-full bg-black bg-opacity-50">
+      <div className="absolute bottom-0 left-1/2 h-374pxr w-full flex-shrink-0 -translate-x-1/2 transform rounded-markerModal bg-white shadow-markerModal">
         <div className="mx-24pxr mb-40pxr mt-20pxr">
           <div className="flex">
             <div className="fonts-logOneLocation">{location}</div>
@@ -73,7 +73,7 @@ export default function MarkerModal({
           <textarea
             className={`${
               text.length > 0 ? 'fonts-newLogContent' : 'fonts-logContent'
-            } mt-24pxr h-72pxr w-345pxr resize-none rounded-md bg-gray-3 px-16pxr py-12pxr`}
+            } mt-24pxr h-72pxr w-full resize-none rounded-md bg-gray-3 px-16pxr py-12pxr`}
             style={{
               backgroundColor: 'rgba(226, 226, 226, 0.5)', // bg-gray-3의 rgba 값에 투명도 적용 (50%)
             }}
@@ -84,7 +84,7 @@ export default function MarkerModal({
           />
 
           {/* 이미지 영역 */}
-          <div className="mt-20pxr flex space-x-4">
+          <div className="mt-20pxr flex justify-between">
             {imageUrls.map((url, index) => (
               <div key={index} className="relative">
                 <img src={url} alt={`이미지 ${index + 1}`} className="h-106pxr w-106pxr rounded-lg object-cover" />
@@ -118,7 +118,7 @@ export default function MarkerModal({
 
           <button
             onClick={handleFormSubmit}
-            className="fonts-logDone mt-23pxr h-48pxr w-345pxr items-center justify-center rounded-xl bg-main-green">
+            className="fonts-logDone mt-23pxr h-48pxr w-full items-center justify-center rounded-xl bg-main-green">
             완료
           </button>
         </div>

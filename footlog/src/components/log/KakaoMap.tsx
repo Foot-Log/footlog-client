@@ -95,7 +95,7 @@ const KakaoMap = () => {
   }, [locations]);
 
   return (
-    <div>
+    <section className="w-full">
       <div id="map" className="mt-68pxr h-688pxr w-full" />
       {selectLocation && logId && details?.data && (
         <MarkerModal
@@ -106,7 +106,7 @@ const KakaoMap = () => {
           initialImages={details?.data.photos || []}
         />
       )}
-    </div>
+    </section>
   );
 };
 
