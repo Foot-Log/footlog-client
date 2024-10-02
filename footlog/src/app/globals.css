@@ -122,7 +122,7 @@ button {
 /* 검색 placeholder 폰트 */
 .fonts-searchPlaceholder {
   font-family: 'Noto Sans KR';
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.0625rem; /* 121.429% */

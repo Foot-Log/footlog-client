@@ -6,7 +6,6 @@ import Script from 'next/script';
 import ReactQueryProviders from '@utils/ReactQueryProvider';
 import useSetScreenSize from '@hooks/common/useSetScreenSize';
 
-//export const viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
 export const viewport: Viewport = {
   initialScale: 1,
   width: 'device-width',
